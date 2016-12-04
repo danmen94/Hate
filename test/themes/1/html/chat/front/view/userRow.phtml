@@ -1,0 +1,50 @@
+<ips:template parameters="$data" />
+
+<li id='elChatUserRow_{$data['user_id']}'>
+	{{if $data['forumUserID'] or \IPS\Member::loggedIn()->member_id !== $data['forumUserID']}}
+		<a href='#' class='ipsPhotoPanel ipsPhotoPanel_tiny ipsFaded_withHover cChatUserRow ipsType_blendLinks ipsPad_half' id='elChatUser_{$data['user_id']}' data-userID='{$data['user_id']}' data-forumUserID='{$data['forumUserID']}' data-username="{$data['username']}" data-ipsMenu data-ipsMenu-activeClass='cChatUserRow_hover' data-ipsMenu-appendTo='#elChatUserRow_{$data['user_id']}' >
+			<img src='{$data['photo']}' alt='' class='ipsUserPhoto ipsUserPhoto_tiny'>
+			<div class='cChatUsername'>
+				{$data['formattedUsername']|raw} <i class='fa fa-caret-down ipsFaded ipsFaded_more'></i>
+			</div>
+		</a>
+		<ul id='elChatUser_{$data['user_id']}_menu' class='ipsHide ipsMenu ipsMenu_auto cChatUserMenu' data-userID='{$data['user_id']}' data-forumUserID='{$data['forumUserID']}'>
+			{{if \IPS\Member::loggedIn()->member_id !== $data['forumUserID']}}
+				<li class='ipsMenu_item' data-ipsMenuValue='private'>
+					<a href='#'>{lang="ipchat_private_chat"}</a>
+				</li>
+				<li class='ipsMenu_sep' data-role='privateSep'><hr></li>
+				<li class='ipsMenu_item' data-ipsMenuValue='ignore'>
+					<a href='#'>{lang="ipchat_ignore_chats"}</a>
+				</li>
+				<li class='ipsMenu_item' data-ipsMenuValue='unignore'>
+					<a href='#'>{lang="ipchat_unignore_chats"}</a>
+				</li>
+				{{if \IPS\Member::loggedIn()->group['chat_moderate']}} <!-- if moderator... -->
+					<li class='ipsMenu_sep' data-role='modSep'><hr></li>
+					<li class='ipsMenu_item' data-ipsMenuValue='kick'>
+						<a href='#'>{lang="ipchat_kick"}</a>
+					</li>
+					<li class='ipsMenu_item' data-ipsMenuValue='ban'>
+						<a href='#'>{lang="ipchat_ban"}</a>
+					</li>
+				{{endif}}
+				{{if $data['forumUserID']}}
+					<li class='ipsMenu_sep'><hr></li>
+				{{endif}}
+			{{endif}}
+			{{if $data['forumUserID']}}
+				<li class='ipsMenu_item'>
+					<a href='{$data['profileUrl']}' target='_blank'>{lang="ipchat_profile"}</a>
+				</li>
+			{{endif}}
+		</ul>
+	{{else}}
+		<span class='ipsPhotoPanel ipsPhotoPanel_tiny ipsFaded_withHover cChatUserRow ipsType_blendLinks ipsPad_half' id='elChatUser_{$data['user_id']}' data-userID='{$data['user_id']}' data-forumUserID='{$data['forumUserID']}' data-username="{$data['username']}">
+			<img src='{$data['photo']}' alt='' class='ipsUserPhoto ipsUserPhoto_tiny'>
+			<div class='cChatUsername'>
+				{$data['formattedUsername']|raw}
+			</div>
+		</span>
+	{{endif}}
+</li>

@@ -1,0 +1,9 @@
+<ips:template parameters="" />
+<div class='ipsMessage {theme="globalMessageClass"} ipsfocus_globalMessage {{if !theme.globalDismiss}}displayGlobalMessage{{endif}}'>
+    {theme="globalMessageText"}
+    {{if theme.globalDismiss}}<ul class="ipsList_inline">
+        <li>
+            <a href="#" class="ipsButton ipsButton_small ipsfocus_dismissGlobalMessage">Dismiss</a>
+        </li>
+    </ul>{{endif}}
+</div>

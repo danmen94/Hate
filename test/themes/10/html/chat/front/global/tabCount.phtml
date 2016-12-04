@@ -1,0 +1,6 @@
+<ips:template parameters="$count" />
+{{if $count}}
+<script type='text/javascript'>
+  $('.elNavigation_app_chat_Chat').append( $('<span/>').addClass('ipsNotificationCount').text('{$count}') );
+</script>
+{{endif}}

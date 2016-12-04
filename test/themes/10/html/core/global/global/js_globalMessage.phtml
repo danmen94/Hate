@@ -1,0 +1,12 @@
+<ips:template parameters="" />
+var dismissCookie = ips.utils.cookie.get( 'focusMessage_{theme="globalMessageCookie"}' );
+
+if ( dismissCookie != 'dismissed' )	{
+    $(".ipsfocus_globalMessage").addClass('displayGlobalMessage');
+}
+
+$(".ipsfocus_dismissGlobalMessage").click(function( event ) {
+    event.preventDefault();
+    $(".ipsfocus_globalMessage").slideUp();
+    ips.utils.cookie.set( 'focusMessage_{theme="globalMessageCookie"}', 'dismissed', true );
+});

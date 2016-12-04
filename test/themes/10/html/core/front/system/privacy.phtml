@@ -1,0 +1,13 @@
+<ips:template parameters="" />
+{theme="ipsfocus_b1"}
+<h2 class="ipsType_sectionTitle">{lang="privacy"}</h2>
+{theme="ipsfocus_b2"}
+
+<div class='ipsType_normal ipsType_richText ipsPad'>
+	{lang="privacy_text_value"}
+	{{if \IPS\Settings::i()->site_address and \IPS\Settings::i()->site_address != "null"}}
+		<p>{setting="board_name"}, {address="\IPS\Settings::i()->site_address"}</p>
+	{{endif}}
+</div>
+
+{theme="ipsfocus_b3"}

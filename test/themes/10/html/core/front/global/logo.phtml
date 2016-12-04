@@ -1,0 +1,35 @@
+<ips:template parameters=" " />
+{{if \IPS\Theme::i()->logo['front']['url'] !== null }}
+
+	{{$logo = \IPS\File::get( 'core_Theme', \IPS\Theme::i()->logo['front']['url'] )->url;}}
+
+	{{if theme.ipsf_mobileTextLogo}}
+	
+		<a href='{setting="base_url"}' id='elLogo' accesskey='1' class='logo hideOnMobile'><img src="{$logo}" alt='{setting="board_name" escape="true"}' /></a>
+		<a href='{setting="base_url"}' id='elSiteTitle' accesskey='1' class='logo textLogo hideOnDesktop'>
+			<span>
+				{{if theme.customLogoText}}{theme="customLogoText"}{{else}}{setting="board_name"}{{endif}}
+				{{if theme.ipsf_slogan}}<span class='logoSlogan'>{theme="ipsf_slogan"}</span>{{endif}}
+			</span>
+		</a>
+	
+	{{else}}
+	
+		<a href='{setting="base_url"}' id='elLogo' accesskey='1' class='logo'><img src="{$logo}" alt='{setting="board_name" escape="true"}' /></a>
+	
+	{{endif}}
+
+{{else}}
+
+<a href='{setting="base_url"}' id='elSiteTitle' accesskey='1' class='logo textLogo'>
+  
+	{{if theme.ipsf_textLogoImage}}<img src='{theme="ipsf_textLogoImage"}' alt='' />{{endif}}
+	
+	<span>
+		{{if theme.customLogoText}}{theme="customLogoText"}{{else}}{setting="board_name"}{{endif}}
+		{{if (theme.ipsf_christmas) OR (theme.ipsf_valentines) }} <i class="fa fa-asterisk"></i>{{endif}}
+		{{if theme.ipsf_slogan}}<span class='logoSlogan'>{theme="ipsf_slogan"}</span>{{endif}}
+	</span>
+  
+</a>
+{{endif}}

@@ -1,0 +1,84 @@
+<ips:template parameters="" />
+    	function debounce(func, wait, immediate) {
+			var timeout;
+			return function() {
+				var context = this, args = arguments;
+				var later = function() {
+					timeout = null;
+					if (!immediate) func.apply(context, args);
+				};
+				var callNow = immediate && !timeout;
+				clearTimeout(timeout);
+				timeout = setTimeout(later, wait);
+				if (callNow) func.apply(context, args);
+			};
+		};
+		
+{{if theme.responsive}}
+
+		// Firefox calculates width differently due to scrollbar on Windows
+		if( navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ){
+		    var browserResponsiveWidth = 963;
+		}else{
+		    var browserResponsiveWidth = 980;
+		}
+		
+		var currentBrowserWidth = $(window).width();
+		
+
+		
+		var resizeWindow = function(){
+			
+			var currentBrowserWidth = $(window).width();
+		    
+		    if(currentBrowserWidth > browserResponsiveWidth){
+			    
+		    // Desktops
+				
+				$("#elSearch").prependTo("#searchWrap");
+				$("body").addClass("ipsfocus_desktop");
+				
+				
+			} else {
+				
+			// Tablets and mobiles
+			
+				$("#elSearch").prependTo("#respSearch");
+				$("body").removeClass("ipsfocus_desktop");
+				
+			}
+			
+		}
+		
+		resizeWindow();
+
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf("android") > -1;
+		
+		// Run width specific functions after 100ms pause
+		$(window).resize(debounce(function(){
+			
+			if(!isAndroid) {
+
+				resizeWindow();
+
+			}
+			
+		}, 100));
+		
+{{endif}}
+
+		// Hide post controls as a guest to prevent empty bar
+		$(".cPost .ipsComment_controls li.ipsHide:only-child").parent().hide();
+		
+		// Hide gallery descriptions if they don't exist
+		if ($('.galleryDescription .ipsType_richText').is(':empty')){
+		    $(".galleryDescription").hide();
+		}
+		
+		// Hide empty divs in ipsPageHeader to prevent unnecessary margins
+		$('.ipsPageHeader .ipsSpacer_top').each(function(){
+		    if(!/[\S]/.test($(this).html())) { 
+		        $(this).hide();
+		    }
+		}); 

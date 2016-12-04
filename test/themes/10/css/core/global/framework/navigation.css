@@ -1,0 +1,263 @@
+/* MAIN NAVIGATION - Primary and secondary nav bars */
+.ipsNavBar_primary > ul,
+.ipsNavBar_secondary {
+	margin: 0;
+	padding: 0;
+}
+
+	.ipsNavBar_primary > ul > li,
+	.ipsNavBar_secondary > li {
+		display: inline-block;
+	}
+
+		/* html[dir="ltr"] .ipsNavBar_primary > ul > li,
+		html[dir="ltr"] .ipsNavBar_secondary > li {
+			float: left;
+		}
+
+		html[dir="rtl"] .ipsNavBar_primary > ul > li,
+		html[dir="rtl"] .ipsNavBar_secondary > li {
+			float: right;
+		} */
+
+	.ipsNavBar_secondary > li {
+		position: relative;
+	}
+
+		.ipsNavBar_secondary > li .ipsNotificationCount {
+			top: 3px;
+		}
+
+.ipsNavBar_primary > ul > li > a,
+.ipsNavBar_secondary > li > a {
+	display: block;
+	position: relative;
+	/* text-align: center; */
+	text-decoration: none;
+}
+
+/* Primary Navigation level */
+.ipsNavBar_primary {
+	position: relative;
+	/* padding: 5px 5px 40px 5px; */
+	z-index: 2000;
+}
+	
+	.ipsNavBar_primary.ipsNavBar_noSubBars {
+		padding-bottom: 0;
+	}
+
+	
+	
+
+		/* html[dir="ltr"] .ipsNavBar_primary > ul > li > a {
+			margin-right: 5px;
+		}
+		html[dir="rtl"] .ipsNavBar_primary > ul > li > a {
+			margin-left: 5px;
+		}
+
+		.ipsNavBar_primary > ul > li > a:hover {
+			background: rgba(255,255,255,0.1);
+		} */
+
+		html[dir="ltr"] .ipsNavBar_primary > ul > li > a .ipsNotificationCount {
+			top: -2px;
+			right: 2px;
+		}
+		html[dir="rtl"] .ipsNavBar_primary > ul > li > a .ipsNotificationCount {
+			top: -2px;
+			left: 2px;
+		}
+
+	
+
+	.ipsNavBar_primary > ul > li.ipsNavBar_active > .ipsNavBar_secondary,
+	.ipsJS_none .ipsNavBar_primary > ul > li > a:hover + .ipsNavBar_secondary {
+		display: block;
+	}
+
+	.ipsNavBar_primary:not( .ipsNavBar_noSubBars ) > ul:before {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 40px;
+		z-index: 100;
+		/* background: {theme="main_nav_tab"}; */
+	}
+
+/* Secondary navigation level */
+.ipsNavBar_secondary {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 40px;
+	z-index: 1000;
+	display: none;
+	/* background: {theme="main_nav_tab"}; */
+}
+
+
+.ipsNavBar_primary .ipsMenu:not( #elSearchFilter_menu ),
+.ipsNavBar_secondary .ipsMenu {
+	margin-top: 0px;
+}
+
+.ipsBreadcrumb{
+	background: {theme="ipsf_bc_background"};
+	line-height: {theme="breadcrumbHeight"}px;
+	color: {theme="ipsf_bc_text"};
+	overflow: auto;
+	{theme="ipsf_bc_styles"}
+}
+
+.ipsBreadcrumb a {
+	color: {theme="ipsf_bc_link"};
+}
+{{if theme.ipsf_bc_hover}}
+.ipsBreadcrumb a:hover {
+	color: {theme="ipsf_bc_hover"};
+}
+{{endif}}
+
+/* ipsfocus Breadcrumbs */
+{{if theme.ipsf_advancedBreadcrumb}}
+
+	.ipsfocus_breadcrumb, .ipsfocus_breadcrumb li{ margin: 0; padding: 0; list-style: none; }
+	
+	.ipsfocus_breadcrumb li { float: left; }
+	html[dir="rtl"] .ipsfocus_breadcrumb li { float: right; }
+	
+	.ipsfocus_breadcrumb a, .ipsfocus_breadcrumb span{ background: url('{resource="ipsfocus/secondary_nav.png" app="core" location="front"}') no-repeat; background-size: 1200px 165px; }
+	html[dir="rtl"] .ipsfocus_breadcrumb a, html[dir="rtl"] .ipsfocus_breadcrumb span{ background-image: url('{resource="ipsfocus/secondary_nav_rtl.png" app="core" location="front"}'); }
+	
+	.ipsfocus_breadcrumb a {
+		padding-left: 13px;
+		margin-left: -11px;
+		display: block;
+		outline: none;
+		text-decoration: none;
+	}
+	html[dir="rtl"] .ipsfocus_breadcrumb a {
+		padding-left: 0;
+		margin-left: 0;
+		padding-right: 13px;
+		margin-right: -11px;
+	}
+	.ipsfocus_breadcrumb span{
+		display: block;
+		padding-right: 20px;
+		padding-left: 9px;
+	}
+	html[dir="rtl"] .ipsfocus_breadcrumb span{
+		padding-left: 20px;
+		padding-right: 9px;
+	}
+	
+	.ipsfocus_breadcrumb li:first-child a{ margin-left: 0; background: none; padding-left: 0px; }
+	.ipsfocus_breadcrumb li:first-child span{ padding-left: 14px; border-radius: 2px 0px 0px 2px; }
+	.ipsfocus_breadcrumb li > span{ padding-left: 11px; background: none transparent; }
+	
+	html[dir="rtl"] .ipsfocus_breadcrumb li:first-child a{ margin-right: 0; padding-right: 0px; }
+	html[dir="rtl"] .ipsfocus_breadcrumb li:first-child span{ padding-left: 20px; padding-right: 14px; border-radius: 0px 2px 2px 0px; }
+	html[dir="rtl"] .ipsfocus_breadcrumb li > span{ background: none transparent; padding-right: 11px; }
+	
+	/* To resize, subtract line-height from 55, half and subtract from background position */
+	.ipsfocus_breadcrumb a{ background-position: -4px -{expression="(55 - theme.breadcrumbHeight) / 2"}px; } 
+	.ipsfocus_breadcrumb span{ background-position: 100% -{expression="(55 - theme.breadcrumbHeight) / 2"}px; }
+	.ipsfocus_breadcrumb a:hover{ background-position: -4px -{expression="(55 - theme.breadcrumbHeight) / 2 + 55"}px; }
+	.ipsfocus_breadcrumb a:hover span{ background-position: 100% -{expression="(55 - theme.breadcrumbHeight) / 2 + 55"}px; }
+	.ipsfocus_breadcrumb a:active{ background-position: -4px -{expression="(55 - theme.breadcrumbHeight) / 2 + 110"}px; }
+	.ipsfocus_breadcrumb a:active span{ background-position: 100% -{expression="(55 - theme.breadcrumbHeight) / 2 + 110"}px; } 
+	
+	html[dir="rtl"] .ipsfocus_breadcrumb a{ background-position: 99.6% -{expression="(55 - theme.breadcrumbHeight) / 2"}px; }
+	html[dir="rtl"] .ipsfocus_breadcrumb span{ background-position: 0% -{expression="(55 - theme.breadcrumbHeight) / 2"}px; }
+	html[dir="rtl"] .ipsfocus_breadcrumb a:hover{ background-position: 99.6% -{expression="(55 - theme.breadcrumbHeight) / 2 + 55"}px; }
+	html[dir="rtl"] .ipsfocus_breadcrumb a:hover span{ background-position: 0% -{expression="(55 - theme.breadcrumbHeight) / 2 + 55"}px; }
+	html[dir="rtl"] .ipsfocus_breadcrumb a:active{ background-position: 99.6% -{expression="(55 - theme.breadcrumbHeight) / 2 + 110"}px; }
+	html[dir="rtl"] .ipsfocus_breadcrumb a:active span{ background-position: 0% -{expression="(55 - theme.breadcrumbHeight) / 2 + 110"}px; } 
+	 
+	.ipsfocus_breadcrumb .fa{ display: none; }
+
+	.breadcrumb_side li{
+		margin: 0 !important;
+		float: left;
+		border: 1px solid rgba(0,0,0,0.06);
+		border-width: 0px 0px 0px 1px;
+	}
+	html[dir="rtl"] .breadcrumb_side li{ float: right; border-width: 0px 1px 0px 0px; }
+	.breadcrumb_side li a{ color: {theme="ipsf_bc_link"}; display: block; padding: 0 15px;  }
+	.breadcrumb_side li a:hover{ background: rgba(255,255,255,0.5); color: {theme="ipsf_bc_link"}; }
+	.breadcrumb_side li a:active{ background: rgba(0,0,0,0.05); }
+
+{{else}}
+
+/* BREADCRUMBS */
+.ipsBreadcrumb.ipsBreadcrumb_top {
+	
+}
+.ipsBreadcrumb.ipsBreadcrumb_bottom {
+	
+}
+
+.ipsBreadcrumb{
+	padding: 0 8px;
+}
+
+	.ipsBreadcrumb > ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	.ipsBreadcrumb > ul > li {
+		display: inline-block;
+		line-height: {theme="breadcrumbHeight"}px;
+		/* font-size: 13px;
+		font-weight: 400; */
+		max-width: 500px;
+		height: {theme="breadcrumbHeight"}px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		vertical-align: bottom;
+		/* color: #616161; */
+	}
+
+		.ipsBreadcrumb > ul > li .fa:not( .fa-home ) {
+			margin: 0 3px;
+		}
+
+		.ipsBreadcrumb > ul > li > a {
+			/* color: inherit; */
+			text-decoration: none;
+		}
+
+		/* .ipsBreadcrumb > ul:last-child > li:last-child {
+			opacity: 0.6;
+		} */
+	
+	.ipsBreadcrumb [data-action="defaultStream"],
+	.ipsBreadcrumb [data-action="markSiteRead"] {
+		/* font-size: 12px;
+		font-weight: 400;
+		color: {theme="text_color"} */
+	}
+
+{{endif}}
+
+/* 
+#elBackHome {
+	display: block;
+	color: #fff;
+}
+
+	html[dir="ltr"] #elBackHome {
+		padding: 7px 0 12px 10px;
+	}
+	html[dir="rtl"] #elBackHome {
+		padding: 7px 10px 12px 0;
+	} */

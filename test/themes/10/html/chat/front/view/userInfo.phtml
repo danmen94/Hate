@@ -1,0 +1,11 @@
+<ips:template parameters="$member" />
+{{$group = \IPS\Member\Group::load( $member->member_group_id );}}
+
+<div class='ipsType_center ipsSpacer_top'>
+	<h3 class='ipsType_sectionHead ipsSpacer_bottom'>
+		{$group->formatName( $member->name )|raw}
+	</h3>
+	<br>
+
+	{template="userPhoto" group="global" app="core" params="$member, 'medium'"}
+</div>

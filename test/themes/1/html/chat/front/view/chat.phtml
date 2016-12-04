@@ -1,0 +1,47 @@
+<ips:template parameters="$chatters" />
+
+{{if !\IPS\Settings::i()->ipchat_new_window}}
+	<div class="ipsPageHeader ipsClearfix ipsSpacer_bottom">
+		<h1 class="ipsType_pageTitle">{lang="chat_title"}</h1>
+		<p id='chatDebug'></p>
+	</div>
+{{endif}}
+
+<div data-controller='chat.front.chatcompat.main'>
+	<div id='elChatWrapper'>
+		<div class="ipsTabs ipsClearfix" id='elChatTabs'>
+			<ul class='ipsPos_right ipsList_inline ipsList_noSpacing ipsResponsive_hidePhone'>
+				<li>
+					<a href='#' class='ipsPos_right ipsButton ipsButton_verySmall ipsButton_overlaid' data-action='toggleSound' data-ipsTooltip title='{lang="chat_toggle_sound"}'><i class='fa fa-volume-up'></i></a>
+				</li>
+				<li>
+					{{$leave = \IPS\Request::i()->_popup ? '&_popup=' . \IPS\Request::i()->_popup : '';}}
+					<a href='{url="app=chat&module=chat&controller=view&do=leave{$leave}" seoTemplate="chat" csrf="true"}' class='ipsPos_right ipsButton ipsButton_verySmall ipsButton_overlaid' data-action='leaveChat'>{lang="chat_leave_room"}</a>
+				</li>
+			</ul>
+			<a href="#elChatTabs" data-action="expandTabs"><i class="fa fa-caret-down"></i></a>
+			<ul role="tablist" class="ipsList_reset" id='elChatTabBar'>
+			</ul>
+		</div>
+		<section id='elChatTabsContent'>
+			
+		</section>
+	</div>
+	<div id='elChatIFrame'></div>
+	<ul id='elInitialUserList' class='ipsHide'>
+		{{foreach $chatters as $chatter}}
+			{template="userRow" group="view" app="chat" params="$chatter"}
+		{{endforeach}}
+	</ul>
+	<div class='ipsAreaBackground_light ipsPad ipsResponsive_showPhone ipsResponsive_block ipsSpacer_top ipsType_center'>
+		<ul class='ipsList_inline ipsList_noSpacing'>
+			<li>
+				<a href='#' class='ipsPos_right ipsButton ipsButton_verySmall ipsButton_light' data-action='toggleSound' data-ipsTooltip title='{lang="chat_toggle_sound"}'><i class='fa fa-volume-up'></i></a>
+			</li>
+			<li>
+				{{$leave = \IPS\Request::i()->_popup ? '&_popup=' . \IPS\Request::i()->_popup : '';}}
+				<a href='{url="app=chat&module=chat&controller=view&do=leave{$leave}" seoTemplate="chat" csrf="true"}' class='ipsPos_right ipsButton ipsButton_verySmall ipsButton_light' data-action='leaveChat'>{lang="chat_leave_room"}</a>
+			</li>
+		</ul>
+	</div>
+</div>

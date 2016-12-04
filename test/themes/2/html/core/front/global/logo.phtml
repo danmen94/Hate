@@ -1,0 +1,25 @@
+<ips:template parameters=" " />
+{{if \IPS\Theme::i()->logo['front']['url'] !== null }}
+{{$logo = \IPS\File::get( 'core_Theme', \IPS\Theme::i()->logo['front']['url'] )->url;}}
+
+	{{if theme.ipsf_mobileTextLogo}}
+	
+	<a href='{setting="base_url"}' id='elLogo' accesskey='1' class='logo justImage ipsResponsive_showDesktop'><span class='vAlign'><img src="{$logo}" alt=''></span></a>
+	<a href='{setting="base_url"}' id='elSiteTitle' accesskey='1' class='logo textLogo ipsResponsive_hideDesktop'><span class='vAlign'>{setting="board_name"}</span></a>
+	
+	{{else}}
+	
+	<a href='{setting="base_url"}' id='elLogo' accesskey='1' class='logo justImage'><span class='vAlign'><img src="{$logo}" alt=''></span></a>
+	
+	{{endif}}
+
+{{else}}
+<a href='{setting="base_url"}' id='elSiteTitle' accesskey='1' class='logo textLogo'><span class='vAlign'>
+  
+	{{if theme.ipsf_textLogoImage}}<img src='{resource="ipsfocus/mini_logo.png" app="core" location="front"}' alt='' />{{endif}}
+	{{if theme.ipsf_slogan}}<span class='textWithImage'>{{endif}}
+		{setting="board_name"}
+	{{if theme.ipsf_slogan}}<span class='logoSlogan'>{theme="ipsf_slogan"}</span></span>{{endif}}
+  
+</span></a>
+{{endif}}

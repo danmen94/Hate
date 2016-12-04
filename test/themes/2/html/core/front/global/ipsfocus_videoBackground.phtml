@@ -1,0 +1,52 @@
+<ips:template parameters="" />
+<div id='ipsfocus_videoBackground'><div id="videoiframe"></div></div>
+
+<script>
+    
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('videoiframe', {
+      height: '1080',
+      width: '1920',
+      videoId: '{theme="ipsf_videoID"}',
+      playerVars: {
+        'playlist': '{theme="ipsf_videoID"}',
+        'loop': 1,
+        'modestbranding': 1,
+        'autoplay': 1,
+        'controls': 0,
+        'disablekb': 1,
+        'showinfo': 0
+      },
+      events: {
+            'onReady': onPlayerReady
+      }
+    });
+  }
+  
+  function onPlayerReady(event) {
+    event.target.mute();
+  }
+
+$(document).ready(function(){
+
+    var ipsfocus_videoBackground = function() {
+	    var browserWidth = $(window).width();
+    	var videoHeight = browserWidth*0.5625;
+		$("#videoiframe, #ipsfocus_videoBackground").height(videoHeight);
+	};
+	ipsfocus_videoBackground();
+
+	$( window ).resize(function() {
+		ipsfocus_videoBackground();
+	});
+	
+});
+
+</script>

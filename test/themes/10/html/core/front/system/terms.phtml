@@ -1,0 +1,20 @@
+<ips:template parameters="" />
+{{if !\IPS\Request::i()->isAjax()}}
+
+{theme="ipsfocus_b1"}
+<h2 class="ipsType_sectionTitle">{lang="reg_terms"}</h2>
+{theme="ipsfocus_b2"}
+
+{{endif}}
+
+
+<div class='ipsType_normal ipsType_richText ipsPad'>
+	{lang="reg_rules_value"}
+</div>
+
+
+{{if !\IPS\Request::i()->isAjax()}}
+
+{theme="ipsfocus_b3"}
+
+{{endif}}

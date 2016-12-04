@@ -1,0 +1,7 @@
+<ips:template parameters="" />
+$(".ipsfocus_christmas").append("<div class='ipsfocus_snow'><i class='snowFlake'></i></div><div class='ipsfocus_snowBottom'></div>");
+
+var snowlist = $('.ipsfocus_snow');
+for ( i = 0; i < 60;i++){
+      snowlist.find('.snowFlake:first').clone().appendTo(snowlist);
+}

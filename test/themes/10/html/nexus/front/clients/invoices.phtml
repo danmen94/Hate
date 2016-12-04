@@ -1,0 +1,16 @@
+<ips:template parameters="$invoices" />
+{theme="ipsfocus_b1"}<h2 class="ipsType_sectionTitle">{lang="orders_title"}</h2>{theme="ipsfocus_b2"}
+{{if count( $invoices )}}
+<div class='ipsPad'>
+	<ul class='ipsDataList ipsDataList_large cNexusOrderList'>
+		{{foreach $invoices as $invoice}}
+			{template="invoiceList" group="clients" params="$invoice"}
+		{{endforeach}}
+      </ul>
+</div>
+{{else}}
+	<div class='ipsPad ipsType_large ipsType_light ipsType_center'>
+		{lang="orders_none"}
+	</div>
+{{endif}}
+{theme="ipsfocus_b3"}

@@ -1,0 +1,5 @@
+<ips:template parameters="$form, $isManualConfiguration" />
+{{if !$isManualConfiguration}}
+	<p class="ipsType_normal">{lang="security_questions_setup_blurb" pluralize="\IPS\Settings::i()->security_questions_number ?: 3"}</p>
+{{endif}}
+{$form|raw}

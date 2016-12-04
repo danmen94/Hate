@@ -1,0 +1,100 @@
+<ips:template parameters="" />
+/* Navigation */            
+function ipsfocusNavigation() {
+	
+	var navwidth = 0;
+	var morewidth = $('.ipsNavBar_primary .focusNav_more').outerWidth(true);
+	$('.ipsNavBar_primary > ul > li:not(.focusNav_more)').each(function() {
+		navwidth += $(this).outerWidth( true );
+	});
+	var availablespace = $('.ipsNavBar_primary').outerWidth(true) - morewidth;
+	if (navwidth > availablespace) {
+		var lastItem = $('.ipsNavBar_primary > ul > li:not(.focusNav_more)').last();
+		lastItem.attr('data-width', lastItem.outerWidth(true));
+		lastItem.prependTo($('.ipsNavBar_primary .focusNav_more > ul'));
+		ipsfocusNavigation();
+	} else {
+		var firstMoreElement = $('.ipsNavBar_primary li.focusNav_more li').first();
+		if (navwidth + firstMoreElement.data('width') < availablespace) {
+			firstMoreElement.insertBefore($('.ipsNavBar_primary .focusNav_more'));
+		}
+	}
+	
+	if ($('.focusNav_more li').length > 0) {
+		$('.focusNav_more').css('display','inline-block');
+	} else {
+		$('.focusNav_more').css('display','none');
+	}
+	
+}
+
+$(window).on('load',function(){
+	$(".navAlign").removeClass("hiddenLinks");
+  	ipsfocusNavigation();
+});
+ 
+$(window).on('resize',function(){
+	ipsfocusNavigation();
+});
+
+
+
+// Make hover navigation work with touch devices
+/* Navigation */            
+function ipsfocusNavigation() {
+	
+	var navwidth = 0;
+	var morewidth = $('.ipsNavBar_primary .focusNav_more').outerWidth(true);
+	$('.ipsNavBar_primary > ul > li:not(.focusNav_more)').each(function() {
+		navwidth += $(this).outerWidth( true );
+	});
+	var availablespace = $('.ipsNavBar_primary').outerWidth(true) - morewidth;
+	if (navwidth > availablespace) {
+		var lastItem = $('.ipsNavBar_primary > ul > li:not(.focusNav_more)').last();
+		lastItem.attr('data-width', lastItem.outerWidth(true));
+		lastItem.prependTo($('.ipsNavBar_primary .focusNav_more > ul'));
+		ipsfocusNavigation();
+	} else {
+		var firstMoreElement = $('.ipsNavBar_primary li.focusNav_more li').first();
+		if (navwidth + firstMoreElement.data('width') < availablespace) {
+			firstMoreElement.insertBefore($('.ipsNavBar_primary .focusNav_more'));
+		}
+	}
+	
+	if ($('.focusNav_more li').length > 0) {
+		$('.focusNav_more').css('display','inline-block');
+	} else {
+		$('.focusNav_more').css('display','none');
+	}
+	
+}
+
+$(window).on('load',function(){
+	$(".navAlign").removeClass("hiddenLinks");
+  	ipsfocusNavigation();
+});
+ 
+$(window).on('resize',function(){
+	ipsfocusNavigation();
+});
+
+
+
+// Make hover navigation work with touch devices
+/*
+$('.ipsNavBar_primary a[data-hover]').on("touchstart", function (e) {
+    'use strict'; //satisfy code inspectors
+    
+    var link = $(this); //preselect the link
+    var linkParent = $(this).parent('li');
+    
+    if (link.hasClass('hover')) {
+        return true;
+    } else {
+        link.addClass('hover');
+        linkParent.addClass('hover');
+        $('.ipsNavBar_primary li, .ipsNavBar_primary a[data-hover]').not(this).removeClass('hover');
+        e.preventDefault();
+        return false; //extra, and to make sure the function has consistent return points
+    }
+}); */

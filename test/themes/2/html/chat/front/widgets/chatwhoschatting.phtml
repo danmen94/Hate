@@ -1,0 +1,15 @@
+<ips:template parameters="$chatters, $orientation='vertical'" />
+<h3 class='ipsType_reset ipsWidget_title'>
+	{lang="block_chatwhoschatting"}
+</h3>
+<div class='ipsWidget_inner {{if $orientation == 'vertical'}}ipsPad{{else}}ipsPad_half{{endif}}'>
+	{{if count( $chatters )}}
+		<ul class='ipsList_inline ipsList_csv ipsList_noSpacing'>
+			{{foreach $chatters as $row}}
+				<li>{template="userLinkFromData" group="global" app="core" params="$row['forumUserID'], $row['username'], $row['seo_name'], $row['groupID']"}</li>
+			{{endforeach}}
+		</ul>
+	{{else}}
+		<p class='ipsType_reset ipsType_medium ipsType_light'>{lang="chatters_list_empty"}</p>
+	{{endif}}
+</div>

@@ -1,0 +1,24 @@
+<ips:template parameters="$entry" />
+<div class='ipsEmbedded'>
+	<div class='ipsEmbedded_headerArea'>
+		<h4 class='ipsType_reset ipsType_normal ipsTruncate ipsTruncate_line'><i class='fa fa-file' data-ipsTooltip title='{lang="embed_blog_entry"}'></i> &nbsp;<a href='{$entry->url()->setQueryString( 'do', ( \IPS\Request::i()->embedDo != 'findComment' ) ? \IPS\Request::i()->embedDo : null )}' title='{lang="view_this_entry" sprintf="$entry->name"}' target='_top'>{$entry->name}</a></h4>
+	</div>
+
+	<div class='ipsEmbedded_content'>
+		<div class='ipsPhotoPanel ipsPhotoPanel_mini ipsClearfix ipsType_medium'>
+			{template="userPhoto" group="global" app="core" params="$entry->author(), 'mini', NULL, '', FALSE"}
+			<div>
+				<span class='ipsType_light ipsType_small'>{lang="byline" sprintf="$entry->author()->name"} {datetime="$entry->date"}</span>
+				<div data-ipsTruncate data-ipsTruncate-size='1 lines' data-ipsTruncate-type='remove' class='cBlogEmbeddedPreview'>
+					{$entry->truncated( TRUE )|raw}
+				</div>
+				<ul class='ipsList_inline ipsType_small ipsEmbedded_stats'>
+					{{if $entry->container()->allow_rating}}
+						<li>{template="rating" app="core" params="'small', $entry->averageRating()" group="global"}</li>
+					{{endif}}
+					<li><i class='fa fa-comment'></i> {lang="num_comments" pluralize="$entry->comments"}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

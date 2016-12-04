@@ -1,0 +1,75 @@
+/* PHONES */
+@media screen and (max-width: 767px) {
+	
+	.cChatContainer {
+		height: 315px;
+	}
+
+	#elChatTabBar {
+		margin-right: 0;
+	}
+
+		#elChatTabsContent > .ipsTabs_panel {
+			height: auto;
+		}
+
+		#elChatTabBar .ipsTabs_item [data-action="closeTab"] {
+			margin-left: 10px;
+		}
+
+	.cEmoticonsButton, .cSendButton {
+		margin-bottom: 0 !important;
+	}
+
+	.cEmoticonsButton {
+		width: 25% !important;
+		float: left;
+	}
+
+	.cSendButton {
+		width: 71% !important;
+		float: left;
+		margin-left: 4% !important;
+	}
+
+	/* Row stuff */
+	.cChatRow {
+		display: block;
+	}
+
+	.cChatRow_date {
+		display: none !important;
+	}
+
+	.cChatRow_responsiveDate {
+		float: right;
+		font-size: 11px;
+	}
+
+	.cChatRow_notice {
+		text-align: center;
+	}
+
+	.cChatRow .cChatRow_user {
+		text-align: left;
+		background: #f5f5f5;
+		width: 100%;
+		border-bottom: 0;
+		min-width: 0;
+		max-width: 100%;
+		font-size: 13px;
+		padding: 7px 10px;
+	}
+
+	.cChatRow_own .cChatRow_user {
+		background: #d0dbe7;
+	}
+
+	.cChatRow .cChatRow_user:empty {
+		display: none;
+	}
+
+	.cChatRow .cChatRow_user, .cChatRow .cChatRow_content, .cChatRow .cChatRow_date {
+		display: block;
+	}
+}

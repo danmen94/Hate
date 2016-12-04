@@ -1,0 +1,118 @@
+<ips:template parameters="" />
+{{if !\IPS\Request::i()->isAjax()}}
+	<script type='text/javascript'>
+		var ipsDebug = {{if ( \IPS\IN_DEV and \IPS\DEV_DEBUG_JS ) or \IPS\DEBUG_JS}}true{{else}}false{{endif}};		
+	{{if \IPS\IN_DEV}}
+		var CKEDITOR_BASEPATH = '{url="applications/core/dev/ckeditor/" base="none"}';
+	{{else}}
+		var CKEDITOR_BASEPATH = '{url="applications/core/interface/ckeditor/ckeditor/" base="none"}';
+	{{endif}}
+		var ipsSettings = {
+			{{if \IPS\Dispatcher::hasInstance() and \IPS\Dispatcher::i()->controllerLocation == 'admin'}}
+			adsess: "{expression="\IPS\Request::i()->adsess"}",
+			{{endif}}
+			{{if \IPS\COOKIE_DOMAIN !== NULL}}
+			cookie_domain: "{expression="\IPS\COOKIE_DOMAIN"}",
+			{{endif}}
+			{{if \IPS\COOKIE_PATH !== NULL}}
+			cookie_path: "{expression="\IPS\COOKIE_PATH"}",
+			{{endif}}
+			{{if \IPS\COOKIE_PREFIX !== NULL}}
+			cookie_prefix: "{expression="\IPS\COOKIE_PREFIX"}",
+			{{endif}}
+			{{if mb_substr( \IPS\Settings::i()->base_url, 0, 5 ) == 'https' AND !\IPS\COOKIE_BYPASS_SSLONLY}}
+			cookie_ssl: true,
+			{{else}}
+			cookie_ssl: false,
+			{{endif}}
+			imgURL: "{resource="./" location="front"}",
+			baseURL: "{setting="base_url"}",
+			jsURL: "{expression="rtrim( \IPS\Http\Url::baseUrl( \IPS\Http\Url::PROTOCOL_RELATIVE ), '/' )"}/applications/core/interface/js/js.php",
+			csrfKey: "{expression="\IPS\Session::i()->csrfKey"}",
+			antiCache: "{expression="\IPS\SUITE_UNIQUE_KEY"}",
+			useCompiledFiles: {{if \IPS\IN_DEV}}false{{else}}true{{endif}},
+			links_external: {setting="links_external"}
+		};
+	</script>
+{{endif}}
+{{foreach array_unique( \IPS\Output::i()->jsFiles, SORT_STRING ) as $js}}
+{{$js = \IPS\Http\Url::external( $js );}}
+<script type='text/javascript' src='{{if $js->data['host'] == parse_url( \IPS\Settings::i()->base_url, PHP_URL_HOST )}}{expression="$js->setQueryString( 'v', \IPS\SUITE_UNIQUE_KEY )"}{{else}}{expression="$js"}{{endif}}' data-ips></script>
+{{endforeach}}
+{{foreach array_unique( \IPS\Output::i()->jsFilesAsync, SORT_STRING ) as $js}}
+<script type="text/javascript" src="{expression="\IPS\Http\Url::external( $js )->setQueryString( 'v', \IPS\SUITE_UNIQUE_KEY )"}" async="true"></script>
+{{endforeach}}
+{{if count( \IPS\Output::i()->jsVars ) || \IPS\Output::i()->headJs}}
+	<script type='text/javascript'>
+		{{foreach \IPS\Output::i()->jsVars as $k => $v}}
+			ips.setSetting( '{$k}', jQuery.parseJSON('{expression="json_encode( $v )" raw="true"}') );
+		{{endforeach}}
+		{expression="\IPS\Output::i()->headJs" raw="true"}
+	</script>
+{{endif}}
+
+{{if (theme.jqueryCookie) || (theme.ipsf_backgroundType === 'ipsfocus_backgroundPicker') }}
+<script src='{resource="js/jquery.cookie.js" app="core" location="front"}'></script>
+{{endif}}
+{{if theme.ipsf_christmas}}
+<script src='{resource="js/snowfall.jquery.min.js" app="core" location="front"}'></script>
+{{endif}}
+{{if theme.ipsf_countdown}}
+<script src='{resource="js/jquery.countdown.min.js" app="core" location="front"}'></script>
+{{endif}}
+
+<script type='text/javascript'>
+$(document).ready(function(){
+	
+	var browserResponsiveWidth = 980;
+	var ipsfocus_relocateElements = function() {
+		var browserWidth = $(window).width();
+		if(browserWidth < browserResponsiveWidth){
+			$("#elSearch").prependTo("#respSearch");
+		}else{
+			$("#elSearch").prependTo("#searchWrap");
+		};
+	};
+	ipsfocus_relocateElements();
+
+	$(window).resize(function() {
+		ipsfocus_relocateElements();
+	});
+
+  	// Hide post controls as a guest to prevent empty bar
+	$(".cPost .ipsComment_controls li.ipsHide:only-child").parent().hide();
+
+
+{{if theme.ipsf_backgroundType === 'ipsfocus_backgroundPicker'}}
+
+	$(".ipsfocus_toggleBgPicker").click(function( event ) {
+		event.preventDefault();
+		$("#ipsf_pickerWrap").slideToggle();
+	});
+	
+	$("#ipsf_picker span").click(function(){
+		var backgroundClass = $(this).attr("data-backgroundClass");
+		$("body").removeClass("ipsfocus_bg1 ipsfocus_bg2 ipsfocus_bg3 ipsfocus_bg4").addClass(backgroundClass);
+		$.cookie('{theme="ifBg_cookiePrefix"}_ifbg_class',backgroundClass,{ expires: 365, path: '/'});
+	});
+
+	if ( ($.cookie('{theme="ifBg_cookiePrefix"}_ifbg_class') != null))	{
+		$("body").addClass('' + $.cookie('{theme="ifBg_cookiePrefix"}_ifbg_class') + '');
+	}
+	else{
+		$("body").addClass('ipsfocus_bg{theme="ipsf_pickerDefault"}');
+	}
+	
+{{endif}}
+
+{{if theme.ipsf_christmas}}
+    $(".ipsfocus_christmas").snowfall({
+    	flakeCount : 15,
+    	minSpeed: 4,
+    	maxSpeed: 6,
+        shadow: true
+    }).append("<div class='ipsfocus_snowBottom'></div>");
+{{endif}}
+
+});
+</script>

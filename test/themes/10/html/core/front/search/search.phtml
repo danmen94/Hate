@@ -1,0 +1,14 @@
+<ips:template parameters="$termArray, $title, $results, $pagination, $baseUrl, $types, $filters, $count=NULL, $advanced=FALSE" />
+<div data-controller='core.front.search.main' data-baseURL='{url="app=core&module=search&controller=search" seoTemplate="search"}'>
+
+  {theme="ipsfocus_b1"}<h2 class="ipsType_sectionTitle">{lang="search_the_community"}<span class=' {{if $advanced}}ipsHide{{endif}}' data-role='searchBlurb'>: {$title}</span></h2>{theme="ipsfocus_b2"}
+	<div class='ipsPad' data-controller='core.front.search.filters' id='elSearchFilters'>
+		{$filters|raw}
+	</div>{theme="ipsfocus_b3"}
+
+	<div id="elSearch_main" class='ipsSpacer_top' data-role='filterContent'>
+		{{if !$advanced}}
+			{template="results" group="search" params="$termArray, $title, $results, $pagination, $baseUrl, $count"}
+		{{endif}}
+	</div>
+</div>

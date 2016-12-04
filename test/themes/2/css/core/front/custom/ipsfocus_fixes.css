@@ -1,0 +1,575 @@
+/* ===================== */
+/*     Version 1.0.0     */
+/* ===================== */
+
+/* Font sizes */
+
+.ipsTags a, .ipsTag_prefix,
+.ipsFieldRow_required,
+.ipsFollow .ipsCommentCount,
+.ipsPagination .ipsPagination_first a, .ipsPagination .ipsPagination_last a, .ipsPagination .ipsPagination_next a, .ipsPagination .ipsPagination_prev a{
+  font-size: 1rem;
+}
+.ipsPagination,
+.ipsPagination .ipsPagination_pageJump a,
+.ipsPager_type,
+#elSearch #elSearchFilter,
+.cGalleryCat .cGalleryCat_info,
+#elGalleryNav,
+.ipsRepBadge,
+.cNexusSupportBadge,
+.ipsLike_contents,
+.ipsApp .ipsNotificationCount{
+  font-size: 1.1rem;
+}
+
+.ipsMenu_title,
+.ipsCommentCount,
+.ipsFieldRow_desc,
+a.cEvents_event.cEvents_eventSmall, .cEvents_event.cEvents_eventSmall a, .cEvents_event.cEvents_eventSmall.cEvents_empty span,
+.cGalleryPatchwork_index .cGalleryPatchwork_item .cGalleryPatchwork_comments,
+.cNexusOrderBadge{
+  font-size: 1.2rem;
+}
+
+/* Post font size */ .ipsComment_content .ipsType_richText,
+#elSearch input[type="search"],
+.ipsApp .ipsButton,
+.ipsTable th,
+.cStatusUpdates .ipsComment[data-role="replyComment"] .ipsComposeArea_dummy{
+  font-size: 1.3rem;
+}
+
+.cNexusProduct .cNexusPrice,
+.ipsTabs_item,
+.cCalendar_dayNumber{
+  font-size: 1.4rem;
+}
+
+#elProfileStats,
+.cNexusCategoryBlock .ipsType_sectionHead,
+.ipsComposeArea_dummy,
+.ipsComment_parent.ipsComment > .ipsComment_content > .ipsComment_author,
+.cGalleryCat .ipsType_sectionHead{
+  font-size: 1.5rem;
+}
+
+#elProfileHeader,
+.ipsAttachment_dropZone,
+.ipsFieldRow_section,
+.ipsAlert_msg{
+  font-size: 1.6rem;
+}
+
+.ipsType_sectionHead,
+.ipsDataItem_statsLarge .ipsDataItem_stats_number,
+.ipsApp .ipsField_primary, .ipsApp .ipsField_primary.ipsField_autocomplete input, .ipsApp .ipsFieldRow_primary input{
+  font-size: 1.8rem;
+}
+
+.cProfileRepScore_points,
+.cCalendarBlock .ipsType_pageTitle{
+  font-size: 2rem;
+}
+
+.ipsType_pageTitle,
+.cNexusProduct_header .cNexusPrice,
+.cBlogInfo .ipsType_pageTitle,
+.ipsEmpty,
+.ipsWidget_horizontal .ipsWidget_statsCount{
+  font-size: 2.2rem;
+}
+
+.ipsDialog_title{
+  font-size: 2.6rem;
+}
+
+.ipsType_pageTitle.ipsType_largeTitle{
+  font-size: 2.7rem;
+}
+
+.ipsComposeArea_dropZone .fa-paperclip,
+.cCalendarNav .ipsType_pageTitle,
+.cUserHovercard .ipsPageHead_special .ipsType_sectionHead{
+  font-size: 3rem;
+}
+
+#elWarningInfo i,
+.ipsDialog_close{
+  font-size: 3.4rem;
+}
+
+#elProfileHeader h1{
+  font-size: 3.6rem;
+}
+
+/* Line heights */
+.cNexusSupportBadge, .ipsAlert_msg{ line-height: 2rem; }
+.cNexusProduct_header .cNexusPrice{ line-height: 2.8rem; }
+.cUserHovercard .ipsPageHead_special .ipsType_sectionHead{ line-height: 3.6rem; }
+.ipsTabs_item{ line-height: 3.7rem; }
+
+.ipsBadge, .ipsBadge.ipsBadge_normal{ font-size: 0.9rem; line-height: 1.7rem; height: 1.7rem; }
+
+.ipsApp .ipsButton_medium { font-size: 1.3rem; line-height: 3.8rem; }
+.ipsApp .ipsButton_large { font-size: 1.4rem; line-height: 4.2rem; }
+.ipsApp .ipsButton_veryLarge { font-size: 1.6rem; line-height: 4.6rem; }
+.ipsApp .ipsButton_small { font-size: 1.2rem; line-height: 3.4rem; }
+.ipsApp .ipsButton_verySmall { font-size: 1.2rem; line-height: 2.8rem; }
+.ipsApp .ipsButton_veryVerySmall { font-size: 1rem; line-height: 2rem; }
+.ipsButtonRow li > a, .ipsButtonRow li > span { line-height: 2.6rem; font-size: 1rem; }
+
+.ipsType_small{ font-size:1.1rem; }
+.ipsType_small:not( .ipsType_richText ){ line-height:1.6rem; }
+.ipsType_medium{ font-size:1.3rem; }
+.ipsType_medium:not( .ipsType_richText ){ line-height:2rem; }
+.ipsType_normal{ font-size:1.4rem; }
+.ipsType_normal:not( .ipsType_richText ){ line-height:2.2rem; }
+.ipsType_large{ font-size:1.6rem; }
+.ipsType_large:not( .ipsType_richText ){ line-height:2rem; }
+.ipsType_veryLarge{ font-size:4.4rem; line-height:5.2rem; }
+.ipsType_huge{ font-size:7.2rem; line-height:8rem; }
+
+/* Chat */
+
+#elChatTabs { background: {theme="area_background"}; }
+#elChatWrapper { border-color: rgba(0,0,0,0.2); }
+#elChatTabBar > li > a:not( .ipsTabs_activeItem ) { background: rgba(225,225,225,0.3); }
+
+@media screen and (min-width: 767px) {
+	#elChatTabBar > li > a:not( .ipsTabs_activeItem ) { color: {theme="text_color"}; }
+}
+
+.cChatTab { border-right: 1px solid rgba(0,0,0,0.1); }
+.cChatUserRow:hover, .cChatUserRow_hover { background: rgba(0,0,0,0.04); }
+
+.cChatRow .cChatRow_user, .cChatRow .cChatRow_content, .cChatRow .cChatRow_date { border-bottom: 1px solid rgba(0,0,0,0.1); }
+
+/* .cChatRow .cChatRow_user { color: #898989; }
+.cChatRow_date { color: #939393; }
+.cChatRow.cChatRow_notice { color: #939393; }
+.cChatRow.cChatRow_me { color: #898989; } */
+.cChatRow_system { background: #f8e1e1; }
+.cChatRow_own { background: rgba(0,0,0,0.04); }
+.cChatRow_own .cChatRow_user, .cChatRow_own .cChatRow_content, .cChatRow_own .cChatRow_date { border-color: rgba(0,0,0,0.1); }
+
+@media screen and (max-width: 767px) {
+	.cChatRow .cChatRow_user { background: rgba(0,0,0,0.04); }
+	.cChatRow_own .cChatRow_user { background: rgba(0,0,0,0.08); }
+}
+
+/* ========================== */
+/*     MINOR ENHANCEMENTS     */
+/* ========================== */
+
+/* Rating stars */
+.ipsRating li a{ border: 0; }
+
+/* Topic icons */
+.ipsItemStatus:not( .ipsItemStatus_large ) { color: inherit; }
+.ipsItemStatus.ipsItemStatus_read:not( .ipsItemStatus_large ) { color: inherit; opacity: 0.4; }
+
+/* Poll questions, etc */
+.ipsType_sectionHead{ color: {theme="text_color"}; }
+
+/* Topic button width */
+.ipsToolList.ipsToolList_horizontal > li.ipsToolList_primaryAction .ipsButton:not(.ipsButton_link){ min-width: 150px; }
+
+/* Decrease large stats and column width */
+@media screen and (min-width:980px){
+	.ipsDataItem_statsLarge .ipsDataItem_stats_number{ font-size: 1.8rem; }
+	.ipsDataItem_stats{ min-width: 100px; }
+}
+
+/* Bold forum names on index */
+.ipsDataItem_title.ipsType_large{ font-size: 1.32rem; font-weight: bold; }
+.ipsDataItem_title.ipsType_large .ipsType_medium{ font-weight: normal; }
+
+/* Topic title size */
+.ipsDataItem_title{ font-size: 1.32rem; }
+
+/* Badges - pinned, featured, etc */
+.ipsBadge.ipsBadge_icon, .ipsBadge.ipsBadge_icon.ipsBadge_small, .ipsBadge.ipsBadge_icon.ipsBadge_large{
+	border-radius: 3px;
+	box-shadow: inset rgba(0,0,0,0.15) 0px 0px 0px 1px;
+}
+
+/* SIDEBARS */
+/* Sub headers */
+.ipsWidget.ipsWidget_vertical .ipsWidget_title,
+.ipsWidget.ipsWidget_horizontal .ipsWidget_title,
+#elVNC_sidebar .ipsFieldRow_label,
+#elSearch_sidebar .ipsFieldRow_label,
+.ipsTable.ipsMatrix .ipsMatrix_subHeader,
+.ipsSideMenu_subTitle,
+.ipsSideMenu_title, .ipsSideMenu_list + .ipsSideMenu_title, html[dir="ltr"] .ipsSideMenu_title{
+	padding: 11px 15px;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+/* Notification settings */
+.ipsTable.ipsMatrix .ipsMatrix_subHeader{ padding: 15px; }
+
+/* My Activity menu */
+.ipsSideMenu.ipsPad{ padding: 0; }
+.ipsSideMenu_subTitle{ margin: 0; }
+.ipsSideMenu_item a, a.ipsSideMenu_item{ margin: 0; }
+.ipsSideMenu_title, .ipsSideMenu_list + .ipsSideMenu_title{ margin: 0; }
+.ipsSideMenu_withChecks .ipsSideMenu_item a:after, .ipsSideMenu_withChecks a.ipsSideMenu_item:after,
+.ipsSideMenu_withRadios .ipsSideMenu_item a:after, .ipsSideMenu_withRadios a.ipsSideMenu_item:after {
+	color: inherit;
+}
+.ipsSideMenu_itemDisabled a, a.ipsSideMenu_itemDisabled { color: inherit; opacity: 0.6; }
+
+/* Sidebar: Search */
+#elSearch_sidebar{ padding-top: 0; }
+#elSearch_sidebar .ipsSideMenu{ margin: -15px -15px 0 -15px; }
+#elSearch_sidebar .ipsFieldRow_label{
+	margin: 0px -15px 15px -15px;
+	display: block;
+	width: auto;
+}
+
+/* Check boxes */
+.ipsSideMenu_item a, a.ipsSideMenu_item{ padding-left: 15px; padding-right: 15px; }
+
+/* Sidebar: View New Content */
+#elVNC_sidebar > ul > li.ipsPad{ padding: 0; }
+/* #elVNC_sidebar .ipsFieldRow_label{ padding: 10px; } */
+#elVNC_sidebar [data-role="containerFilter"]{ padding: 10px 10px 0 10px; }
+.ipsFieldRow:not( .ipsFieldRow_checkbox ) .ipsFieldRow_label, .ipsFieldRow:not( .ipsFieldRow_checkbox ) .ipsFieldRow_title{ font-size: inherit; }
+
+/* Widget headers */
+.ipsWidget.ipsWidget_horizontal .ipsWidget_title{ margin: -10px -10px 10px -10px; }
+.ipsWidget.ipsWidget_vertical .ipsWidget_title, .ipsWidget.ipsWidget_horizontal .ipsWidget_title{ border-radius: 3px 3px 0 0; }
+
+/* Drop zone button */
+.ipsComposeArea_dropZone .ipsButton_light{ background: rgba(0,0,0,0.08); }
+
+/* Increase height of small tabs */
+.ipsTabs.ipsTabs_small .ipsTabs_item{ line-height: 3.4rem; }
+
+/* Gallery */
+.cGalleryAlbumSlider li.cGalleryAlbumSlider_active{ border-color: #fff; }
+
+/* Blank calendar cell */
+.cCalendar td.cCalendar_nonDate { background: rgba(0,0,0,0.05); }
+
+/* Fix collapsed borders - used to fix minimal sign in page but not sure if it has side effects elsewhere */
+.ipsColumns{ border-collapse: separate; }
+
+/* Blogs */
+.ipsTruncate > .ipsTruncate_more::before{ border-top-color: rgba(0,0,0,0.06); }
+.cBlogView_entry{ border-bottom-color: rgba(0,0,0,0.08); }
+.cBlogInfo_content:after{ background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,{theme="area_background_reset"} 100%); }
+
+/* Widget Tabs */
+.ipsWidget .ipsTabs_small{ background: rgba(0,0,0,0.05); }
+
+/* Share links */
+.cShareLink{ border-radius: 3px; box-shadow: inset rgba(0,0,0,0.15) 0px 0px 0px 1px; }
+.cShareLink:hover{ box-shadow: inset rgba(0,0,0,0.15) 0px 0px 0px 1px, inset rgba(255,255,255,0.18) 0px 30px 0px; }
+
+/* Attach wrapper  */
+.ipsComposeArea_attachmentsInner > div{ border-radius: 3px; box-shadow: rgba(0,0,0,0.06) 0px 0px 0px 1px; }
+.ipsImageAttach{ box-shadow: inset rgba(0,0,0,0.06) 0px 0px 0px 1px; }
+
+/* RSS Icon */
+#elRSS{
+	color: #fff;
+	background: #ff843e;
+	background-image: linear-gradient(to bottom, #ffab57 0%, #ff7c38 100%);
+	text-shadow: rgba(249,66,0,0.8) 0px -1px 0px;
+	border-radius: 3px;
+	border: 1px solid rgba(249,66,0,0.66);
+	box-shadow: inset rgba(255,255,255,0.2) 0px 1px 0px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1.2rem;
+	width: 17px; height: 17px;
+	line-height: 14px;
+	margin: 9px 9px 0 0;
+}
+
+html[dir="rtl"] #elRSS{
+	margin-right: 0;
+	margin-left: 9px;
+}
+
+#elRSS .fa:before{ content: "\f09e" }
+
+/* Poll and progress bars */
+.ipsAttachment_progress{ border: 0; }
+.ipsAttachment_progress > span{ height: 12px; }
+.cPollVoteBar, .cPollVoteBar > span, .ipsAttachment_progress, .ipsAttachment_progress > span {
+	box-shadow: inset rgba(0,0,0,0.1) 0px 0px 0px 1px;
+}
+
+/* Gallery widget */
+.cGalleryWidget > div:first-child{ background: transparent; }
+
+/* Topic list spacing */
+.cTopicList .ipsDataItem_meta{ margin-top: 6px; }
+
+/* Emoticons hover */
+.ipsEmoticons_item[data-emoticon]:hover { background: rgba(0,0,0,0.05); border-radius: 3px; }
+
+/* Attachment list */
+.ipsAttachment_fileList{ padding: 10px; border-radius: 3px; }
+
+/* Remove transitions from pages */
+.ipsPagination .ipsPagination_first a, .ipsPagination .ipsPagination_last a, .ipsPagination .ipsPagination_next a, .ipsPagination .ipsPagination_prev a{
+	{prefix="transition" value="none"}
+}
+
+.ipsAttachment_progress > span { background: {theme="poll_bar"}; }
+
+/* Gallery */
+#elGalleryHeader{ margin: 0 0 15px 0; }
+#elGalleryImage{ border-radius: 3px 3px 0px 0px; }
+#elGalleryNav{ border-radius: 0px 0px 3px 3px; }
+.cGalleryAlbumSlider .ipsAreaBackground,
+.cGalleryAlbumSlider .cGalleryTrimmedImage{ background-color: transparent; }
+.cGalleryAlbumSlider li{ border-color: transparent; }
+
+/* Arrows on profile status feed */
+html[dir="ltr"] .cStatusUpdates .ipsComment.ipsComment_parent > .ipsComment_content:before, html[dir="rtl"] .ipsComment_subComments{ border-right-color: {theme="area_background_light"}; }
+html[dir="rtl"] .cStatusUpdates .ipsComment.ipsComment_parent > .ipsComment_content:before, html[dir="ltr"] .ipsComment_subComments{ border-left-color: {theme="area_background_light"}; }
+.cStatusUpdates .ipsComment.ipsComment_hasChildren > .ipsComment_content::after { border-bottom-color: {theme="area_background_reset"}; }
+
+/* Reset thick borders */
+.ipsDataList_large .ipsDataItem{ border-bottom-width: 1px; }
+/* Search results */
+.cSearchResults .ipsDataItem{ border-bottom-width: 1px; border-top-width: 1px; }
+.cSearchFilters .ipsFieldRow{ border-bottom-width: 1px; }
+/* Make hr match the above widths since its used in similar areas */
+hr.ipsHr{ border-width: 1px 0 0 0; }
+
+/* Follow count - align and remove arrow */
+.ipsFollow .ipsCommentCount { vertical-align: top; margin-top: 2px; }
+html[dir="ltr"] .ipsFollow .ipsCommentCount:after { border-right-color: rgba(255,255,255,0.35); display: none; }
+html[dir="rtl"] .ipsFollow .ipsCommentCount:after { border-left-color: rgba(255,255,255,0.35); display: none; }
+html[dir="ltr"] .ipsCommentCount{ margin-left: 0px; }
+html[dir="rtl"] .ipsCommentCount{ margin-right: 0px; margin-left: 2px; }
+
+/* Make minorHeading inherit body font-size */
+.ipsType_minorHeading{ font-size: 0.9em; }
+#elProfileStats .ipsType_minorHeading{ font-size: 1.1rem; }
+
+.ipsfocusCopyright{ margin-bottom: 4px; padding: 0 15px; }
+
+@media screen and (max-width:979px){
+	.ipsfocusCopyright{ text-align: center; }
+	#ipsLayout_footer .ipsPos_left{ float: none; }
+}
+
+
+/* =================== */
+/*     MINOR FIXES     */
+/* =================== */
+
+/* Fix margin bug on footer */
+body{ padding-bottom: 1px; }
+
+/* Hide collapsed forum borders */
+.cForumRow_hidden .ipsBox{ display: none; }
+
+/* Mobile header padding */
+@media screen and (max-width:979px){
+	#ipsLayout_header > .ipsLayout_container{ padding: 0; }
+	#ipsLayout_header > .ipsLayout_container > #header{ padding: 0 15px; }
+}
+
+/* Theme selection */
+#elNavTheme_menu .ipsButton_link{ color: {theme="ipsf_popupText"}; }
+
+/* Make wizard use single 2x image */
+html[dir="ltr"] .ipsApp .ipsStepBar > .ipsStep > a, html[dir="ltr"] .ipsApp .ipsStepBar > .ipsStep > span { background-image: url( {resource="wizard_step_large@2x.png" app="core" location="front"} ); }
+html[dir="rtl"] .ipsApp .ipsStepBar > .ipsStep > a, html[dir="rtl"] .ipsApp .ipsStepBar > .ipsStep > span { background-image: url( {resource="wizard_step_large_rtl@2x.png" app="core" location="front"} ); }
+html[dir="ltr"] .ipsApp .ipsStepBar > .ipsStep + .ipsStep.ipsStep_active:after { background-image: url( {resource="wizard_step_extra@2x.png" app="core" location="front"} ); }
+html[dir="rtl"] .ipsApp .ipsStepBar > .ipsStep + .ipsStep.ipsStep_active:after { background-image: url( {resource="wizard_step_extra_rtl@2x.png" app="core" location="front"} ); }
+
+/* FontAwesome blur fix */
+.ipsMenu_item > a
+/* #ipsLayout_mainNav > li > a */{ {prefix="transform" value="translate(0,0)"} }
+
+/* Page title */
+.ipsPageHeader .ipsSpacer_bottom{ margin-bottom: 0; }
+
+/* Calendar submit */
+.cCalendarSubmit_field .fa{ top: 5px; }
+
+/* Remove background from My Content page */
+#elUserContent .ipsTabs_panel,
+/* Remove from Activity Stream */
+#elActivity .ipsTabs_panel{ background: none transparent; }
+
+/* Remove borders on status comments */
+.cStatusUpdates .ipsComment{ border: 0; }
+/* Fix border radius */
+.cStatusUpdates .ipsComment[data-role="replyComment"] .ipsUserPhoto img{ border-radius: inherit; }
+
+/* Fix alignment of absolute checkboxes in dropdown menus */
+.ipsMenu_selectable a{ position: relative; }
+
+/* Align f_icon */
+html[dir="ltr"] .ipsDataList_large .ipsDataItem_icon{ padding-right: 0; }
+/* .ipsItemStatus.ipsItemStatus_large .fa{ display: inline; vertical-align: top; cursor: default; } */
+.ipsDataList_large .ipsDataItem_icon{ text-align: center; }
+@media screen and (max-width:979px){ .ipsDataItem_icon.ipsDataItem_category{ margin-left: -5px; } }
+@media screen and (min-width:980px){ .ipsDataList_large .ipsDataItem_icon{ min-width: 0px } }
+
+/* Remove top borders from data-list if they exist */
+.ipsDataList:not(.ipsGrid) .ipsDataItem:first-child{ border-top: 0; }
+
+/* Make inputs and labels inherit global font */
+.ipsApp label:not( .ipsField_unlimited ), .ipsApp input, .ipsApp button, .ipsApp select, .ipsApp textarea {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+.ipsApp select{ font-size: 1.3rem !important; }
+
+/* Reset styles */
+.ipsLayout_container .ipsLayout_container { max-width: auto; padding: 0; margin: 0; }
+
+/* Stop noHover buttons from hover and active effect */
+.ipsApp .ipsButton_noHover:hover, .ipsApp .ipsButton_noHover:active{ box-shadow: inherit; }
+
+/* I dont think my themes need a z-index due to no header overlay */
+#ipsLayout_body{ z-index: auto; }
+
+/* Font sizes - Reduce some classes back to body font size */
+.ipsWidget .ipsDataItem_title,
+#ipsLayout_footer a, #ipsLayout_footer p, #ipsLayout_footer #elCopyright,
+.ipsType_normal,
+.ipsTabs.ipsTabs_small .ipsTabs_item { font-size: 1.2rem; }
+
+/* Remove margins on "newVersion" download field and possibly other areas */
+.ipsFieldRow_section{ margin: 0; }
+
+
+/* ==================== */
+/*     FONT COLOURS     */
+/* ==================== */
+
+/* Desc fixes */
+.cNexusPrice s,
+.cPollVoteBar > span:after,
+a.ipsReputation_count.ipsType_light,
+a.ipsType_light:hover { color: {theme="text_light"}; }
+
+/*  Side widget "Total posts" */
+.ipsWidget.ipsWidget_vertical .ipsWidget_inner,
+/* Member Statistics "NEWEST" */
+.ipsType_minorHeading,
+ /* Profile block headers */
+.cProfileSidebarBlock .ipsType_sectionHead,
+/* Page nav - next, prev, etc */
+.ipsPager_type,
+.ipsPager a .ipsType_light,
+.ipsPager .ipsPager_next a:after, .ipsPager .ipsPager_prev a:after,
+/* Report link on top of posts */
+.ipsComment_meta a[data-action="reportComment"],
+/* Desc type on maintitle, ie. amount of poll votes */
+.ipsType_sectionTitle .ipsType_light,
+/* Side bar widgets and links */
+.ipsWidget_title .ipsType_light,
+.ipsWidget_title a,
+/* Description on new topic page */
+.ipsFieldRow_desc,
+/* Stats type on index page */
+.ipsDataItem_statsLarge .ipsType_light,
+/* Large icons - eg. messenger */
+.ipsEmpty,
+/* newVersion form header */
+.ipsFieldRow_section,
+/* Carousel nav */
+.ipsCarousel .ipsCarousel_nav,
+.ipsAreaBackground_positive .ipsType_sectionHead,
+.ipsAreaBackground_positive .ipsType_sectionTitle,
+.ipsAreaBackground_negative .ipsType_sectionHead,
+.ipsAreaBackground_negative .ipsType_sectionTitle {
+	color: inherit;
+}
+
+/* Desc type on maintitle, ie. amount of poll votes */
+.ipsType_sectionTitle .ipsType_light,
+/* Widgets and links */
+.ipsWidget_title .ipsType_light,
+/* Stats type on index page */
+.ipsDataItem_statsLarge .ipsType_light,
+.ipsEmpty{
+	opacity: 0.6;
+}
+
+/* Description on new topic page */
+.ipsFieldRow_desc{ opacity: 0.8; }
+
+/* Inherit colour and underline links in coloured text */
+.ipsType_light a,
+.ipsType_warning a, .ipsType_negative a,
+.ipsType_success a, .ipsType_positive a,
+.ipsType_neutral a{ color: inherit; border-bottom: 1px solid currentcolor; }
+
+.ipsType_light a{ border-color: rgba(0,0,0,0.1); }
+
+/* Remove underline from certain links */
+a[id*="elSharePost"]{ border: 0; }
+
+/* Page Nav */
+.ipsPager .ipsType_light{ opacity: 0.7; }
+.ipsPager .ipsPager_next a:after, .ipsPager .ipsPager_prev a:after{ {prefix="transition" value="none"}; }
+.ipsPager .ipsPager_next a, .ipsPager .ipsPager_prev a{ opacity: 0.8; }
+.ipsPager .ipsPager_next a:hover, .ipsPager .ipsPager_prev a:hover{ opacity: 1; }
+
+/* ======================== */
+/*     RESPONSIVE FIXES     */
+/* ======================== */
+
+@media screen and (max-width:979px){
+	#elFooterLinks{ padding-bottom: 5px; }
+	#ipsLayout_footer #elCopyright{
+		float: none;
+		text-align: center;
+	}
+}
+
+/* ================= */	
+/*     BUG FIXES     */
+/* ================= */
+
+/* Overflow in sidebar hides box shadows - not sure if this has side effects */
+#ipsLayout_sidebar{ overflow: auto; }
+
+/* Hyphens in firefox */
+.ipsType_break{ -moz-hyphens: none; }
+
+/* Remove borders from autocomplete mini input fields in RTL */
+html[dir="rtl"] .ipsApp .ipsField_autocomplete input[type="text"]{ border: 0; }
+
+/* Fix "Moderation Actions" from jumping when clicked */
+.ipsApp .ipsButton_link{ border: 1px solid transparent !important; box-shadow: none !important; background: none transparent !important; }
+
+/* Clearfixes */
+.ipsSubNavigation .ipsList_inline:after,
+.ipsBreadcrumb ul:after,
+ul[role="tablist"]:after,
+#ipsLayout_footer .ipsLayout_container:after,
+/* Subforum columns */
+.ipsDataItem_subList:after{
+	visibility: hidden;
+	display: block;
+	font-size: 0px;
+	content: " ";
+	clear: both;
+	height: 0px;
+}
+
+/* Block manager */
+#elWidgetControls{ background: #222; box-shadow: none; }
+#elSidebarManager, #elSidebarManager .ipsType_light{ color: #aaa; }
+
+/* Completely hide unused sidebar. By default, width is 1px */
+body:not( .cWidgetsManaging ) #ipsLayout_sidebar.ipsLayout_sidebarUnused, body.ipsLayout_sidebarUnused:not( .cWidgetsManaging ) #ipsLayout_sidebar{ visibility: hidden; }

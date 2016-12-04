@@ -1,0 +1,16 @@
+<ips:template parameters="" />
+<script type='text/javascript'>
+  $('.elNavigation_app_chat_Chat').click( function( e ){
+  	e.preventDefault();
+
+	var joinWith = '?';
+	
+	if ( $( e.currentTarget ).attr('href').indexOf('?') != -1 )
+	{
+		joinWith = '&';
+	}
+
+  	window.open( $( e.currentTarget ).attr('href') + joinWith + '_popup=1', '_blank', "height=480,width=1200,location=0,menubar=0,toolbar=0" );
+  	return false;
+  });
+</script>

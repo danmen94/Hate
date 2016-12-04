@@ -1,0 +1,5 @@
+<ips:template parameters="$termJSON, $title, $results, $pagination, $baseUrl, $count=NULL" />
+<div data-controller='core.front.search.results' data-term='{$termJSON|raw}' data-role="resultsArea">
+	{theme="ipsfocus_b1"}<p class='ipsType_sectionTitle ipsType_reset'>{lang="search_found" pluralize="$count"}</p>{theme="ipsfocus_b2"}
+	{template="resultStream" group="search" params="$results, $pagination, $baseUrl"}{theme="ipsfocus_b3"}
+</div>

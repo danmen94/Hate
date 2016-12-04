@@ -1,0 +1,51 @@
+<ips:template parameters="$options, $forumIdMap, $groups, $badwords, $ignored, $emoticons" />
+
+<script type='text/javascript'>
+	// System vars
+	ips.setSetting( 'roomID', {$options['roomId']} );
+	ips.setSetting( 'userID', {$options['userId']} );
+	ips.setSetting( 'forumUserID', {expression="intval( \IPS\Member::loggedIn()->member_id )"} );
+	ips.setSetting( 'username', '{{if \IPS\Member::loggedIn()->member_id}}{expression="\IPS\Member::loggedIn()->name"}{{else}}{expression="\IPS\Member::loggedIn()->language()->get('guest')"}_{$options['userId']}{{endif}}' );
+	ips.setSetting( 'accessKey', '{$options['accessKey']}' );
+	ips.setSetting( 'serverHost', '{$options['serverHost']}' );
+	ips.setSetting( 'serverPath', '{$options['serverPath']}' );
+	ips.setSetting( 'ourURL', "{expression="urlencode(\IPS\Settings::i()->base_url)"}" );
+
+	ips.setSetting( 'chatEmoticons', 
+		{expression="json_encode( $emoticons )" raw="true"}
+	);
+
+	ips.setSetting( 'ignoredChats',
+		{expression="json_encode( $ignored )" raw="true"}
+	);
+
+	ips.setSetting( 'forumIDMap', 
+		{expression="json_encode( $forumIdMap )" raw="true"}
+	);
+	
+	ips.setSetting( 'groups', 
+		{expression="json_encode( $groups )" raw="true"}
+	);
+
+	ips.setSetting( 'badwords', 
+		{expression="json_encode( $badwords )" raw="true"}
+	);
+
+	// Sounds in MP3 format
+	ips.setSetting( 'sounds', {
+		'enter': 'enter',
+		'leave': 'leave',
+		'message': 'message'
+	});
+
+	// Settings
+	ips.setSetting( 'condenseTime', true );
+	ips.setSetting( 'maxMessages', 100 );
+	ips.setSetting( 'moderator', {{if \IPS\Member::loggedIn()->group['chat_moderate']}}true{{else}}false{{endif}} );
+	ips.setSetting( 'private', {{if \IPS\Member::loggedIn()->group['chat_private']}}true{{else}}false{{endif}} );
+	ips.setSetting( 'hideEnterExit', '{expression="(bool) \IPS\Settings::i()->ipchat_hide_usermessage"}' );
+	ips.setSetting( 'noBuffer', {{if \IPS\Settings::i()->ipchat_no_buffer}}false{{else}}true{{endif}} );
+	ips.setSetting( 'inactiveKick', parseInt( {expression="\IPS\Settings::i()->ipchat_inactive_minutes"} * 60 ) );
+	ips.setSetting( 'user24hour', {{if \IPS\Settings::i()->ipchat_24hour == '24'}}true{{else}}false{{endif}} );
+	ips.setSetting( 'soundEnabled', ips.utils.db.get( 'chat', 'sounds' ) );
+</script>

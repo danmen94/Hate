@@ -1,0 +1,36 @@
+<ips:template parameters="$file, $comment" />
+
+<div class='ipsEmbedded{{if $file->primary_screenshot_thumb}} ipsEmbedded_withImage{{endif}}'>
+	<div class='ipsEmbedded_headerArea'>
+		<h4 class='ipsType_reset ipsType_normal ipsTruncate ipsTruncate_line'><i class='fa fa-{$file::$icon}' data-ipsTooltip title='{lang="embed_file"}'></i> &nbsp;<a href='{{if $comment}}{$comment->url()->setQueryString( 'do', ( \IPS\Request::i()->embedDo != 'findComment' ) ? \IPS\Request::i()->embedDo : null )}{{else}}{$file->url()->setQueryString( 'do', ( \IPS\Request::i()->embedDo != 'findComment' ) ? \IPS\Request::i()->embedDo : null )}{{endif}}' title='{lang="view_this_file" sprintf="$file->name"}' target='_top'>{$file->mapped('title')}</a></h4>
+	</div>
+
+	<div class='ipsEmbedded_content'>
+		<div class='ipsPhotoPanel ipsPhotoPanel_mini ipsClearfix ipsType_medium'>
+			{{if $comment}}
+			{template="userPhoto" group="global" app="core" params="$comment->author(), 'mini', NULL, '', FALSE"}
+			<div>
+				<span class='ipsType_light ipsType_small'>{lang="byline" sprintf="$comment->author()->name"} {datetime="$comment->mapped('date')"}</span>
+				<div data-ipsTruncate data-ipsTruncate-size='1 lines' data-ipsTruncate-type='remove' class='cfileEmbeddedPreview'>
+					{$comment->truncated( TRUE )|raw}
+				</div>
+			</div>
+			{{else}}
+			{template="userPhoto" group="global" app="core" params="$file->author(), 'mini', NULL, '', FALSE"}
+			<div>
+				<span class='ipsType_light ipsType_small'>{lang="byline" sprintf="$file->author()->name"} {datetime="$file->mapped('date')"}</span>
+				<div data-ipsTruncate data-ipsTruncate-size='1 lines' data-ipsTruncate-type='remove' class='cfileEmbeddedPreview'>
+					{$file->truncated( TRUE )|raw}
+				</div>
+			</div>
+			{{endif}}
+		</div>
+	</div>
+	{{if $file->primary_screenshot_thumb}}
+		<div style='background-image: url( {$file->primary_screenshot_thumb} );' class='ipsEmbedded_image cDownloadsTrimmedImage'>
+			<a href='{$file->url()}' target='_top'>
+				<img src='{$file->primary_screenshot_thumb}'>
+			</a>
+		</div>
+	{{endif}}
+</div>

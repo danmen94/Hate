@@ -1,0 +1,20 @@
+<ips:template parameters="$stream, $results, $autoUpdate, $showTimeline=FALSE, $baseUrl, $sort='date', $view='expanded'" />
+<div data-controller='core.front.streams.activity' {{if !$autoUpdate}}data-view='{$view}'{{endif}} {{if $autoUpdate && settings.auto_polling_enabled}}data-autoPoll{{endif}} {{if isset( \IPS\Request::i()->id )}}data-streamID='{expression="\IPS\Request::i()->id"}'{{endif}}>
+	<div class='ipsBox ipsPad'>
+		<ul class="ipsButtonRow ipsPos_right ipsClearfix">
+			<li>
+				<a href="{$stream->url()->setQueryString( 'view', 'condensed')}" data-action='switchView' data-view='condensed' data-ipsTooltip title="{lang="stream_condensed"}" class="{{if $view == 'condensed'}}ipsButtonRow_active{{endif}}"><i class="fa fa-list"></i></a>
+			</li>
+			<li>
+				<a href="{$stream->url()->setQueryString( 'view', 'expanded')}" data-action='switchView' data-view='expanded' data-ipsTooltip title="{lang="stream_expanded"}" class="{{if $view == 'expanded'}}ipsButtonRow_active{{endif}}"><i class="fa fa-square"></i></a>
+			</li>
+		</ul>
+		{{if $autoUpdate && settings.auto_polling_enabled}}<p class='ipsType_light ipsPos_right ipsType_normal ipsType_reset ipsJS_show ipsResponsive_hidePhone' data-role='updateMessage'><i class='fa fa-refresh'></i> {lang="stream_auto_updates"} &nbsp;&nbsp;</p>{{endif}}
+		<ol class='ipsStream {{if $showTimeline !== FALSE && count( $results )}}ipsStream_withTimeline{{endif}} ipsList_reset' data-role='streamContent'>
+			{template="streamItems" group="streams" app="core" params="$results, $showTimeline, $sort, $view"}
+			<li class='ipsType_center ipsJS_show {{if !count( $results )}}ipsHide{{endif}}' data-role="loadMoreContainer">
+				<a href='#' class='ipsButton ipsButton_light ipsButton_small' data-action='loadMore'>{lang="load_more_activity"}</a>
+			</li>
+		</ol>
+	</div>
+</div>

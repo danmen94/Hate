@@ -1,0 +1,9 @@
+<ips:template parameters="$price, $priceMayChange" />
+<span class='cNexusPrice'>
+	{{if $priceMayChange}}
+		{lang="price_from" sprintf="$price"}
+	{{else}}
+		{$price}
+	{{endif}}
+</span>
+{{if \IPS\Member::loggedIn()->language()->checkKeyExists('nexus_tax_explain_val')}}<span class='cNexusPrice_tax ipsType_light'>{lang="nexus_tax_explain_val"}</span>{{endif}}

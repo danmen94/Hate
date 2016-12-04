@@ -1,0 +1,2761 @@
+/* ===================================================== */
+/*                                                       */
+/*            Theme developed by ipsfocus.com            */
+/*                                                       */
+/*                                                       */
+/*   Need support? Visit the official customer forums!   */
+/*            http://www.ipsfocus.com/forums/            */
+/*                                                       */
+/*       Terms and Conditions of using this theme        */
+/*   http://www.ipsfocus.com/terms_and_conditions.php    */
+/*                                                       */
+/* ===================================================== */
+
+/* ===================== */
+/*     GLOBAL STYLES     */
+/* ===================== */
+
+/* Define global font size */
+html { font-size: 62.5%; }
+/* Mobile font size */
+@media screen and (max-width: 767px) { html { font-size: 62.5%; } }
+
+body { font-family: Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1.2rem; }
+
+/* Wrapper */
+{{if !theme.enable_fluid_width}}
+.ipsLayout_container {
+	max-width: {theme="ipsf_fixedWidth"};
+}{{endif}}
+
+
+/* Header */
+#header {
+	/* background-color: {theme="header"}; */
+}
+
+/* Logo */
+a.logo{
+    height: {theme="ipsf_logoHeight"}px;
+    color: {theme="ipsf_logoColor"};
+    font-size: {theme="ipsf_logoSize"}px;
+    float: left;
+    text-decoration: none;
+    -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d; transform-style: preserve-3d;
+}
+
+html[dir="rtl"] a.logo{ float: right; }
+
+    a.logo.justImage .vAlign{ display: inline-block; height: 100%; font-size: 0; line-height: {theme="ipsf_logoHeight"}px; }
+	a.logo.textLogo .vAlign{ position: relative; top: 50%; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); transform: translateY(-50%); display: inline-block; }
+
+    a.logo .logoSlogan{
+        display: block;
+        font-size: 14px;
+        padding-top: 6px;
+        margin-top: 6px;
+		color: {theme="ipsf_sloganColor"};
+		opacity: 0.55;
+		border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    a.logo img, a.logo .textWithImage{ display: inline-block; vertical-align: middle; }
+	a.logo img{ max-height: 100%; }
+
+
+/* Navigation bar */
+#navBar {
+	/* background: {theme="main_nav"}; */
+	background: rgba(0,0,0,0.4);
+	/* background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%); */
+	border: 1px solid rgba(0,0,0,0.3);
+	border-bottom: 0;
+	border-radius: 3px 3px 0px 0px;
+}
+
+@media screen and (max-width: 979px) { #navBar { display: none; } }
+
+/* Primary navigation */
+.navAlign {
+	text-align: left;
+	width: calc( 100% - 370px);
+	display: inline-block;
+	/* Fix border overlay */
+	margin-left: -1px;
+}
+
+html[dir="rtl"] .navAlign{ text-align: right; margin-left: 0; margin-right: -1px; }
+	
+/* Assign wrapped background colour */
+#ipsLayout_mainNav {
+	/* background: green; */
+	list-style: none; margin: 0; padding: 0; font-size: 0; display: inline-block; text-align: left;
+}
+
+html[dir="rtl"] #ipsLayout_mainNav { text-align: right; }
+#ipsLayout_mainNav > li { font-size: 13px; display: inline-block; }
+#ipsLayout_header nav ul li.ipsHide { display: none; }
+
+#ipsLayout_mainNav > li > a {
+	color: rgba(255,255,255,0.9);
+	padding: 0 20px;
+	line-height: 46px;
+	position: relative;
+	display: block;
+	text-decoration: none;
+}
+
+#ipsLayout_mainNav > li > a:hover { background: rgba(0,0,0,0.15); color: #fff; }
+#ipsLayout_mainNav > li > a:active{ background: rgba(0,0,0,0.3); }
+
+#ipsLayout_mainNav > li > a.ipsNavActive {
+	background: {theme="ipsf_contentWrap"};
+	color: #444;
+	font-weight: bold;
+	border-radius: 3px 3px 0px 0px;
+}
+
+/* .ipsfocus_backgroundPicker #ipsLayout_mainNav > li > a.ipsNavActive{
+	box-shadow: inset rgba(255,255,255,0.93) 0 0 0 40px;
+} */
+
+#ipsLayout_mainNav a.ipsNavActive.ipsNavActive_menu { background: rgba(0,0,0,0.5); }
+
+#elNavigationMore_dropdown_menu a.ipsNavActive { font-weight: bold; }
+#ipsLayout_mainNav > li > a .ipsNotificationCount { top: -3px; }
+html[dir="ltr"] #ipsLayout_mainNav > li > a .ipsNotificationCount { right: -3px; }
+html[dir="rtl"] #ipsLayout_mainNav > li > a .ipsNotificationCount { left: -3px; }
+
+/* User Bar */
+#elUserNav {
+	background: rgba(0,0,0,0.3);
+	box-shadow: inset rgba(0,0,0,0.3) 0px 1px 3px;
+	float: right;
+	margin-top: calc( ( {theme="ipsf_logoHeight"}px - {theme="ipsf_userNavHeight"}px ) / 2 );
+	line-height: {theme="ipsf_userNavHeight"}px;
+}
+
+html[dir="rtl"] #elUserNav { float: left; }
+
+/* border-radius */
+#elUserNav, #elUserNav > li:first-of-type a, #elUserNav > li:last-of-type a{ border-radius: 3px; }
+html[dir="ltr"] #elUserNav > li:first-of-type a{ border-top-right-radius: 0px; border-bottom-right-radius: 0px; }
+html[dir="ltr"] #elUserNav > li:last-of-type a{ border-top-left-radius: 0px; border-bottom-left-radius: 0px; }
+html[dir="rtl"] #elUserNav > li:first-of-type a{ border-top-left-radius: 0px; border-bottom-left-radius: 0px; }
+html[dir="rtl"] #elUserNav > li:last-of-type a{ border-top-right-radius: 0px; border-bottom-right-radius: 0px; }
+
+#elUserNav > li{
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    border-color: rgba(255,255,255,0.1);
+}
+html[dir="rtl"] #elUserNav > li{
+    border-width: 0px 1px 0px 0px;
+}	
+
+#elUserNav > li:first-of-type{
+    border: 0;
+}
+
+#elUserNav > li > a { color: #fff; }
+#elUserNav > li a:hover{ background: rgba(0,0,0,0.2); }
+
+/* Search: Position */
+#searchWrap{ float: right; margin-top: 9px; margin-right: 9px; }
+html[dir="rtl"] #searchWrap{ float: left; margin-right: 0; margin-left: 9px; }
+
+/* Search */
+#elSearch {
+	background: #fff;
+  	box-shadow: rgba(0,0,0,0.1) 0px 0px 0px 1px;
+}
+
+#elSearch, #elSearch input[type="search"]{ color: #333; }
+
+#elSearch, #elSearch #elSearchFilter{ border-radius: 3px; }
+#elSearch #elSearchFilter { color: #5f5f5f; background: #eeeeee; }
+#elSearch #elSearchFilter:hover { background: #f7f7f7; }
+
+/* Content Area */
+
+#ipsLayout_contentArea{
+	border: 0;
+	background: {theme="ipsf_contentWrap"};
+	/* Make sure to edit the box-shadow of active navigation links if this is modified */
+	/* background: rgba(255,255,255,0.93); */
+}
+
+/* Main area background */
+#ipsLayout_mainArea{
+	background: transparent;
+}
+
+/* Sidebar background */
+#ipsLayout_sidebar{
+	background: transparent;
+	/* configure width */
+	/* min-width: 300px;
+	max-width: 300px; */
+}
+
+/* Content padding */
+@media screen and (min-width:980px){
+	
+	/* Configure padding */
+	#ipsLayout_contentWrapper, .preContentPadding{ padding: 0 15px; }
+	
+	/* Leave next values */
+	#ipsLayout_sidebar,
+	html[dir="rtl"] #ipsLayout_sidebar{ padding: 15px; }
+	html[dir="ltr"] #ipsLayout_contentWrapper #ipsLayout_sidebar.ipsLayout_sidebarright,
+	html[dir="rtl"] #ipsLayout_contentWrapper #ipsLayout_sidebar.ipsLayout_sidebarleft{ padding-right: 0; }
+	html[dir="ltr"] #ipsLayout_contentWrapper #ipsLayout_sidebar.ipsLayout_sidebarleft,
+	html[dir="rtl"] #ipsLayout_contentWrapper #ipsLayout_sidebar.ipsLayout_sidebarright{ padding-left: 0; }
+	.preContentPadding{ padding-top: 15px; }
+	#ipsLayout_mainArea{ padding-left: 0; padding-right: 0; }
+    
+}
+@media screen and (max-width:979px){
+	.preContentPadding{ padding-top: 10px; }
+}
+
+
+
+/* .maintitle */
+.ipsType_sectionTitle{
+	border-radius: 3px;
+	background-color: {theme="ipsf_maintitle"};
+	box-shadow: rgba(0,0,0,0.2) 0px 1px 4px inset;
+	border: 1px solid rgba(0,0,0,0.2);
+	text-shadow: rgba(0,0,0,0.8) 0px 1px 1px, rgba(0,0,0,0.25) 0px 0px 4px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: 15px;
+	margin-bottom: 6px;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Wrapped maintitles */
+.ipsBox .ipsType_sectionTitle{
+	
+}
+
+.ipsType_sectionTitle,
+a.ipsType_sectionTitle,
+.ipsType_sectionTitle a{
+	color: {theme="ipsf_maintitleText"};
+}
+
+/* Box Styles - .border */
+.ipsBox,
+.ipsComment,
+/* div[data-role='profileContent'], */
+.ipsPager{
+	border: 1px solid {theme="ipsf_borderColor"};
+	border-radius: 3px;
+	box-shadow: rgba(0,0,0,0.05) 0px 1px 4px;
+}
+
+	.ipsBox:not( .ipsBox_transparent ) {
+		
+	}
+
+	/* -dv 
+	.ipsBox.ipsModerated {
+		border-color: #ede4e4;
+	} */
+
+
+
+
+/*	
+	Main content box background
+	.row1
+*/
+.ipsAreaBackground_reset,
+.ipsAreaBackground,
+.ipsBox:not( .ipsBox_transparent ),
+.ipsTabs_panel,
+.ipsTabs_activeItem,
+.ipsWidget.ipsWidget_horizontal .ipsTabs_panel,
+/* div[data-role='profileContent'], */
+.cCalendar,
+.ipsComment,
+.ipsPager,
+.ipsfocusBackground{
+	background-color: {theme="area_background_reset"};
+}
+
+/* If above is rgba, the following may need to be customized */
+.ipsSticky,
+.ipsComposeArea_dummy,
+.ipsLightbox_commentsPanel,
+.ipsCarousel .ipsCarousel_nav,
+.ipsTruncate > .ipsTruncate_more,
+.ipsTruncate > .ipsTruncate_more span{
+	background-color: {theme="area_background_reset"};
+}
+
+
+
+/*
+	Widgets and sidebars
+	.row1
+*/
+.ipsWidget,
+.ipsWidget.ipsBox:not( .ipsBox_transparent ),
+/* Side bars */
+#elVNC_sidebar,
+#modcp_menu,
+#elSearch_sidebar,
+.ipsSideMenu.ipsAreaBackground_light{
+	background-color: {theme="area_background_reset"};
+	border: 1px solid {theme="ipsf_widgetBorder"};
+}
+
+
+
+/*
+	Slightly darker than .row1: author column, zebra
+	.row2
+*/
+.ipsAreaBackground_light,
+.cPollVoteBar,
+.ipsAttachment_progress,
+.ipsComposeArea_attachments,
+.ipsAttachment_dropZone.ipsDragging, .ipsComposeArea_dropZone.ipsDragging,
+.ipsDataList.ipsDataList_zebra .ipsDataItem:not( .ipsDataItem_selected ):not( .ipsModerated ):nth-child(even),
+.cStatusUpdates .ipsComment.ipsComment_hasChildren > .ipsComment_content,
+.ipsComment:not( .ipsModerated ) .ipsComment_header,
+.ipsFieldRow_section,
+.cPayment{
+	background-color: {theme="area_background_light"};
+}
+
+
+
+/*
+	Slightly darker again: submit bar
+	.row3
+*/
+.ipsAreaBackground,
+.ipsTabs {
+	background-color: {theme="area_background"};
+}
+
+
+
+/* Widget headers and Sidebar headers */
+.ipsWidget.ipsWidget_vertical .ipsWidget_title,
+.ipsWidget.ipsWidget_horizontal .ipsWidget_title,	
+#elVNC_sidebar .ipsFieldRow_label,
+#elSearch_sidebar .ipsFieldRow_label,
+.ipsTable.ipsMatrix .ipsMatrix_subHeader,
+.ipsSideMenu_title,
+.ipsSideMenu_subTitle {
+	color: {theme="ipsf_widgetText"};
+	background-color: {theme="widget_title_bar"};
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0) 100%);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+
+
+/* Calendar th, Notification Settings th, Blank cell, Side menu title */
+.ipsAreaBackground_dark,
+.ipsTable.ipsMatrix thead th,
+.cCalendar td.cCalendar_today, .cCalendarWeek div.cCalendar_today,
+.cDownloadsSubmit_step {
+	background-color: {theme="area_background_dark"};
+	color: #fff;
+}
+
+/* Report Center and Inbox List */
+/*.ipsApp .ipsDataItem_new, .ipsApp .ipsDataItem_success { background-color: #f0f8f2; }
+.ipsApp .ipsDataItem_warning { background-color: #f6f6e9; }
+.ipsApp .ipsDataItem_error { background-color: #f7efef; }
+.ipsApp .ipsDataItem_info { background-color: #edf5f7; }
+.ipsApp .ipsDataItem_selected { background-color: {theme="selected"}; }
+.ipsApp .ipsDataItem_status { background-color: #f9f9f9; } */
+
+/* Unread status */
+/* .ipsDataList_readStatus .ipsDataItem:not( .ipsDataItem_unread ):not( .ipsDataItem_selected ):not( .ipsModerated ) { background: #f9f9f9; } */
+
+/* Remove the following to enable zebra background */
+.ipsDataList.ipsDataList_zebra .ipsDataItem:not( .ipsDataItem_selected ):not( .ipsModerated ):nth-child(even) { background-color: transparent; }
+
+
+
+.ipsfocus_reset.ipsBox,
+.ipsBox:not(.ipsfocus_reset) .ipsBox:not(.ipsComment_selected),
+.cForumList .ipsAreaBackground_reset[data-role="forums"]{
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+}
+/* Allows .ipsBox to be the main background colour */
+.ipsBox .ipsTabs_panel{ background: none transparent; }
+
+.ipsfocus_noGaps .ipsComment{
+	margin-bottom: 0;
+	border-width: 0 0 1px 0;
+	border-radius: 0;
+	background: none;
+}
+
+
+/* ===================== */
+/*     MISCELLANEOUS     */
+/* ===================== */
+
+/* Page title */
+.ipsPageHeader,
+/* Staff page - may cause conflicts */
+#ipsLayout_mainArea > .ipsType_pageTitle{
+	background: {theme="area_background_reset"};
+	border: 1px solid {theme="ipsf_borderColor"};
+	border-radius: 3px;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+
+.ipsBox .ipsPageHeader{ background: none; border: 0; }
+
+/* New post separator */
+.ipsCommentUnreadSeperator { border-color: {theme="area_background_dark"}; }
+
+/* Step Bar - wizard */
+.ipsStepBar { background: {theme="area_background_light"}; }
+.ipsStepBar > .ipsStep > a, .ipsStepBar > .ipsStep > span { background-color: {theme="area_background_light"}; }
+.ipsStepBar > .ipsStep.ipsStep_active > a, .ipsStepBar > .ipsStep.ipsStep_active > span { color: #fff; }
+
+/* Subtle highlight: comment counts, autocomplete */
+.ipsCommentCount,
+.ipsAutocompleteMenu_item[data-selected]{
+	background: {theme="area_background"};
+}
+html[dir="ltr"] .ipsCommentCount:after { border-right-color: {theme="area_background"}; }
+html[dir="rtl"] .ipsCommentCount:after { border-left-color: {theme="area_background"}; }
+
+.ipsCommentCount,
+.ipsAutocompleteMenu_item[data-selected] {
+	color: {theme="text_color"};
+}
+
+.ipsSticky.ipsSticky_bottom:before {
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, {theme="area_background_reset"} 100%);
+}
+
+
+/* Messages */
+.ipsMessage {
+	color: #fff;
+	box-shadow: inset rgba(0,0,0,0.2) 0px 2px 0px 0px, inset rgba(0,0,0,0.2) 0px -2px 0px 0px;
+	border-radius: 0;
+}
+
+	.ipsMessage a,
+	.ipsMessage_success.ipsMessage a:not(.ipsButton),
+	.ipsMessage_warning.ipsMessage a:not(.ipsButton),
+	.ipsMessage_general.ipsMessage a:not(.ipsButton){
+		color: inherit;
+		border-bottom: 1px dotted currentColor;
+	}
+
+.ipsMessage_error, .ipsButton.ipsButton_repDown, .ipsReputation_count.ipsType_negative, .cNexusOrderBadge.cNexusOrderBadge_expd, .cNexusSupportBadge, .ipsAreaBackground_negative {
+	background: #b52b38;
+}
+.ipsMessage_success, .ipsButton.ipsButton_repUp, .ipsReputation_count.ipsType_positive, .cNexusOrderBadge.cNexusOrderBadge_paid, .ipsAreaBackground_positive {
+	background: #659c40;
+}
+.ipsMessage_warning {
+	background: #f6db89; color: #7a500d;
+}
+.ipsMessage_info, .ipsMessage_information, .cNexusOrderBadge.cNexusOrderBadge_pend {
+	background: #5e707d;
+}
+.ipsMessage_general, .ipsReputation_count {
+	background: #ebebeb; color: #333;
+}
+
+
+
+/* Read notifications in dropdown menu and QA */
+.ipsDataList_readStatus .ipsDataItem:not( .ipsDataItem_unread ):not( .ipsDataItem_selected ):not( .ipsModerated ) {
+	background: transparent;
+	opacity: 0.7;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+/* Selected message in inbox */
+.cMessage_active{ background: {theme="selected"} !important; }
+
+/* Gallery -dv
+#elGalleryImage{ background: #333; }
+#elGalleryNav{ background: #222; }
+*/
+
+/* Support Ticket -dv
+html[dir="ltr"] .cNexusSupportMessage_m, html[dir="ltr"] .cNexusSupportMessage_a { border-left-color: #3A89C9; }
+html[dir="rtl"] .cNexusSupportMessage_m, html[dir="rtl"] .cNexusSupportMessage_a { border-right-color: #3A89C9; }
+.cNexusSupportMessage_m .cNexusSupportMessage_author, .cNexusSupportMessage_a .cNexusSupportMessage_author { background: #eef2f6; }
+
+html[dir="ltr"] .cNexusSupportMessage_s { border-left-color: #8EBE94; }
+html[dir="rtl"] .cNexusSupportMessage_s { border-right-color: #8EBE94; }
+.cNexusSupportMessage_s .cNexusSupportMessage_author { background: #eff6f0; }
+
+html[dir="ltr"] .cNexusSupportMessage_e { border-left-color: #b4b4b4; }
+html[dir="rtl"] .cNexusSupportMessage_e { border-right-color: #b4b4b4; }
+.cNexusSupportMessage_e .cNexusSupportMessage_author { background: #f5f5f5; }
+
+html[dir="ltr"] .cNexusSupportMessage_h { border-left-color: #F8CA00; }
+html[dir="rtl"] .cNexusSupportMessage_h { border-right-color: #F8CA00; }
+.cNexusSupportMessage_h .cNexusSupportMessage_author { background: #f6f1dc; }
+*/
+
+/* Separator borders */
+
+.ipsDataItem {
+	border-top: 1px solid rgba(255,255,255,0.6);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.ipsDataItem.cForumGrid{ border-color: rgba(0,0,0,0.1); }
+
+.cSearchFilters .ipsFieldRow{
+	border-bottom-color: rgba(0,0,0,0.15);
+}
+
+hr.ipsHr,
+html[dir="ltr"] .cSearchActivity_info,
+html[dir="rtl"] .cSearchActivity_info{
+	border-color: rgba(0,0,0,0.15);
+}
+
+/* Miscellaneous borders and separators */
+
+html[dir="ltr"] .cMessage_members > ol > li{ border-right-color: rgba(0,0,0,0.05); }
+html[dir="rtl"] .cMessage_members > ol > li{ border-left-color: rgba(0,0,0,0.05); }
+.ipsComment.ipsBox.ipsComment_selected,
+.ipsComment.ipsBox.ipsComment_popular { border-color: rgba(0,0,0,0.1); }
+/* Profile comments */
+html[dir="ltr"] .ipsComment_subComments { border-left-color: rgba(0,0,0,0.04); }
+html[dir="rtl"] .ipsComment_subComments { border-right-color: rgba(0,0,0,0.04); }
+
+
+
+/* Footer */
+
+#ipsLayout_footer, #ipsLayout_footer p, #ipsLayout_footer a{ color: {theme="ipsf_footer"}; }
+#ipsLayout_footer{
+	font-size: 1.2rem;
+	text-shadow: rgba(0,0,0,0.4) 0px 1px 1px;
+	background: rgba(0,0,0,0.3);
+	border-radius: 3px;
+	padding: 12px 0;
+	border: 1px solid rgba(0,0,0,0.1);
+}
+
+#elFooterLinks{ float: left; padding: 0 15px; }
+#ipsLayout_footer #elCopyright{ margin: 0; text-align: right; float: right; padding: 0 15px; }
+#elCopyright_userLine{ margin-bottom: 4px; }
+
+
+
+
+
+/* User photo */
+.ipsUserPhoto { background: transparent; }
+.ipsUserPhoto:after {
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	border: 1px solid rgba(0,0,0,0.15);
+	box-shadow: none;
+}
+
+
+/* =================== */
+/*     BREADCRUMBS     */
+/* =================== */
+
+.ipsfocus_breadcrumbWrap{
+	
+}
+
+#elFooterNavigation.ipsSubNavigation{
+	border-width: 1px 0px 0px 0px;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+
+
+/* =============== */
+/*     BUTTONS     */
+/* =============== */
+
+.ipsApp .ipsButton{ }
+
+.ipsApp .ipsButton:hover {
+	box-shadow: inset rgba(255,255,255,0.1) 0px 100px 0px;
+}
+
+.ipsApp .ipsButton:active {
+	box-shadow: inset rgba(0,0,0,0.15) 0px 1px 3px, inset rgba(0,0,0,0.1) 0px 100px 0px;
+}
+
+.ipsApp .ipsButton_light{ }
+
+.ipsApp .ipsButton_light:hover {
+	box-shadow: inset rgba(255,255,255,0.3) 0px 100px 0px;
+}
+
+.ipsApp .ipsButton_light:active {
+	box-shadow: inset rgba(0,0,0,0.05) 0px 1px 3px, inset rgba(0,0,0,0.05) 0px 100px 0px;
+	border-color: rgba(0,0,0,0.12);
+}
+
+.ipsApp .ipsButton_normal { }
+
+.ipsApp .ipsButton_primary { }
+
+/* Like button */
+.ipsApp .ipsButton_alternate { }
+
+.ipsApp .ipsButton_important {
+	/* background-image: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%,rgba(255,255,255,0) 100%);
+	background-blend-mode: overlay; */
+}
+
+.ipsApp .ipsButton_link{
+	color: {theme="text_light"};
+}
+
+.ipsApp .ipsButton.ipsFollow{
+	background-image: none;
+	background: rgba(0,0,0,0.4);
+	color: #fff;
+	box-shadow: none;
+	border-color: rgba(0,0,0,0.1);
+}
+
+.ipsApp .ipsButton.ipsFollow:hover{
+	background: rgba(0,0,0,0.5);
+}
+
+.ipsApp .ipsButton.ipsFollow.ipsButton_primary{
+	background: rgba(0,0,0,0.6);
+	box-shadow: inset rgba(0,0,0,0.25) 0px 1px 2px, rgba(255,255,255,0.2) 0px 1px 0px;
+}
+
+.ipsToolList .ipsButton:active { position: relative; top: 1px; }
+
+
+
+
+/* ============== */
+/*     F_ICON     */
+/* ============== */
+
+.ipsItemStatus.ipsItemStatus_large,
+.ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+	{{if theme.ipsf_ficonTransparent}}
+		background: transparent;
+	{{else}}
+		background: {theme="ipsf_ficonBackground"};
+		box-shadow: inset rgba(0,0,0,0.2) 0px 0px 0px 1px, inset rgba(0,0,0,0.2) 0px 1px 4px;
+      {{endif}}
+	border-radius: {theme="ipsf_ficonRadius"};
+	color: {theme="ipsf_ficonColor"};
+	text-shadow: rgba(0,0,0,0.4) 0px 1px 1px;
+	font-size: {theme="ipsf_ficonFont"};
+	line-height: {theme="ipsf_ficonHeight"}; height: {theme="ipsf_ficonHeight"}; width: {theme="ipsf_ficonWidth"};
+	vertical-align: top;
+}
+
+/* Configure icon margins */
+.ipsItemStatus.ipsItemStatus_large, .ipsItemStatus_custom{ margin: 0 0px; }
+
+.ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+	box-shadow: inset rgba(255,255,255,0.2) 0px 50px 0 50px, inset rgba(0,0,0,0.2) 0px 0px 0px 1px, inset rgba(0,0,0,0.2) 0px 1px 4px;
+}
+
+/* Customized icons */
+.ipsItemStatus .fa-comments:before{ content: "\{theme="ipsf_ficonUnread"}"; }
+.ipsItemStatus_read .fa-comments:before{ content: "\{theme="ipsf_ficonRead"}"; }
+
+/* f_icon width fix */
+.ipsDataList_large .ipsDataItem_icon:after{ content: " "; display: block; height: 0px; overflow: hidden; margin-top: -1px;
+	width: {theme="ipsf_ficonWidth"};
+}
+.ipsItemStatus_custom{ max-width: {theme="ipsf_ficonWidth"}; }
+
+/* Overwrite styles from responsive css */
+@media screen and (max-width:979px){
+	.ipsDataItem_icon .ipsItemStatus.ipsItemStatus_large,
+	.ipsDataItem_icon .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+		border-radius: {theme="ipsf_ficonRadius"};
+		font-size: {theme="ipsf_ficonFontR"};		
+		line-height: {theme="ipsf_ficonHeightR"}; height: {theme="ipsf_ficonHeightR"}; width: {theme="ipsf_ficonWidthR"};
+	}
+	
+	.ipsDataList_large .ipsDataItem_icon:after{ width: {theme="ipsf_ficonWidthR"}; }
+	.ipsItemStatus_custom{ max-width: {theme="ipsf_ficonWidthR"}; }
+
+}
+
+.ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+	opacity: 0.3;
+}
+
+{{if theme.ipsf_grayscale}}
+.ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read,
+.ipsItemStatus_custom.ipsItemStatus_read{
+	-webkit-filter: grayscale(1);
+	filter: grayscale(1);
+}
+{{endif}}
+
+
+
+
+/* Selected message list */
+.ipsApp .ipsDataItem_selected {
+	background-color: {theme="selected"};
+}
+
+/* This highlights hot stats */
+.ipsDataItem_stats_hot { background: inherit; color: inherit; }
+
+
+/* Sidemenu items */
+/* Hover */
+.ipsSideMenu_item a:hover, a.ipsSideMenu_item:hover{
+	background-color: rgba(0,0,0,0.05);
+}
+/* Active */
+.ipsSideMenu_itemActive a, a.ipsSideMenu_itemActive, .ipsSideMenu_itemActive a:hover, a.ipsSideMenu_itemActive:hover {
+	background: {theme="button_bar"};
+	color: #fff;
+}
+
+
+
+	
+.ipsWidget.ipsWidget_vertical .ipsWidget_inner { background: none transparent; }
+
+
+/* ================== */
+/*     PAGINATION     */
+/* ================== */
+
+.ipsPager a{ color: {theme="text_color"}; }
+
+.ipsPager.cCalendarNav{ padding-top: 15px; }
+
+/* Pagination - alone */
+
+.ipsButtonRow li > a,
+.ipsButtonRow li > span,
+.ipsPagination .ipsPagination_page a,
+.ipsPagination .ipsPagination_next a,
+.ipsPagination .ipsPagination_prev a,
+.ipsPagination .ipsPagination_first a,
+.ipsPagination .ipsPagination_last a {
+	background: #f0f0f0;
+	color: #414141;
+}
+
+	.ipsPagination .ipsPagination_page.ipsPagination_active a,
+	.ipsButtonRow li > a.ipsButtonRow_active {
+		background: #323232;
+		border-color: #323232;
+		color: #fff;
+	}
+
+.ipsPagination .ipsPagination_pageJump a { color: {theme="text_light"}; }
+
+.ipsPagination .ipsPagination_page:not(.ipsPagination_active) a:hover,
+.ipsPagination .ipsPagination_next a:hover,
+.ipsPagination .ipsPagination_prev a:hover,
+.ipsPagination .ipsPagination_first a:hover,
+.ipsPagination .ipsPagination_last a:hover,
+.ipsButtonRow li > a:not(.ipsButtonRow_active):hover,
+.ipsButtonRow li > span:hover{
+	box-shadow: inset rgba(0,0,0,0.05) 0px 40px 0px;
+}
+
+.ipsPagination .ipsPagination_page a { text-shadow: none; }
+
+
+/* Pagination - in .ipsButtonBar */
+
+.ipsButtonBar .ipsPagination .ipsPagination_page a,
+.ipsButtonBar .ipsPagination .ipsPagination_next a,
+.ipsButtonBar .ipsPagination .ipsPagination_prev a,
+.ipsButtonBar .ipsPagination .ipsPagination_first a,
+.ipsButtonBar .ipsPagination .ipsPagination_last a,
+.ipsButtonBar .ipsButtonRow li > a,
+.ipsButtonBar .ipsButtonRow li > span{
+	background: rgba(255,255,255,0.1);
+	color: #fff;
+}
+
+.ipsButtonBar .ipsPagination .ipsPagination_pageJump a{
+	color: #fff;
+}
+
+.ipsButtonBar .ipsPagination .ipsPagination_page.ipsPagination_active a,
+.ipsButtonBar .ipsButtonRow li > a.ipsButtonRow_active{
+	background: #fff;
+	border-color: #fff;
+	color: #323232;
+}
+
+/* Pagination bar hover */
+.ipsButtonBar .ipsPagination .ipsPagination_page:not(.ipsPagination_active) a:hover,
+.ipsButtonBar .ipsPagination .ipsPagination_next a:hover,
+.ipsButtonBar .ipsPagination .ipsPagination_prev a:hover,
+.ipsButtonBar .ipsPagination .ipsPagination_first a:hover,
+.ipsButtonBar .ipsPagination .ipsPagination_last a:hover,
+.ipsButtonBar .ipsButtonRow li > a:not(.ipsButtonRow_active):hover,
+.ipsButtonBar .ipsButtonRow li > span:hover{
+	box-shadow: inset rgba(255,255,255,0.15) 0px 40px 0px;
+}
+
+/* -dv-
+.ipsPagination.ipsPagination_mini {
+	opacity: 0.3;
+}*/
+
+.ipsPagination.ipsPagination_mini a {
+	background-color: rgba(0,0,0,0.45);
+	box-shadow: inset rgba(0,0,0,0.1) 0px 0px 0px 1px;
+	color: #fff;
+	text-shadow: none;
+	padding: 0 6px;
+}
+
+.ipsPagination.ipsPagination_mini a:hover{
+	background-color:rgba(0,0,0,0.3);
+}
+
+/* Remove fading transition */
+.ipsPagination.ipsPagination_mini{
+	opacity: 1;
+	{prefix="transition" value="none"}
+}
+
+
+/* Comments */
+
+/* -dv-
+.ipsComment.ipsBox.ipsComment_popular {
+	background: #f2f7f5;
+}
+
+	.ipsComment.ipsModerated .ipsComment_header {
+		background: {theme="moderated"};
+	}
+
+	.ipsComment.ipsModerated {
+		background: {theme="moderated_light"};
+	} */
+
+/* Profile comments */
+
+.ipsComment.ipsComment_ignored { color: rgba(0,0,0,0.32); }
+/* -dv-
+.ipsComment.ipsComment_popular .ipsComment_popularFlag {
+	background: #558e7c;
+	color: #fff;
+}
+
+	.ipsComment.ipsComment_popular .ipsComment_popularFlag:after {
+		border-color: #558e7c transparent transparent transparent;
+	}
+*/
+
+
+
+/* ============== */
+/*     EDITOR     */
+/* ============== */
+
+/* Editor border color */
+.ipsComposeArea_editor { background: {theme="ipsf_editorBorder"}; }
+html[dir="ltr"] .ipsComposeArea_withPhoto .ipsComposeArea_editor:before { border-color: transparent {theme="ipsf_editorBorder"} transparent transparent; }
+html[dir="rtl"] .ipsComposeArea_withPhoto .ipsComposeArea_editor:before { border-color: transparent transparent transparent {theme="ipsf_editorBorder"}; }
+
+/* Placeholder */
+.ipsComposeArea_dummy { color: inherit; }
+
+.ipsComposeArea_sidebarClosed { background: rgba(0,0,0,0.08) !important; }
+
+.ipsAttachment_dropZone.ipsDragging, .ipsComposeArea_dropZone.ipsDragging {
+	box-shadow: inset rgba(255,255,255,0.4) 0px 0px 0px 200px;
+	border-color: rgba(87,87,87,0.15);
+}
+
+/*
+.ipsAttach_selection {
+	border: 1px solid #fff;
+	color: #fff;
+	background: #000;
+}
+	
+	.ipsAttach_selection:hover {
+		color: #fff;
+	}
+
+	.ipsAttach_selection.ipsAttach_selectionOn {
+		background: #2a94de;
+	}
+*/
+	
+
+
+/* Like button */
+.ipsLikeRep {
+	background: none;
+	padding: 0;
+	line-height: 24px;
+}
+
+	.ipsLikeRep:before {
+		border-color: transparent;
+	}
+
+.ipsLike_contents{
+	background: rgba(0,0,0,0.06);
+	border-radius: 3px;
+	padding: 0 10px;
+	display: inline-block;
+	line-height: 26px;
+	vertical-align: top;
+}
+
+.ipsLikeRep .ipsButton{
+	vertical-align: top;
+	line-height: 24px;
+	border: 1px solid rgba(0,0,0,0.1);
+}
+
+.ipsLikeRep .ipsButton_veryLight{ background: {theme="area_background_light"}; }
+
+.ipsButton_like .fa{
+	display: inline-block;
+	height: 26px;
+	width: 26px;
+	text-align: center;
+	line-height: 26px;
+	background: rgba(0,0,0,0.2);
+	margin: -1px 0;
+	margin-left: -8px;
+	border-radius: 3px 0px 0px 3px;
+	vertical-align: top;
+	font-size: 1.2rem;
+}
+
+.ipsButton_like.ipsButton_alternate{ background: #444; }
+.ipsButton_like.ipsButton_alternate .fa{ color: #ff8787; }
+
+.ipsButton_like.ipsButton_veryLight .fa{ background: rgba(0,0,0,0.07); }
+
+html[dir="rtl"] .ipsButton_like .fa{ margin-left: 0; margin-right: -8px; border-radius: 0px 3px 3px 0px; }
+
+.ipsLikeRep [data-action="giveReputation"] + .ipsReputation_count,
+.ipsReputation_count{
+	line-height: 24px;
+	vertical-align: top;
+	font-size: 1.1rem;
+}
+
+.ipsReputation_count,
+a.ipsReputation_count {
+	color: #fff;
+}
+
+.ipsReputation_count.ipsType_neutral,
+a.ipsReputation_count.ipsType_neutral {
+	color: #333;
+}
+
+
+/* Follow bubble */
+.ipsFollow .ipsCommentCount { background: rgba(255,255,255,0.35); color: #fff; }
+html[dir="ltr"] .ipsFollow .ipsCommentCount:after { border-right-color: rgba(255,255,255,0.35); }
+html[dir="rtl"] .ipsFollow .ipsCommentCount:after { border-left-color: rgba(255,255,255,0.35); }
+
+
+
+/* ================= */
+/*     popup.css     */
+/* ================= */
+
+.ipsDialog > div {
+	background: {theme="ipsf_popupMenu"};
+}
+
+.ipsDialog .ipsDialog_loading { background-color: {theme="ipsf_popupMenu"}; }
+.ipsDialog_close, a.ipsDialog_close, .ipsDialog_title { color: {theme="ipsf_popupText"}; }
+
+/* ALERT BOXES: js alert */
+.ipsAlert {
+	background: {theme="ipsf_popupMenu"};
+}
+
+/* HOVERCARD */
+.ipsHovercard {
+	background: {theme="ipsf_popupMenu"};
+	border: 1px solid rgba(255,255,255,0.1);
+	box-shadow: rgba(0,0,0,0.06) 0px 0px 0px 1px, 0px 5px 40px rgba(0,0,0,0.2), 0px 5px 20px rgba(0,0,0,0.2);
+}
+
+	.ipsHovercard_stemTop .ipsHovercard_stem {
+		border-color: {theme="ipsf_popupMenu"} transparent transparent transparent;
+	}
+
+	.ipsHovercard_stemBottom .ipsHovercard_stem {
+		border-color: transparent transparent {theme="ipsf_popupMenu"} transparent;
+	}
+
+	/* Hovercard elements */
+	.ipsHovercard_loading {
+		box-shadow: 0px 5px 40px rgba(0,0,0,0.4);
+		background-color: {theme="ipsf_popupMenu"};
+	}
+		
+		.ipsHovercard_loading:after {
+			border-color: {theme="ipsf_popupMenu"} transparent transparent transparent;
+		}
+
+/* Dark tooltips */
+.ipsTooltip { background: rgba(25,25,25,0.9); }
+.ipsTooltip.ipsTooltip_top:after { border-top-color: rgba(25,25,25,0.9); }
+.ipsTooltip.ipsTooltip_bottom:after { border-bottom-color: rgba(25,25,25,0.9); }
+
+
+/* jQuery UI Date Picker */
+
+.ui-datepicker { background: {theme="ipsf_popupMenu"}; box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.58 ); }
+.ui-datepicker-header { background: transparent; color: #333; border-bottom: 0; }
+.ui-datepicker-prev:after, .ui-datepicker-next:after { color: inherit; }
+.ui-datepicker th { background: rgba(0,0,0,0.6); color: #fff; }
+.ui-datepicker td a:hover, .ui-datepicker-current-day { background-color: rgba(0,0,0,0.06); }
+.ui-datepicker-today { background-color: rgba(0,0,0,0.1); }
+.ui-datepicker-title select, .ui-datepicker-title option { color: #333; }
+/* Fixes */
+.ui-datepicker table{ margin-top: 5px; }
+.ui-datepicker-title select{ margin: 0 3px; }	
+.ui-datepicker td a{ margin: 0 auto; }
+
+
+/* Tabs.css */
+
+.ipsTabs_item, a.ipsTabs_item {
+	color: {theme="text_color"};
+}
+
+	.ipsTabs_activeItem {
+		color: {theme="text_color"};
+	}
+
+	/* -dv .ipsTabs_item:not( .ipsTabs_activeItem ):hover {
+		background: rgba(255,255,255,0.55);
+		color: #333;
+	} */
+
+/* 'Contained' tabs with a border */
+.ipsTabs_panels.ipsTabs_contained,
+html[dir="rtl"] .ipsTabs_panels.ipsTabs_contained,
+.ipsTabs.ipsTabs_contained {border-color: rgba(0,0,0,0.1); }
+.ipsTabs.ipsTabs_contained { border-bottom-color: transparent; }
+
+
+
+
+/* Tags.css */
+.ipsTags a {
+	background: {theme="ipsf_tags"};
+	color: #fff !important;
+	border-radius: 0px 3px 3px 0px;
+}
+	html[dir="ltr"] .ipsTags a:before { border-color: transparent {theme="ipsf_tags"} transparent transparent; }
+	html[dir="rtl"] .ipsTags a:before { border-color: transparent transparent transparent {theme="ipsf_tags"}; }
+
+	.ipsTags a:hover { background: {theme="ipsf_tagsHover"}; }
+	html[dir="ltr"] .ipsTags a:hover:before { border-color: transparent {theme="ipsf_tagsHover"} transparent transparent; }
+	html[dir="rtl"] .ipsTags a:hover:before { border-color: transparent transparent transparent {theme="ipsf_tagsHover"}; }
+
+	.ipsTags a:after, .ipsTag_prefix:after { background: #fff; }
+
+.ipsTag_prefix, .ipsTags a{ border-radius: 0px 3px 3px 0px; }
+html[dir="rtl"] .ipsTag_prefix, html[dir="rtl"] .ipsTags a{ border-radius: 3px 0px 0px 3px; }
+
+mark { color: #5d3c01 !important; background: #fce0b2; border-bottom: 1px solid rgba(0,0,0,0.2); }
+
+
+
+/* =================== */
+/*     FORM INPUTS     */
+/* =================== */
+
+.ipsApp select {
+	border: 1px solid {theme="ipsf_inputBorder"};
+	border-radius: 3px;
+	background: {theme="ipsf_inputBackground"};
+}
+
+	.ipsApp select:not( [multiple] ) {
+		background-image: url( {resource="select_dropdown.png" app="core" location="global"} ), linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.03) 100%);
+		background-position: right center;
+		background-size: 18px 9px, 100% 100%;
+		background-repeat: no-repeat, repeat;
+	}
+	/* Fix this with new, single image instead of RTL version */
+	html[dir="rtl"] .ipsApp select:not( [multiple] ) {
+		background-image: url( {resource="select_dropdown_rtl.png" app="core" location="global"} ), linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.03) 100%);
+		background-position: left center;
+	}
+	
+	.ipsApp select:not( [multiple] ):focus{
+		border-color: {theme="ipsf_inputBorderF"};
+		/* box-shadow: 0px 0px 4px #BCE6FB inset, 0px 0px 3px #DDF4FF; */
+      	box-shadow: none;
+	}
+
+/* Text inputs */
+.ipsApp .ipsField_autocomplete, .ipsApp textarea, .ipsApp input[type="text"], .ipsApp input[type="password"], .ipsApp input[type="datetime"], .ipsApp input[type="datetime-local"], .ipsApp input[type="date"], .ipsApp input[type="month"], .ipsApp input[type="time"], .ipsApp input[type="week"], .ipsApp input[type="number"], .ipsApp input[type="email"], .ipsApp input[type="url"], .ipsApp input[type="search"], .ipsApp input[type="tel"] {
+ 	background-color: {theme="ipsf_inputBackground"};
+ 	border: 1px solid {theme="ipsf_inputBorder"};
+ 	color: {theme="ipsf_inputText"};
+ 	box-shadow: inset rgba(0,0,0,0.1) 0px 1px 3px;
+	border-radius: 3px;
+}
+
+	/* Focus */
+	.ipsApp textarea:focus, .ipsApp input[type="text"]:focus, .ipsApp input[type="password"]:focus, .ipsApp input[type="datetime"]:focus, .ipsApp input[type="datetime-local"]:focus, .ipsApp input[type="date"]:focus, .ipsApp input[type="month"]:focus, .ipsApp input[type="time"]:focus, .ipsApp input[type="week"]:focus, .ipsApp input[type="number"]:focus, .ipsApp input[type="email"]:focus, .ipsApp input[type="url"]:focus, .ipsApp input[type="search"]:focus, .ipsApp input[type="tel"]:focus, .ipsApp input[type="color"]:focus {
+		border-color: {theme="ipsf_inputBorderF"} !important; /* Important required to overwrite RTL border */
+		/* box-shadow: 0px 0px 4px #BCE6FB inset, 0px 0px 3px #DDF4FF; */
+      	box-shadow: inset rgba(0,0,0,0.1) 0px 1px 3px;
+	}
+	
+	/* Disabled */
+	.ipsApp textarea[disabled], .ipsApp input[type="text"][disabled], .ipsApp input[type="password"][disabled], .ipsApp input[type="datetime"][disabled], .ipsApp input[type="datetime-local"][disabled], .ipsApp input[type="date"][disabled], .ipsApp input[type="month"][disabled], .ipsApp input[type="time"][disabled], .ipsApp input[type="week"][disabled], .ipsApp input[type="number"][disabled], .ipsApp input[type="email"][disabled], .ipsApp input[type="url"][disabled], .ipsApp input[type="search"][disabled], .ipsApp input[type="tel"][disabled], .ipsApp input[type="color"][disabled] {
+		background: {theme="ipsf_inputBackground"};
+		box-shadow: inset rgba(0,0,0,0.1) 0px 0 100px;
+		opacity: 0.5;
+	}
+
+/* Checkbox */
+.ipsToggle {
+	background: red;
+	box-shadow: 0px 0px 1px rgba(0,0,0,0.2) inset;
+	border: 1px solid rgba(0,0,0,0.3);
+}
+	.ipsToggle.ipsToggle_off { background: #c2c2c2; }
+	.ipsToggle.ipsToggle_on { background: #679b35; }
+	.ipsToggle span { background: #f5f5f5; border-radius: 2px; box-shadow: 0px 0px 1px rgba(0,0,0,0.5); }
+	.ipsApp .ipsToggle:focus { border-color: rgba(82, 168, 236, 0.8); box-shadow: 0 1px 1px rgba(0,0,0,0.075), 0px 1px 5px rgba(82,168,236,0.6); }
+
+/* Validation */
+.ipsApp input.ipsField_error, .ipsFieldRow_error textarea:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="text"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="password"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="datetime"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="datetime-local"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="date"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="month"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="time"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="week"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="number"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="email"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="url"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="search"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="tel"]:not( .ipsFieldRow_errorExclude ), .ipsFieldRow_error input[type="color"]:not( .ipsFieldRow_errorExclude ) {
+	background: #f8e6e9;
+	border-color: #ba7b84;
+	color: #ba7b84;
+	box-shadow: inset #dda3ab 0px 1px 3px;
+}
+
+.ipsApp input.ipsField_success, .ipsApp textarea.ipsField_success, .ipsFieldRow_success textarea, .ipsFieldRow_success input[type="text"], .ipsFieldRow_success input[type="password"], .ipsFieldRow_success input[type="datetime"], .ipsFieldRow_success input[type="datetime-local"], .ipsFieldRow_success input[type="date"], .ipsFieldRow_success input[type="month"], .ipsFieldRow_success input[type="time"], .ipsFieldRow_success input[type="week"], .ipsFieldRow_success input[type="number"], .ipsFieldRow_success input[type="email"], .ipsFieldRow_success input[type="url"], .ipsFieldRow_success input[type="search"], .ipsFieldRow_success input[type="tel"], .ipsFieldRow_error input[type="color"] {
+	background: #ebf2e5;
+	border-color: #689741;
+	color: #689741;
+	box-shadow: inset #b2d198 0px 1px 3px;
+}
+
+/* Attachments */
+/*
+.ipsField_uploader {
+	border: 1px solid #efefef;
+	border-bottom: 1px solid #dedede;
+	box-shadow: 0px 1px 0px rgba(255,255,255,1) inset;
+	background: #f6f6f6;
+	text-shadow: 0px 1px 0px #fff;
+}
+
+.ipsAttachments_list {
+	border: 1px solid #efefef;
+}
+
+	.ipsAttachments_list > li {
+		background: #fcfcfc;
+		border-bottom: 1px solid #efefef;
+	}
+
+*/
+
+/* Inherit LTR styles */
+html[dir="rtl"] .ipsApp .ipsField_autocomplete, html[dir="rtl"] .ipsApp textarea, html[dir="rtl"] .ipsApp input[type="text"], html[dir="rtl"] .ipsApp input[type="password"], html[dir="rtl"] .ipsApp input[type="datetime"], html[dir="rtl"] .ipsApp input[type="datetime-local"], html[dir="rtl"] .ipsApp input[type="date"], html[dir="rtl"] .ipsApp input[type="month"], html[dir="rtl"] .ipsApp input[type="time"], html[dir="rtl"] .ipsApp input[type="week"], html[dir="rtl"] .ipsApp input[type="number"], html[dir="rtl"] .ipsApp input[type="email"], html[dir="rtl"] .ipsApp input[type="url"], html[dir="rtl"] .ipsApp input[type="search"], html[dir="rtl"] .ipsApp input[type="tel"],
+.CodeMirror,
+html[dir="rtl"] .CodeMirror {
+	border: 1px solid {theme="ipsf_inputBorder"};
+}
+	
+/* Autocomplete Tokens */
+.cToken { font-size: inherit; }
+
+.cToken, .ipsSelectTree [data-role="tokenList"] .cToken {
+	background: rgba(0,0,0,0.6);
+	color: #fff;
+}
+
+.cToken.cToken_selected {
+	background: rgba(0,0,0,0.8);
+}
+
+/* Select Tree */
+.ipsSelectTree {
+	color: {theme="ipsf_inputText"};
+	border: 1px solid {theme="ipsf_inputBorder"};
+	border-radius: 3px;
+	background: {theme="ipsf_inputBackground"};
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.03) 100%);
+}
+
+/* Select Tree Active */	
+	.ipsSelectTree_nodes,
+	.ipsSelectTree_active {
+		border-color: {theme="ipsf_inputBorder"};
+	}
+	
+	.ipsSelectTree_nodes {
+		background: {theme="ipsf_inputBackground"};
+		background-image: linear-gradient(to bottom, rgba(0,0,0,0.03) 0%,rgba(0,0,0,0.03) 100%);
+		color: {theme="ipsf_inputText"};
+	}
+		
+	.ipsSelectTree_expand { color: inherit; }
+	
+	.ipsSelectTree_nodes [data-role="nodeList"] {
+		background: {theme="ipsf_inputBackground"};
+		border: 1px solid rgba(0,0,0,0.1);
+	}
+	
+	.ipsSelectTree_nodes [data-role="nodeList"] li {
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+	}
+	
+	.ipsSelectTree_nodes [data-role="nodeList"] li .ipsSelectTree_item:not( .ipsSelectTree_itemDisabled ):hover {
+		background: rgba(0,0,0,0.06);
+	}
+
+	.ipsSelectTree_selected {
+		background: rgba(0,0,0,0.72);
+		color: #fff;
+	}
+	
+	.ipsSelectTree_nodes [data-role="nodeList"] li .ipsSelectTree_item:not( .ipsSelectTree_itemDisabled ).ipsSelectTree_selected:hover {
+		background: rgba(0,0,0,0.8);
+	}
+	
+	.ipsSelectTree_nodes [data-role="nodeList"] li [data-role="childWrapper"] {
+		border-top: 1px solid rgba(0,0,0,0.05);
+	}
+	html[dir="ltr"] .ipsSelectTree_nodes [data-role="nodeList"] li [data-role="childWrapper"] {
+		border-left: 1px dashed rgba(0,0,0,0.2);
+	}
+	html[dir="rtl"] .ipsSelectTree_nodes [data-role="nodeList"] li [data-role="childWrapper"] {
+		border-right: 1px dashed rgba(0,0,0,0.2);
+	}
+	
+	.ipsSelectTree_itemDisabled > [data-role="nodeTitle"] {
+		color: rgba(0,0,0,0.35);
+	}
+	
+	.ipsSelectTree_placeholder {
+		color: rgba(0,0,0,0.44);
+	}
+
+
+/* =========================== */
+/*     OTHER VISUAL STYLES     */
+/* =========================== */
+
+
+.ipsThumb_bg, .ipsNoThumb{
+	border: 0;
+	box-shadow: inset rgba(0,0,0,0.3) 0px 0px 0px 1px;
+}
+.ipsNoThumb{ background: #2a2a2a; }
+.ipsImage_thumbnailed, .ipsThumb { border-color: rgba(0,0,0,0.12); }
+
+/* .ipsAreaBackground_dark hr.ipsHr { border-color: rgba(255,255,255,0.1); } */
+hr.ipsHr.ipsHr_thick { border-color: rgba(0,0,0,0.75); }
+
+
+
+/* Spinning loader */
+.ipsLoading:before { color: rgba(0,0,0,0.75); }
+.ipsLoading.ipsLoading_small:before { color: rgba(0,0,0,0.85); }
+.ipsLoading.ipsLoading_tiny:before { color: rgba(0,0,0,0.85); }
+/*.ipsLoading.ipsLoading_dark:before { color: #fff; }*/
+
+
+
+
+/* .ipsPageHead_special { color: #fff; } */
+
+
+/* Comment and Notification Indicators */
+/*
+	.ipsCommentCount_hot { background: #da8619; color: #fff; }
+		.ipsCommentCount_hot:after { border-right-color: #da8619; }
+		html[dir="rtl"].ipsCommentCount_hot:after { border-left-color: #da8619; }
+*/
+.ipsApp .ipsNotificationCount {
+	background: #d93939;
+	border-radius: 3px;
+	box-shadow: inset rgba(255,255,255,0.2) 0px 1px 0px;
+	top: -5px;
+}
+
+html[dir="ltr"] .ipsApp .ipsNotificationCount{ right: -5px; }
+html[dir="rtl"] .ipsApp .ipsNotificationCount{ left: -5px; }
+
+html[dir="ltr"] #elNavigationMore_dropdown_menu .ipsNotificationCount{ top: 9px; right: 9px; }
+html[dir="rtl"] #elNavigationMore_dropdown_menu .ipsNotificationCount{ top: 9px; left: 9px; }
+
+/* Charts */
+/*
+.ipsChart { border-color: #ebebeb; }
+	.ipsChart .ipsButtonRow li > a:not( .ipsButtonRow_active ) { background: #fff; color: #6f6f6f; }
+*/
+
+
+/* Sticky Elements */
+/* -dv-
+
+	.ipsSticky.ipsSticky_top { border-bottom: 1px solid rgba(0,0,0,0.05); }
+
+*/
+
+
+/* Calendar Dates */
+/*
+.ipsCalendarDate { border: 1px solid rgba(0,0,0,0.2); background: #fafafa; }
+.ipsWidget .ipsCalendarDate { background: #fff; }
+.ipsCalendarDate_month { color: #a93848; }
+*/
+
+
+
+
+
+
+
+.ipsProgressBar {
+	background: rgba(0,0,0,0.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.4), inset rgba(0,0,0,0.1) 0px 0px 0px 1px;
+}
+
+.ipsProgressBar.ipsProgressBar_animated .ipsProgressBar_progress { background-color: {theme="poll_bar"}; }
+.ipsProgressBar_progress { background: {theme="poll_bar"}; }
+
+/* -dv .ipsProgressBar_warning .ipsProgressBar_progress { background: #c05454; }
+.ipsProgressBar_progress[data-progress]:after { color: #fff; } */
+
+
+
+/* Cover Photos */
+#elProfileStats{ background: #111; }
+.ipsCoverPhoto_container:after {
+	background: linear-gradient(to bottom, rgba(17,17,17,0) 0%,rgba(17,17,17,0.4) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00111111', endColorstr='#111111',GradientType=0 );
+}
+html[dir="ltr"] #elProfileStats > ul:last-child > li, html[dir="rtl"] #elProfileStats > ul:last-child > li{ border-color: rgba(255,255,255,0.2); }
+
+
+/* BASIC MENU */
+
+.ipsMenu {
+	background: {theme="ipsf_popupMenu"};
+	box-shadow: 0px 10px 70px rgba(0,0,0,0.3);
+	/* Prevent menu from inheriting from parent */
+	text-shadow: none;
+}
+
+.ipsMenu_item > a {
+	color: {theme="ipsf_popupText"};
+	border-radius: 3px;
+}
+
+/* Hover */
+.ipsMenu_item:not( .ipsMenu_itemClicked ):not( .ipsMenu_itemDisabled ) a:hover, .ipsMenu_item[data-selected] a {
+	background-color: rgba(0,0,0,0.05);
+	box-shadow: inset rgba(0,0,0,0.03) 0px 0px 0px 1px;
+}
+
+/* Titles */
+.ipsMenu_title {
+	/* Color required otherwise it inherits from parent container such as ipsType_pageTitle */
+	color: {theme="text_color"};
+	background: rgba(0,0,0,0.05);
+	border: 1px solid rgba(0,0,0,0.07);
+	border-width: 1px 0px;
+	margin: 5px -5px;
+	padding: 12px 15px;
+	text-transform: uppercase;
+}
+.ipsMenu .ipsMenu_title:first-of-type{ margin-top: 0; }
+
+.ipsMenu_sep { border-top-color: rgba(0,0,0,0.1); }
+
+/* Other */
+ul.ipsMenu, div.ipsMenu > ul{ padding: 5px; }
+.ipsMenu_itemDisabled > a { color: inherit; opacity: 0.5; }
+
+/* MENU STEMS */
+.ipsMenu.ipsMenu_topLeft:after, .ipsMenu.ipsMenu_topRight:after, .ipsMenu.ipsMenu_topCenter:after { border-top-color: {theme="ipsf_popupMenu"}; }
+.ipsMenu.ipsMenu_bottomRight:after, .ipsMenu.ipsMenu_bottomLeft:after, .ipsMenu.ipsMenu_bottomCenter:after { border-bottom-color: {theme="ipsf_popupMenu"}; }
+
+
+
+/* OTHER MENU */
+
+.ipsMenu_headerBar, .ipsMenu_footerBar {
+	background: {theme="ipsf_popupMenu"};
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%);
+}
+
+	.ipsMenu_headerBar {
+		border-bottom: 1px solid rgba(0,0,0,0.15);
+		box-shadow: 0px 1px 3px rgba(0,0,0,0.07);		
+	}
+
+	.ipsMenu_footerBar {
+		border-top: 1px solid rgba(0,0,0,0.1);
+		box-shadow: 0px -1px 3px rgba(0,0,0,0.07);
+	}
+
+
+
+/* Counts for menu items */
+
+.ipsMenu_itemCount, .ipsSideMenu_itemCount {
+	background: rgba(0,0,0,0.05);
+	color: inherit;
+}
+	
+	.ipsMenu_item:not( .ipsMenu_itemClicked ) a:hover .ipsMenu_itemCount,
+	.ipsMenu_item:not( .ipsMenu_itemClicked ) button:hover .ipsMenu_itemCount {
+		background: rgba(0,0,0,0.1);
+	}
+
+	/* .ipsSideMenu_itemActive .ipsSideMenu_itemCount {
+		background: rgba(255,255,255,0.2);
+		color: #fff;
+	} */
+
+
+
+/* AUTOCOMPLETE MENUS */
+
+.ipsAutocompleteMenu {
+	background: {theme="ipsf_popupMenu"};
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+	.ipsAutocompleteMenu_item[data-selected] {
+		/* background: rgba(0,0,0,0.1); subtle highlight */
+	}
+
+
+
+/* SIDE MENUS */
+/*
+
+*/
+
+/* Sub lists */
+/*
+html[dir="ltr"] .ipsSideMenu_item + .ipsSideMenu_list { border-left: 1px solid rgba(0,0,0,0.2); }
+html[dir="rtl"] .ipsSideMenu_item + .ipsSideMenu_list { border-right: 1px solid rgba(0,0,0,0.2); }
+*/
+
+/* post-content.css */
+/*
+acronym.ipsStyle, abbr.ipsStyle {
+ 	border-bottom-color: #000; 
+}
+span.ipsStyle_hr {
+ 	border-top: 2px solid #777; 
+}
+
+.ipsStyle_spoiler, .ipsStyle_spoilerFancy_inner {
+	background: #e5e5e5 !important;
+	color: #353535 !important;
+}
+	
+	.ipsStyle_spoiler a {
+		color: #363636 !important;
+	}
+
+	.ipsStyle_spoiler:hover,
+	.ipsStyle_spoiler:focus {
+		background: transparent !important;
+		color: #000 !important;
+	}
+
+		.ipsStyle_spoiler:hover a,
+		.ipsStyle_spoiler:focus a {
+			color: #000;
+		}
+
+	.ipsStyle_spoilerFancy {
+		background: #fafafa;
+	}
+
+	.ipsStyle_spoilerFancy_text {
+		color: #353535;
+	}
+
+*/
+.ipsCode {
+	background: rgba(255,255,255,0.85);
+	border: 1px solid rgba(0,0,0,0.1) !important;
+	border-left: 4px solid rgba(0,0,0,0.5) !important;
+}
+
+blockquote.ipsQuote {
+	border: 1px solid rgba(0,0,0,0.1);
+	border-left: 3px solid rgba(0,0,0,0.5);
+	font-size: 1.2rem;
+	background: rgba(255,255,255,0.85);
+	color: #aaaaaa;
+	padding-top: 35px;
+}
+
+blockquote.ipsQuote blockquote.ipsQuote{ background: rgba(255,255,255,0.5); }
+
+/*
+html[dir="rtl"] blockquote.ipsQuote { 
+	border-color: #ededed #666666 #dbdbdb #e8e8e8;
+}
+*/
+blockquote.ipsQuote div.ipsQuote_citation {
+	background: rgba(0,0,0,0.05);
+	color: #222;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+/*
+
+blockquote.ipsQuote div.ipsQuote_citation a {
+	color: #222;
+}
+
+blockquote.ipsQuote blockquote.ipsQuote {
+	background: #fff;
+}
+.ipsQuote_citation.ipsQuote_open [data-action='toggleQuote']:before {
+	color: #bdbdbd;
+}
+
+iframe[data-embedContent] {
+	border: 1px solid rgba(0,0,0,0.1);
+	background-color: #fcfcfc;
+	background-image: url( {resource="loaders/large_loading@2x.gif" app="core" location="front"} );
+}
+
+		.ipsEmbedded_withImage .ipsEmbedded_image {
+			border: 3px solid #fff;
+		}
+
+	.ipsEmbedded_headerArea {
+		background: #efefef;
+		border-bottom: 1px solid rgba(0,0,0,0.055);
+	}
+
+	.ipsEmbedded_content {
+		background-color: #fcfcfc;
+	}
+
+	.ipsEmbedded_stats {
+		border-top: 1px solid rgba(0,0,0,0.05);
+	}
+
+	.ipsEmbedded_error {
+		color: rgba(0,0,0,0.3);
+	}
+*/
+
+/* Stop animated background image bug */
+.cForumTitle{ {prefix="transition" value="none"} }
+
+{{if theme.ipsf_backgroundType == 'ipsfocus_backgroundPicker'}}
+
+/* ========================= */
+/*     BACKGROUND PICKER     */
+/* ========================= */
+
+/* Prevent background flash */
+body.ipsfocus_backgroundPicker{ background-image: none; }
+
+#ipsf_pickerWrap{ display: none; margin: -15px -15px 10px -15px; }
+
+#ipsf_picker{
+	padding: 15px 10px;
+	background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+	box-shadow: rgba(0,0,0,0.1) 0px 1px 0px 0px;
+}
+
+#ipsf_picker span{
+	display: block;
+	float: left;
+	height: 140px;
+	width: 24%;
+	margin: 0 0.5%;
+	background-size: cover;
+	background-position: 50% 50%;
+	cursor: pointer;
+	text-align: center;
+	padding-top: 10px;
+	color: #fff;
+	text-shadow: rgba(0,0,0,0.3) 0px 1px 3px;
+	box-shadow: inset rgba(0,0,0,0.5) 0px 1px 5px, inset rgba(0,0,0,0.2) 0px 0px 0px 1px;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+#ipsf_picker span:hover{
+	box-shadow: inset rgba(0,0,0,0.25) 0px 0px 0px 90px, inset rgba(0,0,0,0.5) 0px 1px 5px, inset rgba(0,0,0,0.2) 0px 0px 0px 1px;
+}
+
+#ipsf_picker span:before{
+    content: "\f05d";
+	font-family: "FontAwesome";
+	font-size: 72px;
+	line-height: 90px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	{prefix="transform" value="translate(0,0)"};
+	opacity: 0.8;
+	display: none;
+}
+
+#ipsf_picker span:after{
+	content: "Change background image";
+	font-weight: bold;
+	display: none;
+}
+
+#ipsf_picker span:hover:before,
+#ipsf_picker span:hover:after{
+	display: block;
+}
+
+.ipsfocus_toggleBgPicker{
+	cursor: pointer;
+}
+
+body.ipsfocus_bg1,
+.ipsfocus_bg1 .ipsType_sectionTitle,
+.ipsfocus_bg1 .ipsItemStatus.ipsItemStatus_large,
+.ipsfocus_bg1 .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+	background-color: {theme="ifBg1_hex"};
+	background-image: url({resource="backgrounds/1.jpg" app="core" location="front"});
+	background-repeat: {theme="ifBg1_repeat"};
+	background-attachment: {theme="ifBg1_attachment"};
+	background-size: {theme="ifBg1_size"};
+	background-position: {theme="ifBg1_position"};
+}
+
+body.ipsfocus_bg2,
+.ipsfocus_bg2 .ipsType_sectionTitle,
+.ipsfocus_bg2 .ipsItemStatus.ipsItemStatus_large,
+.ipsfocus_bg2 .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+	background-color: {theme="ifBg2_hex"};
+	background-image: url({resource="backgrounds/2.jpg" app="core" location="front"});
+	background-repeat: {theme="ifBg2_repeat"};
+	background-attachment: {theme="ifBg2_attachment"};
+	background-size: {theme="ifBg2_size"};
+	background-position: {theme="ifBg2_position"};
+}
+
+body.ipsfocus_bg3,
+.ipsfocus_bg3 .ipsType_sectionTitle,
+.ipsfocus_bg3 .ipsItemStatus.ipsItemStatus_large,
+.ipsfocus_bg3 .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+	background-color: {theme="ifBg3_hex"};
+	background-image: url({resource="backgrounds/3.jpg" app="core" location="front"});
+	background-repeat: {theme="ifBg3_repeat"};
+	background-attachment: {theme="ifBg3_attachment"};
+	background-size: {theme="ifBg3_size"};
+	background-position: {theme="ifBg3_position"};
+}
+
+body.ipsfocus_bg4,
+.ipsfocus_bg4 .ipsType_sectionTitle,
+.ipsfocus_bg4 .ipsItemStatus.ipsItemStatus_large,
+.ipsfocus_bg4 .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+	background-color: {theme="ifBg4_hex"};
+	background-image: url({resource="backgrounds/4.jpg" app="core" location="front"});
+	background-repeat: {theme="ifBg4_repeat"};
+	background-attachment: {theme="ifBg4_attachment"};
+	background-size: {theme="ifBg4_size"};
+	background-position: {theme="ifBg4_position"};
+}
+
+{{if (!theme.ipsf_pickerMobile) }}
+/* Configure the backgrounds for mobiles and tablets */
+@media screen and (max-width:979px){
+	
+	body.ipsfocus_bg1,
+	.ipsfocus_bg1 .ipsType_sectionTitle,
+	.ipsfocus_bg1 .ipsItemStatus.ipsItemStatus_large,
+	.ipsfocus_bg1 .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read,
+	body.ipsfocus_bg2,
+	.ipsfocus_bg2 .ipsType_sectionTitle,
+	.ipsfocus_bg2 .ipsItemStatus.ipsItemStatus_large,
+	.ipsfocus_bg2 .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read,
+	body.ipsfocus_bg3,
+	.ipsfocus_bg3 .ipsType_sectionTitle,
+	.ipsfocus_bg3 .ipsItemStatus.ipsItemStatus_large,
+	.ipsfocus_bg3 .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read,
+	body.ipsfocus_bg4,
+	.ipsfocus_bg4 .ipsType_sectionTitle,
+	.ipsfocus_bg4 .ipsItemStatus.ipsItemStatus_large,
+	.ipsfocus_bg4 .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+		background-image: none;
+	}
+	
+}
+{{endif}}
+
+@media screen and (min-width:980px){
+	
+	{{if (!theme.ipsf_horiztonalTopic) AND (theme.ipsf_postAuthorBar) AND (theme.ipsf_postDateBar) }}
+	.ipsfocus_bg1 .cAuthorPane_author,
+	.ipsfocus_bg1 .cPost .ipsComment_meta,
+	{{endif}}
+	.ipsfocus_bg1 .ipsButtonBar{
+		background-color: {theme="ifBg1_hex"};
+		background-image: url({resource="backgrounds/1.jpg" app="core" location="front"});
+		background-repeat: {theme="ifBg1_repeat"};
+		background-attachment: {theme="ifBg1_attachment"};
+		background-size: {theme="ifBg1_size"};
+		background-position: {theme="ifBg1_position"};
+		box-shadow: inset rgba(0,0,0,0.5) 0px 0px 0px 100px;
+	}
+	
+	{{if (!theme.ipsf_horiztonalTopic) AND (theme.ipsf_postAuthorBar) AND (theme.ipsf_postDateBar) }}
+	.ipsfocus_bg2 .cAuthorPane_author,
+	.ipsfocus_bg2 .cPost .ipsComment_meta,
+	{{endif}}
+	.ipsfocus_bg2 .ipsButtonBar{
+		background-color: {theme="ifBg2_hex"};
+		background-image: url({resource="backgrounds/2.jpg" app="core" location="front"});
+		background-repeat: {theme="ifBg2_repeat"};
+		background-attachment: {theme="ifBg2_attachment"};
+		background-size: {theme="ifBg2_size"};
+		background-position: {theme="ifBg2_position"};
+		box-shadow: inset rgba(0,0,0,0.5) 0px 0px 0px 100px;
+	}
+	
+	{{if (!theme.ipsf_horiztonalTopic) AND (theme.ipsf_postAuthorBar) AND (theme.ipsf_postDateBar) }}
+	.ipsfocus_bg3 .cAuthorPane_author,
+	.ipsfocus_bg3 .cPost .ipsComment_meta,
+	{{endif}}
+	.ipsfocus_bg3 .ipsButtonBar{
+		background-color: {theme="ifBg3_hex"};
+		background-image: url({resource="backgrounds/3.jpg" app="core" location="front"});
+		background-repeat: {theme="ifBg3_repeat"};
+		background-attachment: {theme="ifBg3_attachment"};
+		background-size: {theme="ifBg3_size"};
+		background-position: {theme="ifBg3_position"};
+		box-shadow: inset rgba(0,0,0,0.5) 0px 0px 0px 100px;
+	}
+	
+	{{if (!theme.ipsf_horiztonalTopic) AND (theme.ipsf_postAuthorBar) AND (theme.ipsf_postDateBar) }}
+	.ipsfocus_bg4 .cAuthorPane_author,
+	.ipsfocus_bg4 .cPost .ipsComment_meta,
+	{{endif}}
+	.ipsfocus_bg4 .ipsButtonBar{
+		background-color: {theme="ifBg4_hex"};
+		background-image: url({resource="backgrounds/4.jpg" app="core" location="front"});
+		background-repeat: {theme="ifBg4_repeat"};
+		background-attachment: {theme="ifBg4_attachment"};
+		background-size: {theme="ifBg4_size"};
+		background-position: {theme="ifBg4_position"};
+		box-shadow: inset rgba(0,0,0,0.5) 0px 0px 0px 100px;
+	}
+}
+
+{{endif}}
+
+{{if theme.ipsf_backgroundType == 'ipsfocus_background'}}
+/* If background picker is disabled, it will use background #1 by default */
+
+body.ipsfocus_background,
+.ipsfocus_background .ipsType_sectionTitle,
+.ipsfocus_background .ipsItemStatus.ipsItemStatus_large,
+.ipsfocus_background .ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+	background-color: {theme="ifBg1_hex"};
+	background-image: url({resource="backgrounds/1.jpg" app="core" location="front"});
+	background-repeat: {theme="ifBg1_repeat"};
+	background-attachment: {theme="ifBg1_attachment"};
+	background-size: {theme="ifBg1_size"};
+	background-position: {theme="ifBg1_position"};
+}
+
+@media screen and (min-width:980px){
+	{{if (!theme.ipsf_horiztonalTopic) AND (theme.ipsf_postAuthorBar) AND (theme.ipsf_postDateBar) }}
+	.ipsfocus_background .cAuthorPane_author,
+	.ipsfocus_background .cPost .ipsComment_meta,
+	{{endif}}
+	.ipsfocus_background .ipsButtonBar{
+		background-color: {theme="ifBg1_hex"};
+		background-image: url({resource="backgrounds/1.jpg" app="core" location="front"});
+		background-repeat: {theme="ifBg1_repeat"};
+		background-attachment: {theme="ifBg1_attachment"};
+		background-size: {theme="ifBg1_size"};
+		background-position: {theme="ifBg1_position"};
+		box-shadow: inset rgba(0,0,0,0.5) 0px 0px 0px 100px;
+	}
+}
+
+{{endif}}
+
+
+{{if theme.ipsf_social}}
+
+/* ====================== */
+/*     SOCIAL BUTTONS     */
+/* ====================== */
+
+#elHeaderNavigation{ overflow: auto; }
+
+.ipsfocus_social{ float: right; }
+html[dir="rtl"] .ipsfocus_social{ float: left; }
+
+.ipsfocus_social, .ipsfocus_social li{ margin: 0; padding: 0; list-style: none; }
+
+.ipsfocus_social li{ line-height: 37px; }
+.ipsfocus_social.iconButtons a{ width: 37px; height: 37px; }
+
+.ipsfocus_social li{
+    float: left;
+    padding-left: 4px;
+    text-align: center;
+    text-shadow: rgba(0,0,0,0.3) 0px -1px 0px;
+}
+
+html[dir="rtl"] .ipsfocus_social li{ padding-left: 0; padding-right: 4px; }
+
+.ipsfocus_social a{
+    color: #fff;
+    background: #444444; background: -webkit-linear-gradient(top, #515151 0%, #444444 100%); background: linear-gradient(to bottom, #515151 0%, #444444 100%);
+	box-shadow: inset rgba(0,0,0,0.2) 0px 0px 0px 1px, inset rgba(255,255,255,0.15) 0px 2px 0px, rgba(0,0,0,0.2) 0px 1px 3px;
+	/* Dark: box-shadow: inset rgba(255,255,255,0.15) 0px 1px 0px; */
+    border-radius: 3px;
+    padding: 0 12px 0 44px;
+    display: block;
+    text-decoration: none;
+    outline: none;
+    position: relative;
+}
+
+.ipsfocus_social a:hover{
+	box-shadow: inset rgba(0,0,0,0.2) 0px 0px 0px 1px, inset rgba(255,255,255,0.15) 0px 2px 0px, inset rgba(255,255,255,0.2) 0px 100px 0px, rgba(0,0,0,0.2) 0px 1px 3px;
+	/* Dark: box-shadow: inset rgba(255,255,255,0.2) 0px 100px 0px, inset rgba(255,255,255,0.15) 0px 1px 0px; */
+}
+
+.ipsfocus_social a:active{
+	box-shadow: inset rgba(0,0,0,0.1) 0px 100px 0px, inset rgba(0,0,0,0.4) 0px 1px 3px;
+	top: 1px;
+}
+
+.ipsfocus_social a:before{
+    content: "\f1e0";
+    background: rgba(255,255,255,0.18);
+    box-shadow: inset rgba(255,255,255,0.15) -1px 0px 0px 0px, rgba(0,0,0,0.1) 1px 0px 0px 0px;
+    border-radius: 3px 0px 0px 3px;
+    position: absolute;
+    top: 1px; left: 1px; bottom: 1px;
+    width: 32px;
+    text-align: center;
+	font-family: "FontAwesome";
+	font-size: 16px;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	{prefix="transform" value="translate(0,0)"}
+	pointer-events: none;
+}
+
+.ipsfocus_social.iconButtons a{
+    padding: 0;
+    overflow: hidden;
+    text-indent: 100%;
+}
+
+.ipsfocus_social.iconButtons a:before{
+    background: none;
+    text-indent: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: none;
+}
+
+.ipsfocus_social.textButtons a{ padding: 0 12px; }
+.ipsfocus_social.textButtons a:before{ display: none; }
+
+@media screen and (max-width: 979px) {
+	.ipsfocus_social, html[dir="rtl"] .ipsfocus_social{ float: none; }
+	.ipsfocus_social{ display: block; text-align: center; }
+	.ipsfocus_social li{ display: inline-block; float: none; }
+	.ipsfocus_social a{
+		width: 37px;
+		padding: 0;
+		overflow: hidden;
+		text-indent: 120%;
+	}
+	.ipsfocus_social a:before{
+		box-shadow: none;
+		width: 37px;
+		border-radius: 3px;
+		background: none;
+		text-indent: 0;
+	}
+}
+
+a.ipsfocus_sDropbox:before{ content: "\f16b"; }
+.ipsfocus_social .ipsfocus_sDropbox{ background: #007fe5; background: linear-gradient(to bottom, #0097ea 0%, #007fe5 100%); }
+a.ipsfocus_sEmail:before{ content: "\f01c"; }
+.ipsfocus_social .ipsfocus_sEmail{ background: #444444; background: linear-gradient(to bottom, #515151 0%, #444444 100%); }
+a.ipsfocus_sFacebook:before{ content: "\f087"; }
+.ipsfocus_social .ipsfocus_sFacebook{ background: #304c87; background: linear-gradient(to bottom, #4c71b0 0%, #304c87 100%); }
+a.ipsfocus_sFlickr:before{ content: "\f16e"; }
+.ipsfocus_social .ipsfocus_sFlickr{ background: #fe2997; background: linear-gradient(to bottom, #fd30aa 0%, #e41c84 100%); }
+a.ipsfocus_sGoogle:before{ content: "\f0d5"; }
+.ipsfocus_social .ipsfocus_sGoogle{ background: #df6b39; background: linear-gradient(to bottom, #e47d43 0%, #d95332 100%); }
+a.ipsfocus_sInstagram:before{ content: "\f16d"; }
+.ipsfocus_social .ipsfocus_sInstagram{ background: #a06b53; background: linear-gradient(to bottom, #b27f62 0%, #a06b53 100%); }
+a.ipsfocus_sLinkedin:before{ content: "\f0e1"; }
+.ipsfocus_social .ipsfocus_sLinkedin{ background: #0073b2; background: linear-gradient(to bottom, #008bc0 0%, #0073b2 100%); }
+a.ipsfocus_sPaypal:before{ content: "\f1ed"; }
+.ipsfocus_social .ipsfocus_sPaypal{ background: #253b80; background: linear-gradient(to bottom, #253b80 0%, #203370 100%); }
+a.ipsfocus_sPinterest:before{ content: "\f0d2"; }
+.ipsfocus_social .ipsfocus_sPinterest{ background: #cd1d1f; background: linear-gradient(to bottom, #d62124 0%, #c0181a 100%); }
+a.ipsfocus_sReddit:before{ content: "\f1a1"; }
+.ipsfocus_social .ipsfocus_sReddit{ background: #609acf; background: linear-gradient(to bottom, #72add8 0%, #609acf 100%); }
+a.ipsfocus_sSkype:before{ content: "\f17e"; }
+.ipsfocus_social .ipsfocus_sSkype{ background: #00b0f0; background: linear-gradient(to bottom, #00bff3 0%, #00b0f0 100%); }
+a.ipsfocus_sSoundcloud:before{ content: "\f1be"; }
+.ipsfocus_social .ipsfocus_sSoundcloud{ background: #ff6900; background: linear-gradient(to bottom, #ff6900 0%, #ff4400 100%); }
+a.ipsfocus_sSpotify:before{ content: "\f1bc"; }
+.ipsfocus_social .ipsfocus_sSpotify{ background: #84b301; background: linear-gradient(to bottom, #add411 0%, #84b301 100%); }
+a.ipsfocus_sSteam:before{ content: "\f1b6"; }
+.ipsfocus_social .ipsfocus_sSteam{ background: #457498; background: linear-gradient(to bottom, #457498 0%, #3b688a 100%); }
+a.ipsfocus_sStripe:before{ content: "\f1f5"; }
+.ipsfocus_social .ipsfocus_sStripe{ background: #58aada; background: linear-gradient(to bottom, #58aada 0%, #519dca 100%); }
+a.ipsfocus_sTumblr:before{ content: "\f173"; }
+.ipsfocus_social .ipsfocus_sTumblr{ background: #539fcc; background: linear-gradient(to bottom, #62b1d6 0%, #539fcc 100%); }
+a.ipsfocus_sTwitch:before{ content: "\f1e8"; }
+.ipsfocus_social .ipsfocus_sTwitch{ background: #6441a5; background: linear-gradient(to bottom, #6441a5 0%, #593993 100%); }
+a.ipsfocus_sTwitter:before{ content: "\f099"; }
+.ipsfocus_social .ipsfocus_sTwitter{ background: #0097d3; background: linear-gradient(to bottom, #00b9f0 0%, #0097d3 100%); }
+a.ipsfocus_sVimeo:before{ content: "\f194"; }
+.ipsfocus_social .ipsfocus_sVimeo{ background: #1bb5ea; background: linear-gradient(to bottom, #20c1eb 0%, #1a8fb8 100%); }
+a.ipsfocus_sYoutube:before{ content: "\f16a"; }
+.ipsfocus_social .ipsfocus_sYoutube{ background: #cc332d; background: linear-gradient(to bottom, #d43c34 0%, #a92621 100%); }
+
+{{endif}}
+
+{{if theme.ipsf_guest}}
+
+/* ====================== */
+/*     GUEST MESSAGES     */
+/* ====================== */
+
+.ipsfocus_guestAlert{
+    background: #fff2db;
+    color: #b85f1d;
+    line-height: 180%;
+    border: 1px solid #e9c697;
+    border-radius: 4px;
+    padding-top: 6px;
+    margin-top: 15px;
+}
+
+.ipsfocus_guestAlert .ipsfocus_guestHeader{
+    background: #f0af51;  
+    background-image: -webkit-linear-gradient(top, #f0af51 0%,#f5c572 100%);
+    background-image: linear-gradient(to bottom, #f0af51 0%,#f5c572 100%);
+    box-shadow: inset #b0720a 0px 1px 4px, rgba(255, 255, 255, 0.5) 0px 1px 0px;
+    border-radius: 4px;
+    color: #9a6200;
+    text-shadow: rgba(255, 255, 255, 0.4) 0px 1px 0px;
+    padding: 14px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0 6px;
+}
+
+.ipsfocus_guestText{
+	padding: 20px 14px;
+	line-height: 220%;
+}
+
+.ipsfocus_guestAlert a{
+    color: #b85f1d;
+    text-decoration: none;
+    border-bottom: 1px solid #d48041
+}
+
+.ipsfocus_guestAlert .ipsfocus_guestButtons{
+	background: #fde8c7;
+	border-top: 1px solid #f6ddb9;
+	padding: 10px;
+	border-radius: 0px 0px 4px 4px;
+}
+
+.ipsfocus_guestAlert a.guestButton{
+    background: #f0af51;
+    background-image: -webkit-linear-gradient(top, #f5c470 0%, #f0b052 100%);
+    background-image: linear-gradient(to bottom, #f5c470 0%, #f0b052 100%);
+    box-shadow: inset #cf8f32 0px 0px 0px 1px, inset rgba(255,255,255,0.3) 0px 2px 0px;
+    border-radius: 4px;
+    border: 0;
+    color: #9a6200;
+    text-shadow: rgba(255,255,255,0.4) 0px 1px 0px;
+    padding: 0 14px 0 46px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    outline: 0;
+    margin-right: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+}
+
+.ipsfocus_guestAlert a.guestButton:before{
+    content: "\f084";
+    background: rgba(255,255,255,0.2);
+    box-shadow: inset rgba(255,255,255,0.15) -1px 0px 0px 0px, rgba(0,0,0,0.1) 1px 0px 0px 0px;
+    border-radius: 3px 0px 0px 3px;
+    position: absolute;
+    top: 1px; left: 1px; bottom: 1px;
+    width: 32px;
+    text-align: center;
+	font-family: "FontAwesome";
+	font-size: 16px;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	{prefix="transform" value="translate(0,0)"}
+	pointer-events: none;
+}
+
+.ipsfocus_guestAlert a.ipsfocus_register:before{ content: "\f067"; }
+
+.ipsfocus_guestAlert a.guestButton:hover{
+    box-shadow: inset #cf8f32 0px 0px 0px 1px, inset rgba(255,255,255,0.3) 0px 2px 0px, inset rgba(255,255,255,0.2) 0px 100px 0px;
+}
+
+.ipsfocus_guestAlert a.guestButton:active{
+	position: relative;
+	top: 1px;
+    box-shadow: inset #cf8f32 0px 0px 0px 1px, inset rgba(0,0,0,0.35) 0px 1px 4px;
+    background-image: -webkit-linear-gradient(bottom, #f5c470 0%, #f0b052 100%);
+    background-image: linear-gradient(to top, #f5c470 0%, #f0b052 100%);
+}
+
+.ipsfocus_guestBillboard{
+    color: #fff;
+    text-shadow: rgba(0,0,0,0.5) 0px 1px 2px;
+    background: #444;
+    padding: 60px 80px;
+    line-height: 220%;
+    font-size: 1.6rem;
+}
+
+.ipsfocus_guestBillboard .ipsfocus_guestHeader{
+	margin-bottom: 40px;
+	font-size: 3.6rem;
+	line-height: 1;
+}
+
+.ipsfocus_guestBillboard a{
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+.ipsfocus_guestBillboard .ipsfocus_guestButtons{
+	margin-top: 40px;
+}
+
+.ipsfocus_guestBillboard a.guestButton{
+    background-color: rgba(255,255,255,0.2);
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.05) 0%,rgba(255,255,255,0) 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%,rgba(255,255,255,0) 100%);
+    box-shadow: inset rgba(255,255,255,0.1) 0px 1px 0px, rgba(0,0,0,0.1) 0px 1px 2px;
+    text-shadow: rgba(0,0,0,0.3) 0px 1px 1px;
+    border-radius: 4px;
+    border: 0;
+    color: #fff;
+    padding: 0 14px 0 50px;
+    display: inline-block;
+    height: 46px;
+    line-height: 46px;
+    outline: 0;
+    margin-right: 4px;
+    text-decoration: none;
+    position: relative;
+}
+
+.ipsfocus_guestBillboard a.guestButton:before{
+    content: "\f084";
+    font-family: "FontAwesome";
+	font-size: 16px;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	{prefix="transform" value="translate(0,0)"}
+	pointer-events: none;
+	background: rgba(255,255,255,0.1);
+	border-right: 1px solid rgba(255,255,255,0.15);
+	position: absolute;
+	top: 0; left: 0; bottom: 0;
+	width: 36px;
+	text-align: center;
+}
+
+.ipsfocus_guestBillboard a.ipsfocus_register:before{ content: "\f067"; }
+
+.ipsfocus_guestBillboard a.guestButton:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+
+.ipsfocus_guestBillboard a.guestButton:active{
+	position: relative;
+	top: 1px;
+}
+
+{{if !theme.ipsf_guestMobile}}
+@media screen and (max-width:767px){
+	.ipsfocus_guestAlert, .ipsfocus_guestBillboard{ display: none; }
+}
+{{endif}}
+
+{{endif}}
+
+
+{{if theme.ipsf_horiztonalTopic}}
+
+/* ============================= */
+/*     HORIZONTAL TOPIC VIEW     */
+/* ============================= */
+
+/* Based on 4 profile fields. Adjust expression if more exist */
+
+@media screen and (min-width:768px){
+  
+	.cPost.ipsColumns{ width: 100%; display: block; padding-right: 0px; }
+	.cPost .ipsColumn{ display: block; position: relative; width: 100%; }
+	.cPost .cAuthorPane{ text-align: left; }
+	html[dir="rtl"] .cPost .cAuthorPane{ text-align: right; }
+	
+	html[dir="ltr"] .cPost.ipsComment .cAuthorPane_info,
+	html[dir="ltr"] .cPost.ipsComment .cAuthorPane_author,
+	html[dir="ltr"] .cPost.ipsComment .cAuthorPane_info,
+	html[dir="ltr"] .cPost.ipsComment .cAuthorPane_author{ margin-left: 110px; }
+	
+	html[dir="rtl"] .cPost.ipsComment .cAuthorPane_info,
+	html[dir="rtl"] .cPost.ipsComment .cAuthorPane_author,
+	html[dir="rtl"] .cPost.ipsComment .cAuthorPane_info,
+	html[dir="rtl"] .cPost.ipsComment .cAuthorPane_author{ margin-right: 110px; }
+	
+	.cPost.ipsComment .cAuthorPane_photo{ position: absolute; top: 13px; margin: 0px; }
+	
+	html[dir="ltr"] .cPost.ipsComment .cAuthorPane_photo{ left: 13px; }
+	html[dir="rtl"] .cPost.ipsComment .cAuthorPane_photo{ right: 13px; }
+	
+	.cPost.ipsComment .cAuthorPane_author{ line-height: 30px; }
+	.cPost.ipsComment .cAuthorPane_info{ line-height: 30px; margin-bottom: -{expression="2*30"}px; }
+	
+	.cPost.ipsComment .cAuthorPane_info li:nth-last-child(2),
+	.cPost.ipsComment .cAuthorPane_info li:nth-last-child(1){ position: relative; margin-left: 40%; top: -{expression="2*30"}px; }
+	
+	html[dir="rtl"] .cPost.ipsComment .cAuthorPane_info li:nth-last-child(2),
+	html[dir="rtl"] .cPost.ipsComment .cAuthorPane_info li:nth-last-child(1){ margin-left: 0; margin-right: 40%; }
+	
+	.cPost.ipsComment .ipsComment_author{
+		border-top: 1px solid rgba(0,0,0,0.07);
+		border-bottom: 1px solid rgba(0,0,0,0.07);
+		background: {theme="ipsf_commentHeaderBar"};
+		color: {theme="ipsf_commentHeaderText"};
+	}
+	.cPost.ipsComment .ipsComment_author a{ color: {theme="ipsf_commentHeaderText"}; }
+	
+	.cPost .ipsComment_meta{ border-bottom: 1px solid rgba(0,0,0,0.07); padding-top: 10px; }
+	
+	html[dir="ltr"] .cPost .ipsComment_meta{ padding-left: 15px; margin-left: -15px; }
+	html[dir="rtl"] .cPost .ipsComment_meta{ padding-right: 15px; margin-right: -15px; }
+	
+	.cPost .cPost_contentWrap pre{ white-space: pre-wrap; }
+
+}
+
+/* Fix attached images from breaking horizontal layout */
+@media screen and (min-width:768px){ .cPost .cPost_contentWrap .ipsType_richText img{ max-width: 700px; } }
+@media screen and (min-width:900px){ .cPost .cPost_contentWrap .ipsType_richText img{ max-width: 800px; } }
+@media screen and (min-width:1000px){ .cPost .cPost_contentWrap .ipsType_richText img{ max-width: 900px; } }
+@media screen and (min-width:1100px){ .cPost .cPost_contentWrap .ipsType_richText img{ max-width: 1000px; } }
+@media screen and (min-width:1200px){ .cPost .cPost_contentWrap .ipsType_richText img{ max-width: 1100px; } }
+
+{{endif}}
+
+{{if theme.ipsf_backgroundType == 'ipsfocus_videoBackground'}}
+
+/* ======================== */
+/*     VIDEO BACKGROUND     */
+/* ======================== */
+
+@media(min-width: 981px){
+	body.ipsfocus_videoBackground{ background: rgb({theme="ipsf_videoRgb"}); }
+}
+
+#ipsfocus_videoBackground{
+    position: {theme="ipsf_videoPosition"};
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#ipsfocus_videoBackground:before{
+    content: " ";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba({theme="ipsf_videoOverlay"});
+}
+
+#ipsfocus_videoBackground:after{
+    content: " ";
+    position: absolute;
+    bottom:0; left: 0;
+    height: 40%; width: 100%;
+    background-image: linear-gradient(to bottom, rgba({theme="ipsf_videoRgb"},0) 0%,rgba({theme="ipsf_videoRgb"},1) 100%);
+}
+
+/* Hide on tablets and mobiles */
+@media(max-width: 980px){ #ipsfocus_videoBackground{ display: none; } }
+#ipsfocus_videoBackground iframe{ width: 100%; }
+
+{{endif}}
+
+
+{{if theme.ipsf_valentines}}
+/* Valentines */
+.ipsfocus_valentines .logoSlogan:before,
+.ipsfocus_valentines .logoSlogan:after{
+	content: "\f004";
+    font-family: "FontAwesome";
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	{prefix="transform" value="translate(0,0)"}
+	margin-left: 10px;
+	color: #ffc0cb;
+}
+.ipsfocus_valentines .logoSlogan:before{ margin-left: 0; margin-right: 10px; }
+.ipsfocus_valentines .ipsItemStatus .fa-comments:before{ content: "\f004"; }
+.ipsfocus_valentines .ipsItemStatus_read .fa-comments:before{ content: "\f08a"; }
+{{endif}}
+
+{{if theme.ipsf_christmas}}
+.ipsfocus_snowBottom{
+    background: url( {resource="ipsfocus/snowBottom.png" app="core" location="front"} ) repeat-x 0 0;
+    height: 14px;
+    position: fixed;
+    bottom: 0; left: 0; width: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+/*
+.ipsType_sectionTitle{ position: relative; }
+.ipsType_sectionTitle:before{
+    content: "";
+    background: url( {resource="ipsfocus/snowBottom.png" app="core" location="front"} ) repeat-x 0 0;
+    height: 14px;
+    position: absolute;
+    top: -14px; left: 0; width: 100%;
+    pointer-events: none;
+  	border-radius: 14px 14px 0px 0px;
+} */
+.ipsfocus_christmas .logoSlogan:before,
+.ipsfocus_christmas .logoSlogan:after{
+	content: "\f069";
+    font-family: "FontAwesome";
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	{prefix="transform" value="translate(0,0)"}
+	margin-right: 10px;
+	color: #fff;
+}
+.ipsfocus_christmas .logoSlogan:after{ margin-right: 0; margin-left: 10px; }
+.ipsfocus_christmas .ipsItemStatus .fa-comments:before{ content: "\f069"; }
+.ipsfocus_christmas .ipsItemStatus_read .fa-comments:before{ content: "\f069"; }
+{{endif}}
+
+{{if theme.ipsf_countdown}}
+.ipsfocus_countdown{
+	text-align: center;
+	padding: 50px 0;
+	line-height: 50px;
+	font-size: 2rem;
+}
+
+.ipsfocus_countdown .title{
+	display: block;
+}
+
+.ipsfocus_countdown .num{
+	font-size: 3rem;
+	margin-left: 30px;
+}
+
+.ipsfocus_countdown .dateType{
+	opacity: 0.8;
+}
+{{endif}}
+
+{{if theme.ipsf_megaFooter}}
+
+/* =================== */
+/*     MEGA FOOTER     */
+/* =================== */
+
+.ipsfocus_megaFooter{
+	background: {theme="area_background_reset"};
+	border-top: 1px solid {theme="ipsf_borderColor"};
+	padding: 25px;
+}
+
+.ipsfocus_megaFooter h4{
+	display: block;
+	margin: 0;
+	padding-bottom: 15px;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.ipsfocus_megaFooter .footerLinks,
+.ipsfocus_megaFooter .footerLinks li{ margin: 0; padding: 0; display: block; list-style: none; }
+
+.ipsfocus_megaFooter .footerLinks a{
+	line-height: 25px;
+	display: inline-block;
+}
+
+@media screen and (min-width:980px){
+
+	.ipsfocus_megaFooter.colCount6 .footerCol{
+		width: 16.6%;
+		width: calc(100% / 6);
+	}
+	
+	.ipsfocus_megaFooter.colCount5 .footerCol{
+		width: 20%;
+		width: calc(100% / 5);
+	}
+	
+	.ipsfocus_megaFooter.colCount4 .footerCol{
+		width: 25%;
+		width: calc(100% / 4);
+	}
+	
+	.ipsfocus_megaFooter.colCount3 .footerCol{
+		width: 33.3%;
+		width: calc(100% / 3);
+	}
+	
+	.ipsfocus_megaFooter.colCount2 .footerCol{
+		width: 50%;
+		width: calc(100% / 2);
+	}
+	
+	.ipsfocus_megaFooter.colCount1 .footerCol{
+		width: 100%;
+		width: calc(100% / 1);
+	}
+	
+	html[dir="ltr"] .ipsfocus_megaFooter{ padding-right: 0; }
+	html[dir="rtl"] .ipsfocus_megaFooter{ padding-left: 0; }
+	
+	.ipsfocus_megaFooter .footerCol{
+		min-height: 150px;
+	}
+	
+	html[dir="ltr"] .ipsfocus_megaFooter .footerCol{ float: left; padding-right: 25px; }
+	html[dir="rtl"] .ipsfocus_megaFooter .footerCol{ float: right; padding-left: 25px; }
+
+}
+
+@media screen and (max-width:979px){
+	.ipsfocus_megaFooter .footerCol{ padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.15); }
+	.ipsfocus_megaFooter .footerCol:last-of-type{ margin-bottom: 0; border-bottom: 0; }
+}
+
+	{{if !theme.ipsf_footerMobile}}
+		@media screen and (max-width:979px){
+			.ipsfocus_megaFooter{ display: none; }
+		}
+	{{endif}}
+
+{{endif}}
+
+/* ================== */
+/*     RESPONSIVE     */
+/* ================== */
+
+@media screen and (max-width: 979px) {
+  
+#elSiteTitle {
+	/* font-size: 24px; */
+}
+
+#elMobileNav{
+	background: #212121;
+}
+
+#respSearch{
+	display: none;
+	background: #282828;
+	padding: 8px 0;
+}
+
+#elMobileBreadcrumb{ background: #3f3f3f; }
+#elMobileBreadcrumb:before{ color: #3f3f3f; }
+
+html[dir="ltr"] #elMobileBreadcrumb,
+html[dir="rtl"] #elMobileBreadcrumb{ border-radius: 3px }
+	
+	#searchWrap{ display: none; }
+	.cSearchOpen #respSearch{ display: block; }
+	#elSearch #elSearchFilter{ display: block !important; opacity: 1 !important } /* Overwrite inline style tag */
+	
+	body.cSearchOpen #elSearchField{
+		width: calc(100% - 155px);
+		max-width: none;
+	}
+	
+	a.logo{
+		height: {theme="ipsf_logoHeightR"}px;
+	}
+	
+	.ipsSubNavigation{ display: none !important; } /* Overwrite inline style tag */
+	
+}
+
+/* ==================== */
+/*     ENHANCEMENTS     */
+/* ==================== */
+
+/* Contain logo */
+#elLogo img{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+/* NEW index badge */
+{{if theme.ipsf_indexNew}}
+.cForumList .ipsDataItem_unread .ipsDataItem_title:before{
+	content: "NEW";
+	color: #fff;
+	background: {theme="ipsf_newBadge"};
+	display: inline-block;
+	font-size: 0.9rem;
+	line-height: 18px;
+	border-radius: 3px;
+	padding: 0 4px;
+	margin: -1px 4px -2px 0px;
+}
+
+html[dir="rtl"] .cForumList .ipsDataItem_unread .ipsDataItem_title:before{ margin-right: 0; margin-left: 4px; }
+{{endif}}
+
+/* Profile */
+/* div[data-role='profileContent']{
+	padding: 10px;
+} */
+#elProfileInfoColumn > div{
+	margin-top: 0;
+	padding-top: 15px;
+}
+
+@media screen and (min-width:768px){
+	
+	/* Post view: post_controls */
+	{{if theme.ipsf_postButtons}}
+	.cPost.ipsComment .ipsType_richText{
+		display: block;
+		min-height: {theme="ipsf_postBarPush"}px;
+	}
+	
+	.cPost .ipsComment_controls{
+		background: {theme="ipsf_commentControls"};
+		border-top: 1px solid rgba(0,0,0,0.05);
+	    /* padding: 10px; */
+	    margin: -15px;
+	    margin-top: 0px;
+	    clear: both;
+	    font-size: 0;
+	}
+	.cPost .ipsComment_controls li{ font-size: 1.3rem; }
+	html[dir="ltr"] .cPost .ipsComment_controls > li{ margin-right: 0px; }
+	html[dir="rtl"] .cPost .ipsComment_controls > li{ margin-left: 0px; }
+	
+	.cPost .ipsComment_controls a,
+	.cPost .ipsComment_controls .ipsButton.cMultiQuote{
+		/* background: {theme="normal_button"};
+		color: {theme="normal_button_font"};
+		border-radius: 3px;
+		border: 1px solid rgba(0,0,0,0.1); */
+		background: none;
+		border: 0;
+		border-radius: 0;
+		
+		border-right: 1px solid rgba(0,0,0,0.04);
+		padding: 0px 13px;
+		font-size: 1.17rem;
+		line-height: 38px;
+		display: block;
+	}
+	
+	.cPost .ipsComment_controls a:hover,
+	.cPost .ipsComment_controls .ipsButton.cMultiQuote:hover{
+		box-shadow: inset rgba(255,255,255,0.8) 0px 100px 0px;
+	}
+	
+ 	.cPost [data-controller*='core.reputation']{ padding-bottom: 10px }
+	{{endif}}
+
+	.cAuthorPane_author{ font-size: 1.3rem; }
+
+	{{if (!theme.ipsf_horiztonalTopic) AND (theme.ipsf_postAuthorBar) }}
+		/* Author info */
+	  	.cAuthorPane_author{
+			margin: -15px -10px 10px -10px;
+			background: {theme="ipsf_commentHeaderBar"};
+			border-bottom: 1px solid rgba(0,0,0,0.7);
+			height: 50px;
+			line-height: 50px;
+		}
+		.cAuthorPane{
+			border: 1px solid rgba(0,0,0,0.05);
+			border-width: 0px 1px 0px 0px;
+		}
+		html[dir="rtl"] .cAuthorPane_author{ margin: -15px -10px 10px -11px; }
+		html[dir="rtl"] .cAuthorPane{
+			border-width: 0px 0px 0px 1px;
+		}
+  		.cAuthorPane_author, .cAuthorPane_author a{ color: {theme="ipsf_commentHeaderText"}; }
+	{{endif}}
+	
+	/* Overlap author info border if both top bars are enabled */
+	{{if (theme.ipsf_postAuthorBar) AND (theme.ipsf_postDateBar) }}
+		html[dir="ltr"] .cAuthorPane_author{ margin-right: -11px; }
+		html[dir="rtl"] .cAuthorPane_author{ margin-left: -11px; }
+	{{endif}}	
+	
+	{{if (!theme.ipsf_horiztonalTopic) AND (theme.ipsf_postDateBar) }}
+	.cPost .ipsComment_meta{
+		height: 50px;
+		margin-left: -15px;
+		padding-left: 15px;
+		background: {theme="ipsf_commentHeaderBar"};
+		border-bottom: 1px solid rgba(0,0,0,0.7);
+		margin-bottom: 10px;
+        color: {theme="ipsf_commentHeaderText"};
+	}
+	html[dir="rtl"] .cPost .ipsComment_meta{
+		margin-left: 0; padding-left: 0;
+		margin-right: -15px; padding-right: 15px;
+	}
+	{{endif}}
+	
+}
+
+/* Add border back to first post */
+/* .cTopic div:not(.ipsfocus_noGaps) .cPost:nth-of-type(1){
+	border-top: 1px solid {theme="ipsf_borderColor"};
+} */
+
+@media screen and (min-width:980px){
+	
+	{{if theme.ipsf_topicListStats}}
+	/* Topic listing stats */
+	
+	[data-tableid="topics"] .ipsDataItem_stats{
+		overflow: hidden;
+		text-align: center;
+		text-transform: uppercase;
+		width: 15%;
+		min-width: 250px;
+	}
+	
+	[data-tableid="topics"] .ipsDataItem_stats li{
+		float: left;
+		width: 50%;
+	}
+	
+	[data-tableid="topics"] .ipsDataItem_stats span{
+		display: block;
+	}
+	
+	[data-tableid="topics"] .ipsDataItem_stats_number{ font-weight: bold; }
+	[data-tableid="topics"] .ipsDataItem_stats_type{ font-size: 0.9em; }
+	{{endif}}
+	
+	/* Large avatars in posts */
+	/* .cAuthorPane_photo .ipsUserPhoto_large img,
+	.cAuthorPane_photo img.ipsUserPhoto_large,
+	.cAuthorPane_photo .ipsUserPhoto_large:after{
+		width: 120px;
+		height: 120px;
+	} */
+	
+	
+	/* Subforum columns */
+	
+	{{if theme.ipsf_subforumColumns}}
+	html[dir="ltr"] .ipsDataItem_subList,
+	html[dir="rtl"] .ipsDataItem_subList{
+		background: none;
+		line-height: 220%;
+		padding-bottom: 4px;
+	}
+	
+	.ipsDataItem_subList li{
+		float: left;
+		width: calc(100% / {theme="ipsf_subforumNum"} - 5px);
+	}
+	
+	.ipsDataItem_subList li a:after{ display: none; }
+	{{endif}}
+	
+}
+
+/* Mobile side nav */
+.ipsDrawer_menu{ background: #212121; }
+.ipsDrawer_menu .ipsButton_light{
+	background: rgba(255,255,255,0.1);
+	color: #fff;
+	border: 0;
+}
+
+.ipsDrawer_menu .cUserNav_icon a{ color: #eee; }
+
+/* Rules Link */
+a[data-ipsdialog-content="#elForumRules"],
+a[data-ipsdialog-content="#elCategoryRules"],
+.ipsfocus_rules{
+	color: #774c1a;
+	background: #faecc7;
+	border: 2px solid #f5d5a1;
+	border-width: 2px 0px;
+	display: block;
+	padding: 15px;
+	margin-bottom: 10px;
+}
+
+/* User navigation icons */
+#elUserNav .fa-bell:before { content: "\f0ac"; }
+#elUserNav .fa-envelope:before { content: "\f01c"; }
+#elUserNav .fa-warning:before { content: "\f06a"; }
+
+#elUserLink_menu a[href*="/admin"] i{ display: none; }
+
+#elUserLink_menu a:before,
+#ipsLayout_mainNav a:before,
+#elCreateNew_menu a:before{
+	content: "\f02b";
+	font-family: "FontAwesome";
+	font-size: 14px;
+	font-weight: normal;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	{prefix="transform" value="translate(0,0)"}
+}
+
+#elUserLink_menu a:before, #elCreateNew_menu a:before{ display: inline-block; width: 22px; opacity: 0.7; }
+#elUserLink_menu a:hover:before, #elCreateNew_menu a:hover:before{ opacity: 1; }
+
+/* Not sure what the best href method is */
+#elUserLink_menu a[href*="/profile/"]:before{ content: "\f007" }
+#elUserLink_menu a[href='{url="app=core&module=messaging&controller=messenger" seoTemplate="messaging"}']:before{ content: "\f01c" }
+#elUserLink_menu a[href*="/content/"]:before{ content: "\f03a" }
+#elUserLink_menu a[href*="/followed/"]:before{ content: "\f1d8" }
+#elUserLink_menu a[href*="/attachments/"]:before{ content: "\f0c6" }
+#elUserLink_menu a[href*="/settings/"]:before{ content: "\f013" }
+#elUserLink_menu a[href*="/clients/"]:before{ content: "\f07a" }
+#elUserLink_menu a[href*="edit"]:before{ content: "\f040" }
+#elUserLink_menu a[href*="/ignore/"]:before{ content: "\f05e" }
+#elUserLink_menu a[href*="/notifications/options/"]:before{ content: "\f0ac" }
+#elUserLink_menu a[href*="/modcp/"]:before{ content: "\f046" }
+#elUserLink_menu a[href*="/admin"]:before{ content: "\f023" }
+#elUserLink_menu a[href*="/logout/"]:before{ content: "\f08b" }
+
+#ipsLayout_mainNav a:before{ margin-right: 3px; opacity: 0.6; }
+#ipsLayout_mainNav a:hover:before, #ipsLayout_mainNav a.ipsNavActive:before{ opacity: 1; }
+html[dir="rtl"] #ipsLayout_mainNav a:before{ margin-right: 0; margin-left: 3px; }
+
+#elCreateNew_menu a:before{ content: "\f0fe" }
+
+#elCreateNew_menu a[href*="module=status"]:before{ content: "\f086" }
+#ipsLayout_mainNav a[class*="downloads_"]:before, #elCreateNew_menu a[href*="/files/"]:before{ content: "\f019" }
+#ipsLayout_mainNav a[class*="gallery_"]:before, #elCreateNew_menu a[href*="/gallery/"]:before{ content: "\f03e" }
+#ipsLayout_mainNav a[class*="nexus_Store"]:before{ content: "\f07a" }
+#ipsLayout_mainNav a[class*="nexus_Support"]:before{ content: "\f1cd" }
+#ipsLayout_mainNav a[class*="blog_"]:before, #elCreateNew_menu a[href*="/blogs/"]:before{ content: "\f02d" }
+#ipsLayout_mainNav a[class*="calendar_"]:before, #elCreateNew_menu a[href*="/calendar/"]:before{ content: "\f073" }
+#ipsLayout_mainNav a[class*="cms_"]:before, #elCreateNew_menu a[href*="/articles"]:before{ content: "\f0f6" }
+#ipsLayout_mainNav a[class*="forums_"]:before, #elCreateNew_menu a[href*="/forum/"]:before{ content: "\f086" }
+#ipsLayout_mainNav a[class*="core_Core"]:before{ content: "\f015" }
+#ipsLayout_mainNav a[class*="chat_"]:before{ content: "\f022" }
+#ipsLayout_mainNav a#elNavigationMore_dropdown:before{ content: "\f0fe"; display: none; }
+#ipsLayout_mainNav .fa-caret-down{ font-size: 12px; }
+
+{{if theme.ipsf_noNavIcons}}
+#ipsLayout_mainNav a:before{ display: none; }
+{{endif}}
+
+#elHeaderSubLinks .fa-star:before{ content: "\f0f6"; margin-right: 4px; font-size: 14px; }
+html[dir="rtl"] #elHeaderSubLinks .fa-star:before{ margin-left: 4px; margin-right: 0; }
+
+/* Make unread topic titles bold on index */
+.ipsDataItem_unread .ipsDataItem_lastPoster a.ipsContained{ font-weight: bold; }
+
+/* Category toggle icons */
+.cForumToggle:after { content: "\f146" }
+.cForumRow_hidden .cForumToggle:after,
+html[dir="rtl"] .cForumRow_hidden .cForumToggle:after{ content: "\f0fe" }
+
+
+
+.ipsfocusCopyright a{ border-bottom: 1px solid rgba(255,255,255,0.4); }
+.ipsfocusCopyright a:hover{ border-bottom-color: rgba(255,255,255,0.8); }
+
+
+.ipsfocus.com{}

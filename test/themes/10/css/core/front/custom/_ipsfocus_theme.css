@@ -1,0 +1,1115 @@
+/* ===================================================== */
+/*                                                       */
+/*            Theme developed by ipsfocus.com            */
+/*                                                       */
+/*                                                       */
+/*   Need support? Visit the official customer forums!   */
+/*            http://www.ipsfocus.com/forums/            */
+/*                                                       */
+/*       Terms and Conditions of using this theme        */
+/*   http://www.ipsfocus.com/terms_and_conditions.php    */
+/*                                                       */
+/* ===================================================== */
+
+/* ============ */
+/*     BODY     */
+/* ============ */
+
+body {
+	font-family: Tahoma, sans-serif;
+	font-size: 1.2rem;
+	-webkit-font-smoothing: subpixel-antialiased;  /* Make fonts bolder in webkit browsers */
+}
+
+
+
+
+/* ======================= */
+/*     TIME BACKGROUND     */
+/* ======================= */
+
+#gradientOverlay, .timeGradient{
+	position: absolute;
+    height: 100%; width: 100%;
+    top: 0; left: 0;
+}
+
+#gradientOverlay{
+	background-image: url({theme="ifBg1_image"});
+	background-repeat: {theme="ifBg1_repeat"};
+	background-size: {theme="ifBg1_size"};
+	background-position: {theme="ifBg1_position"};
+	opacity: 0.1;
+}
+
+#timeGradient{ position: fixed; z-index: -1; }
+
+.focusTime21, .focusTime22, .focusTime23, .focusTime0, .focusTime1, .focusTime2, .focusTime3{ background: linear-gradient(to top left, #1e232e 0%, #14161a 100%); }
+.focusTime4{ background: linear-gradient(to top right, #2e253e 0%, #1e2136 100%); }
+.focusTime5{ background: linear-gradient(to top left, #733560 0%, #1d283d 100%); }
+.focusTime6{ background: linear-gradient(to top right, #b14c62 0%, #1b3659 100%); }
+.focusTime7{ background: linear-gradient(to top left, #ffeb94 0%, #e5ad79 50%, #2c7680 100%); }
+.focusTime8{ background: linear-gradient(to top right, #f9da8f 0%, #469bcf 100%); }
+.focusTime9{ background: linear-gradient(to top left, #a6e7f5 0%, #3c85c0 100%); }
+.focusTime10, .focusTime11, .focusTime12, .focusTime13, .focusTime14{ background: linear-gradient(to top right, #398ecf 0%, #135587 100%); }
+.focusTime15{ background: linear-gradient(to top left, #fff3c5 0%, #33a2f9 100%); }
+.focusTime16{ background: linear-gradient(to top right, #ffe49b 0%, #f6a393 33%, #07589c 100%); }
+.focusTime17{ background: linear-gradient(to top left, #ffd692 0%, #d57068 50%, #173e6f 100%); }
+.focusTime18{ background: linear-gradient(to top right, #ffcd95 0%, #bd5f63 50%, #23213c 100%); }
+.focusTime19{ background: linear-gradient(to top left, #c46459 0%, #12263d 100%); }
+.focusTime20{ background: linear-gradient(to top right, #303a49 0%, #152537 100%); }
+
+
+
+
+/* ============== */
+/*     HEADER     */
+/* ============== */
+
+#header {
+	background-color: {theme="headerBackground"};
+}
+
+/* Logo */
+a.logo{
+    float: left;
+}
+
+html[dir="rtl"] a.logo{ float: right; }
+
+    a.logo .logoSlogan{
+        font-size: 14px;
+        padding-top: 6px;
+        margin-top: 6px;
+    }
+
+/* Fixed Header */
+{{if theme.ipsf_fixedHeader}}
+@media screen and (min-width: 980px) {
+  
+  .ipsfocus_fixedHeader #header{
+    position: fixed;
+    z-index: 5010; /* Overlay profile header */
+    top: 0; left: 0; right: 0;
+  }
+  
+  body.ipsfocus_fixedHeader{
+	padding-top: {theme="ipsf_userNavHeight"}px;
+  }
+  
+  .ipsfocus_fixedHeader.cWidgetsManaging #header{ left: 300px; }
+  
+  .ipsfocus_fixedHeader a[id*="comment-"]{ position: relative; top: -{expression="theme.ipsf_logoHeight + 10"}px; }
+  
+  .ipsfocus_fixedHeader .fixedWrap #navBar{
+		background-color: rgba(23,23,23,0.85);
+		border-radius: 0px 0px 3px 3px;
+	}
+
+}
+{{endif}}
+
+
+
+
+/* ================== */
+/*     NAVIGATION     */
+/* ================== */
+
+#navBar {
+	background: {theme="navigationBackground"};
+	background-image: linear-gradient(to bottom, rgba(255,255,255,0.03) 0%,rgba(255,255,255,0) 100%);
+	text-shadow: rgba(0,0,0,0.6) 0px -1px 0px;
+	border-radius: 3px;
+	box-shadow: rgba(0,0,0,0.35) 0px 0px 0px 1px inset, rgba(0,0,0,0.2) 0px 1px 3px;
+}
+
+/* Set width for More menu */
+.navAlign{
+  	width: calc(100% - 400px );
+}
+
+	html[dir="ltr"] .ipsNavBar_primary:not(.ipsNavBar_noSubBars) > ul:before{ right: -400px; }
+	html[dir="rtl"] .ipsNavBar_primary:not(.ipsNavBar_noSubBars) > ul:before{ left: -400px; }
+
+
+/* Align tabs */
+.ipsNavBar_primary{
+	text-align: left;
+}
+
+	html[dir="rtl"] .ipsNavBar_primary{
+		text-align: right;
+	}
+	
+	/* Tab link */
+	.ipsNavBar_primary > ul > li > a {
+		padding: 0px 20px;
+		border-left: 1px solid transparent;
+		border-right: 1px solid transparent;
+	}
+	
+		/* Tab: hover */
+		.ipsNavBar_primary > ul > li:hover > a,
+		.ipsNavBar_primary > ul > li > a:hover {
+			background: rgba(255,255,255,0.05);
+		}
+	
+		/* Tab: active */
+		.ipsNavBar_primary > ul > li.ipsNavBar_active > a {
+			background: {theme="navigationActive"};
+			border-left: 1px solid rgba(255,255,255,0.12);
+			border-right: 1px solid rgba(255,255,255,0.12);
+		}
+
+
+
+
+/* Secondary bar */
+{{if !theme.singleNavigationBar}}
+
+	.ipsNavBar_secondary > li > a {
+		padding: 0px 20px;
+	}
+	
+		.ipsNavBar_secondary > li > a:hover {
+			
+		}
+
+		.ipsNavBar_secondary > li.ipsNavBar_active a {
+			font-weight: bold;
+		}
+
+{{endif}}
+
+
+
+
+/* ipsfocus Dropdown navigation */
+{{if theme.singleNavigationBar}}
+
+	/* Dropdown menu */
+	.ipsNavBar_primary > ul > li > .ipsNavBar_secondary{
+		background: {theme="ipsf_popupMenu"};
+		border-radius: 4px;
+		box-shadow: rgba(0,0,0,0.26) 0px 3px 40px, rgba(0,0,0,0.1) 0px 1px 2px;
+		padding: 5px;
+	}
+	
+		/* Dropdown menu arrow */
+		.ipsNavBar_primary > ul > li > .ipsNavBar_secondary:before{
+			border-bottom-color: {theme="ipsf_popupMenu"};
+		}
+	
+		/* Blurred effect */
+		/* @supports ( (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) ) {
+			.ipsNavBar_primary > ul > li > .ipsNavBar_secondary{
+				background: rgba(20,20,20,0.7);
+				-webkit-backdrop-filter: blur(10px);
+				backdrop-filter: blur(10px);
+			}
+			
+			.ipsNavBar_primary > ul > li > .ipsNavBar_secondary:before{
+				border-bottom-color: rgba(20,20,20,0.7);
+			}
+		} */
+
+
+
+	/* Dropdown menu items */
+	.ipsNavBar_primary > ul > li > .ipsNavBar_secondary > li{
+		border-radius: 3px;
+		border: 1px solid transparent;
+	}
+
+		/* Dropdown menu item: hover */
+		.ipsNavBar_primary > ul > li > .ipsNavBar_secondary > li:hover {
+			background: rgba(255,255,255,0.05);
+			border-color: rgba(255,255,255,0.03);
+		}
+
+		/* Dropdown menu item: active */			
+		.ipsNavBar_primary > ul > li > .ipsNavBar_secondary > li.ipsNavBar_active > a {
+			font-weight: bold;
+		}
+
+
+		
+		/* Child lists in dropdown menus */
+		.ipsNavBar_secondary .ipsNavBar_secondary{
+			
+		}
+			
+			/* Child list link: hover */
+			.ipsNavBar_secondary .ipsNavBar_secondary a:hover{
+				background: rgba(255,255,255,0.03);
+			}
+			
+			/* Child list link: active */
+			.ipsNavBar_secondary .ipsNavBar_secondary .ipsNavBar_active{
+				font-weight: bold;
+			}
+
+{{endif}}
+
+
+
+
+/* ======================= */
+/*     USER NAVIGATION     */
+/* ======================= */
+
+#elUserNav {
+	float: right;
+	position: relative;
+	z-index: 2010;
+	line-height: {theme="ipsf_userNavHeight"}px;
+}
+
+html[dir="rtl"] #elUserNav {
+	float: left;
+}
+
+	/* border-radius */
+	#elUserNav, #elUserNav > li:first-of-type a, #elUserNav > li:last-of-type a{ border-radius: 3px; }
+	html[dir="ltr"] #elUserNav > li:first-of-type a{ border-top-right-radius: 0px; border-bottom-right-radius: 0px; }
+	html[dir="ltr"] #elUserNav > li:last-of-type a{ border-top-left-radius: 0px; border-bottom-left-radius: 0px; }
+	html[dir="rtl"] #elUserNav > li:first-of-type a{ border-top-left-radius: 0px; border-bottom-left-radius: 0px; }
+	html[dir="rtl"] #elUserNav > li:last-of-type a{ border-top-right-radius: 0px; border-bottom-right-radius: 0px; }
+	
+	#elUserNav > li{
+	    border-style: solid;
+	    border-width: 0px 0px 0px 1px;
+	    border-color: rgba(255,255,255,0.1);
+	}
+	html[dir="rtl"] #elUserNav > li{ border-width: 0px 1px 0px 0px; }	
+	
+	#elUserNav > li > a { color: #fff; }
+	#elUserNav > li a:hover{ background: rgba(255,255,255,0.05); }
+	
+	#elUserNav .ipsUserPhoto img {
+        height: calc({theme="ipsf_userNavHeight"}px - 16px);
+        margin: 8px;
+    }
+
+
+
+
+/* ============== */
+/*     SEARCH     */
+/* ============== */
+
+#searchWrap{
+	float: right;
+	margin-top: {expression="(theme.ipsf_logoHeight - theme.ipsf_searchHeight) / 2"}px;
+}
+
+html[dir="rtl"] #searchWrap{
+	float: left;
+}
+
+@media screen and (min-width:980px){
+  
+	/* Search box */
+	#elSearch {
+		background: rgba(0,0,0,0.4);
+		box-shadow: inset rgba(0,0,0,0.23) 0px 1px 5px, rgba(255,255,255,0.1) 0px 1px 0px, rgba(255,255,255,0.1) 0px 0px 0px 1px;
+	}
+	
+	#elSearch, #elSearch input[type="search"]{ 				color: #d6d7db; }
+	#elSearch ::-webkit-input-placeholder { opacity: 0.8;	color: #d6d7db; }
+	#elSearch ::-moz-placeholder { opacity: 0.8;			color: #d6d7db; }
+	
+	#elSearch, #elSearch #elSearchFilter{ border-radius: 17px; }
+	#elSearch #elSearchFilter { color: #c8c8c8; background: rgba(0,0,0,0.2); }
+	html[dir="ltr"] #elSearch #elSearchFilter{ border-right-color: rgba(0,0,0,0.1); }
+	html[dir="rtl"] #elSearch #elSearchFilter{ border-left-color: rgba(0,0,0,0.1); }
+	#elSearch #elSearchFilter:hover { background: rgba(0,0,0,0.3); }
+
+}
+
+
+
+/* ===================== */
+/*     GLOBAL STYLES     */
+/* ===================== */
+
+/* Main content wrapper */
+#ipsLayout_contentArea{
+	background: {theme="ipsf_contentWrap"};
+}
+
+
+/* Configure content padding */
+@media screen and (min-width:980px){
+	
+	#ipsLayout_contentWrapper,
+	.preContentPadding{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+    
+}
+
+
+
+
+/* ipsfocusBox */
+.ipsfocusBox{
+	background: {hextorgb="area_background_reset" opacity="0.8"};
+	border: 1px solid rgba(0,0,0,0.7);
+	border-radius: 3px;
+	box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+
+/* Box Styles */
+.ipsBox,
+.ipsComment,
+.ipsComment.ipsBox,
+.ipsPager,
+.ipsPageHeader{
+	/* background-color: {theme="area_background_reset"}; */
+	border: 1px solid rgba(0,0,0,0.7);
+	border-radius: 3px;
+	box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+
+
+
+
+/* .maintitle */
+.ipsType_sectionTitle{
+	background-color: {hextorgb="ipsf_maintitle" opacity="0.7"};
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	box-shadow: rgba(255,255,255,0.15) 0px 1px 0px 0px;
+	font-size: 1.6rem;
+	font-weight: bold;
+	padding: 19px;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Wrapped maintitles */
+.ipsBox .ipsType_sectionTitle,
+.ipsfocusBox .ipsType_sectionTitle{
+	background-color: {hextorgb="ipsf_maintitle" opacity="0.2"};
+}
+
+
+.ipsType_sectionTitle,
+a.ipsType_sectionTitle,
+.ipsType_sectionTitle a{
+	color: {theme="ipsf_maintitleText"};
+}
+
+
+
+
+/*	
+	Main content box background
+	-- post and comment boxes
+	-- reply and pager bars
+*/
+.ipsBox:not(.ipsBox_transparent):not(.ipsModerated),
+.ipsAreaBackground_reset,
+.ipsPageHeader,
+.ipsComment,
+.ipsPager,
+.ipsTabs_panel,
+.ipsWidget.ipsWidget_horizontal .ipsTabs_panel,
+.cCalendar,
+.acpBlock .ipsTable_zebra{
+	background-color: {hextorgb="area_background_reset" opacity="0.8"};
+}
+
+
+/* Keep solid. If above is rgba, the following may need to be customized */
+.ipsSticky,
+.ipsTabs_activeItem,
+.ipsComposeArea_dummy,
+.ipsLightbox_commentsPanel,
+.ipsComposeArea_attachmentsInner > .ipsAreaBackground_reset, /* Attached editor files */
+.ipsCarousel .ipsCarousel_nav,
+.ipsTruncate > .ipsTruncate_more,
+.ipsTruncate > .ipsTruncate_more span,
+#elModCPContent > div[data-resort="listResort"]{
+	background-color: {theme="area_background_reset"};
+}
+
+/*
+	Widgets and sidebars
+	.row1
+*/
+.ipsWidget,
+.ipsWidget.ipsBox:not( .ipsBox_transparent ),
+/* Side bars */
+#elVNC_sidebar,
+#modcp_menu,
+#elSearch_sidebar,
+.ipsSideMenu.ipsAreaBackground_light{
+	/* background-color: {theme="area_background_reset"};
+	border: 1px solid {theme="ipsf_widgetBorder"}; */
+	background: {hextorgb="area_background_reset" opacity="0.8"};
+	border: 0;
+}
+
+
+/*
+	Slightly darker than .row1: author column, zebra
+	.row2
+*/
+.ipsBox .ipsAreaBackground_light,
+.ipsfocusBox .ipsAreaBackground_light,
+.ipsAttachment_progress,
+.ipsAttachment_dropZone.ipsDragging, .ipsComposeArea_dropZone.ipsDragging,
+.ipsDataList.ipsDataList_zebra .ipsDataItem:not( .ipsDataItem_selected ):not( .ipsModerated ):nth-child(even),
+/* Status updates main header */
+.cStatusUpdates .ipsComment.ipsComment_hasChildren > .ipsComment_content,
+/* Comment header */
+/* .ipsComment:not(.ipsModerated) .ipsComment_header, */
+.ipsComment:not(.ipsModerated) .ipsComment_header,
+.ipsFieldRow_section,
+.cPayment{
+	/* background-color: {theme="area_background_light"}; */
+	background-color: rgba(255,255,255,0.05);
+}
+
+/* Same as above, but possibly best left a solid colour if rgba is used */
+.cPollVoteBar,
+.ipsAreaBackground_light, /* isolated areas not inside .ipsBox */
+.ipsComposeArea_attachments{
+	background-color: {theme="area_background_light"};
+}
+
+
+/*
+	Slightly darker again: submit bar
+	.row3
+*/
+.ipsAreaBackground,
+.ipsTabs,
+.ipsComposeArea [data-ipsEditor] + [data-ipsEditor-toolList] {
+	/* background-color: {theme="area_background"}; */
+	background-color: rgba(0,0,0,0.5);
+}
+
+	/* Text color such as "Cancel" text next to submit button, labels next to editor toggle, inactive tab color */
+	.ipsApp .ipsAreaBackground .ipsButton_link,
+	.ipsAreaBackground,
+	.ipsTabs_item:not( .ipsTabs_activeItem ),
+	a.ipsTabs_item:not( .ipsTabs_activeItem ),
+	.ipsTabs_item:not( .ipsTabs_activeItem ):hover{
+		color: #fff;
+	}
+
+
+/* Widget headers and Sidebar headers */
+.ipsWidget.ipsWidget_vertical .ipsWidget_title,
+.ipsWidget.ipsWidget_horizontal .ipsWidget_title,	
+#elVNC_sidebar .ipsFieldRow_label,
+#elSearch_sidebar .ipsFieldRow_label,
+.ipsTable.ipsMatrix .ipsMatrix_subHeader,
+.ipsSideMenu_title,
+.ipsSideMenu_subTitle {
+	color: {theme="ipsf_widgetText"};
+	/* background-color: {theme="widget_title_bar"}; */
+	background-color: rgba(0,0,0,0.2);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	box-shadow: rgba(255,255,255,0.15) 0px 1px 0px 0px;
+}
+
+
+/* Calendar th, Notification Settings th, Blank cell, Side menu title */
+.ipsAreaBackground_dark,
+.ipsTable.ipsMatrix thead th,
+.cCalendar td.cCalendar_today, .cCalendarWeek div.cCalendar_today,
+.cDownloadsSubmit_step,
+.ipsTable th{
+	/* background-color: {theme="area_background_dark"}; */
+	background-color: rgba(255,255,255,0.12);
+	color: #fff;
+}
+
+/* Report Center and Inbox List */
+.ipsApp .ipsDataItem_new, .ipsApp .ipsDataItem_success { background-color: #2d4533; }
+.ipsApp .ipsDataItem_warning { background-color: #45452d; }
+.ipsApp .ipsDataItem_error { background-color: #452d2d; }
+.ipsApp .ipsDataItem_info { background-color: #2d4045; }
+.ipsApp .ipsDataItem_selected { background-color: {theme="selected"}; }
+.ipsApp .ipsDataItem_status { background-color: #343434; }
+
+/* Unread status */
+/* .ipsDataList_readStatus .ipsDataItem:not( .ipsDataItem_unread ):not( .ipsDataItem_selected ):not( .ipsModerated ) { background: #f9f9f9; } */
+
+/* Customize zebra background */
+.ipsDataList.ipsDataList_zebra .ipsDataItem:not( .ipsDataItem_selected ):not( .ipsModerated ):not( .ipsDataItem_new ):not( .ipsDataItem_success ):not( .ipsDataItem_warning ):not( .ipsDataItem_error ):not( .ipsDataItem_info ):not( .ipsDataItem_status ):nth-child(even) {
+	background-color: transparent;
+}
+
+
+/* Remove backgrounds of internal boxes so ipsfocusBox becomes main background */
+.ipsBox:not( .ipsBox_transparent ) .ipsAreaBackground_reset,
+/* New topic page */
+.ipsBox .ipsTabs_panel,
+.ipsfocusBox .ipsTabs_panel,
+.ipsfocus_reset.ipsBox,
+.ipsDialog_content .ipsBox,
+/* Same as above but stricter, required for certain boxes */
+.ipsDialog > div .ipsDialog_content .ipsBox,
+.ipsfocusBox .ipsComment.cPost:not(.ipsModerated):not(.ipsComment_selected),
+.ipsBox.ipsfocus_reset:not(.ipsBox_transparent):not(.ipsModerated),
+/* If for some reason .ipsfocusBox is inside .ipsBox still */
+.ipsBox:not(.ipsfocus_reset) .ipsfocusBox
+{
+	background: none;
+}
+
+
+
+/* Reset internal boxes */
+.ipsfocus_reset.ipsBox,
+.ipsDialog_content .ipsBox,
+.ipsfocusBox .ipsBox.cPost,
+/* If for some reason .ipsfocusBox is inside .ipsBox still */
+.ipsBox:not(.ipsfocus_reset) .ipsfocusBox{
+	border-radius: 0;
+	box-shadow: none;
+	border: 0;
+}
+
+
+
+
+/* Internal semi-transparent box styles */
+
+/* All child .ipsBox's, excluding posts */
+.ipsBox:not(.ipsfocus_reset) .ipsBox:not(.ipsfocus_reset):not(.cPost),
+.ipsfocusBox .ipsBox:not(.ipsfocus_reset):not(.cPost),
+
+/* Gallery comments, Status update comments */
+.ipsBox .ipsComment,
+
+/* Downloads comments */
+.ipsfocusBox .ipsComment,
+
+/* Staff page */
+.cStaffDirectory .ipsAreaBackground_light,
+
+/* Stream results */
+.ipsStream .ipsStreamItem.ipsAreaBackground_reset,
+
+/* Targets reply boxes which don't have .ipsBox */
+.ipsBox div[data-role="replyArea"],
+.ipsfocusBox div[data-role="replyArea"]
+
+{
+	border: 1px solid rgba(255,255,255,0.1);
+	background: rgba(255,255,255,0.04);
+	box-shadow: rgba(0,0,0,0.05) 0px 1px 4px;
+	border-radius: 0;
+}
+
+	/* Style internal .ipsAreaBackgrounds so they're more prominant */
+	.ipsApp .ipsBox:not(.ipsfocus_reset) .ipsBox.ipsAreaBackground,
+	.ipsApp .ipsfocusBox .ipsBox.ipsAreaBackground{
+		background: rgba(255,255,255,0.06);
+		border-color: rgba(255,255,255,0.13);
+	}
+	
+
+	/* Internal header */
+	.internalHeader,
+	.ipsBox .ipsWidget.ipsWidget_vertical .ipsWidget_title,
+	.ipsfocusBox .ipsWidget.ipsWidget_vertical .ipsWidget_title{
+		color: {theme="text_color"};
+		background: rgba(255,255,255,0.04);
+		border-bottom: 1px solid rgba(255,255,255,0.1);
+	}
+
+	/* Comment header */
+	.ipsComment:not(.ipsModerated) .ipsComment_header{
+		
+	}
+
+	/* Force moderated and selected styles */
+	.ipsModerated {
+		background-color: {theme="moderated"} !important;
+		color: {theme="moderated_text"} !important;
+	}
+
+	/* Selected internal boxes */
+	.ipsComment_selected {
+		background-color: {theme="selected"} !important;
+		border-color: #8ec2ed !important;
+		box-shadow: 0px 1px 5px rgba(82,168,236,0.6) !important;
+	}
+
+
+
+
+/* =================== */
+/*     BREADCRUMBS     */
+/* =================== */
+
+.ipsfocus_breadcrumbWrap{
+	padding-top: 15px;
+}
+
+	.ipsfocus_fixedHeader .ipsfocus_breadcrumbWrap{ padding-top: 0; }
+
+/* Side links */
+.breadcrumb_side li{
+	border-color: rgba(255,255,255,0.1);
+}
+
+.breadcrumb_side li a:hover{
+	background: rgba(255,255,255,0.05);
+}
+
+
+
+
+/* ============== */
+/*     F_ICON     */
+/* ============== */
+
+/* FontAwesome icon background */
+{{if !theme.ipsf_ficonTransparent}}
+	.ipsItemStatus.ipsItemStatus_large,
+	.ipsItemStatus.ipsItemStatus_large.ipsItemStatus_read{
+			background: {theme="ipsf_ficonBackground"};
+			background-image: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%,rgba(255,255,255,0) 100%);
+			box-shadow: inset rgba(255,255,255,0.2) 0px 0px 0px 1px;
+	}
+{{endif}}
+
+
+
+
+/* ===================== */
+/*     MISCELLANEOUS     */
+/* ===================== */
+
+/* Row borders */
+.ipsDataItem,
+/* Add bottom border back to zebra rows */
+.ipsDataList.ipsDataList_zebra > .ipsDataItem{
+	border-top: 1px solid rgba(255,255,255,0.08);
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+.cSearchFilters .ipsFieldRow,
+.cGalleryWidgetList > li,
+/* Subforum border */
+.ipsDataItem_subList{
+	border-bottom-color: rgba(255,255,255,0.08);
+}
+
+hr.ipsHr{
+	border-color: rgba(255,255,255,0.15);
+}
+
+/* Miscellaneous borders and separators */
+html[dir="ltr"] .cMessage_members > ol > li{ border-right-color: rgba(255,255,255,0.08); }
+html[dir="rtl"] .cMessage_members > ol > li{ border-left-color: rgba(255,255,255,0.08); }
+
+/* User photo */
+.ipsUserPhoto:after {
+	border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Rules Link */
+a[data-ipsdialog-content="#elForumRules"],
+a[data-ipsdialog-content="#elCategoryRules"],
+.ipsfocus_rules{
+	color: #fff;
+	background: #5d5d5d;
+	border: 2px solid #6c6c6c;
+	border-width: 2px 0px;
+}
+
+/* Subtle highlight: comment counts, autocomplete */
+.ipsCommentCount,
+.ipsAutocompleteMenu_item[data-selected]{
+	background: rgba(255,255,255,0.25);
+	color: #fff;
+}
+html[dir="ltr"] .ipsCommentCount:after { border-right-color: rgba(255,255,255,0.25); }
+html[dir="rtl"] .ipsCommentCount:after { border-left-color: rgba(255,255,255,0.25); }
+
+
+/* Tabs */
+.ipsTabs_item:not( .ipsTabs_activeItem ){
+	background: rgba(255,255,255,0.08);
+}
+	
+	/* :hover */
+	.ipsTabs_item:not( .ipsTabs_activeItem ):hover {
+		background: rgba(255,255,255,0.12);
+	}
+	
+	/* Active */
+	.ipsTabs_activeItem,
+	.ipsTabs_activeItem:hover {
+		color: {theme="link"};
+      	background: rgba(255,255,255,0.25);
+	}
+
+
+
+
+/* ================== */
+/*     TOPIC VIEW     */
+/* ================== */
+
+/* Post count */
+.focusPostCount{ color: #fff; }
+
+@media screen and (min-width:768px){
+
+
+
+	/* .post_block h3 */
+	{{if theme.ipsf_postDateBar }}
+
+	  	.cPost:before{
+			background: rgba(255,255,255,0.1);
+			border-bottom: 1px solid rgba(255,255,255,0.1);
+          	top: 0;
+		}
+		
+		/* Remove border from first post */
+		.cTopic .cPost:first-of-type:before{
+			border-top: 0;
+		}
+  		
+  		{{if theme.simpleTopicLayout}}
+			/* Re-align bar it's contained within .ipsBox */
+			.cPost:before{ border-top: 0; top: 1px; left: 1px; right: 1px; }
+		{{endif}}
+		
+	{{endif}}
+
+
+
+	/* post_controls */
+	{{if (theme.topicButtonStyle == 'individualButtons') OR (theme.topicButtonStyle == 'linkRow') }}
+	
+		.cPost .ipsComment_controls{
+			/* background: {theme="ipsf_commentControls"}; */
+			background: rgba(255,255,255,0.1);
+			border-top: 1px solid rgba(255,255,255,0.1);
+		    padding: 10px;
+		}
+		
+			html[dir="ltr"] .cPost .ipsComment_controls > li{
+				margin-right: 2px;
+			}
+			html[dir="rtl"] .cPost .ipsComment_controls > li{
+				margin-left: 2px;
+			}
+		
+		.cPost .ipsComment_controls a,
+		.cPost .ipsComment_controls .ipsButton.cMultiQuote{
+			background: {theme="normal_button"};
+			color: {theme="normal_button_font"};
+			border-radius: 3px;
+			border: 1px solid rgba(255,255,255,0.1);
+			padding: 0px 10px;
+			font-size: 1.17rem;
+			line-height: 28px;
+			display: block;
+		}
+		
+			.cPost .ipsComment_controls a:hover,
+			.cPost .ipsComment_controls .ipsButton.cMultiQuote:hover{
+				box-shadow: inset rgba(255,255,255,0.05) 0px 100px 0px;
+			}
+		
+		
+		{{if theme.ipsf_postDateBar }}
+			.cPost .cPost_contentWrap{
+				height: calc(100% - 60px); /* 100% - ( ipsComment_meta height + margin ) */
+				padding-bottom: 66px; /* height of .ipsComment_controls + extra padding to push content up */
+			}
+		{{endif}}
+		
+		{{if !theme.ipsf_postDateBar }}
+			.cPost .cPost_contentWrap{
+				height: calc(100% - 40px); /* 100% - ( ipsComment_meta height + margin ) */
+			}
+		{{endif}}
+ 	
+	{{endif}}
+
+
+
+
+	{{if theme.topicButtonStyle == 'linkRow' }}
+	
+		.cPost .ipsComment_controls{ padding: 0; font-size: 0; }
+		html[dir="ltr"] .cPost .ipsComment_controls > li{ margin-right: 0px; }
+		html[dir="rtl"] .cPost .ipsComment_controls > li{ margin-left: 0px; }
+		
+		.cPost .ipsComment_controls a,
+		.cPost .ipsComment_controls .ipsButton.cMultiQuote{
+			border-radius: 0px;
+			border-width: 0 1px 0 0;
+			border-color: rgba(255,255,255,0.1);
+			background: none;
+			color: {theme="link"};
+			line-height: 38px;
+		}
+		
+		/* Link hover */
+		.cPost .ipsComment_controls a:hover,
+		.cPost .ipsComment_controls .ipsButton.cMultiQuote:hover{
+			box-shadow: inset rgba(255,255,255,0.05) 0px 100px 0px;
+		}
+		
+		html[dir="rtl"] .cPost .ipsComment_controls a,
+		html[dir="rtl"] .cPost .ipsComment_controls .ipsButton.cMultiQuote{ border-width: 0px 0px 0px 1px; }
+	
+		.cPost .cPost_contentWrap{
+			padding-bottom: 54px; /* height of .ipsComment_controls + extra padding to push content up */
+		}
+	
+	{{endif}}
+
+
+}
+
+.ipsfocus_rating{
+  	background: rgba(0,0,0,0.55);
+  	color: #fff;
+  	border-radius: 3px;
+}
+
+
+
+/* ==================== */
+/*     POST CONTENT     */
+/* ==================== */
+
+/* Code, quote, spoilers, embedded */
+
+/* Headers */
+.ipsEmbedded_headerArea,
+blockquote.ipsQuote div.ipsQuote_citation {
+	background: rgba(255,255,255,0.04);
+	border-color: rgba(255,255,255,0.04);
+	color: #bfbfbf;
+}
+
+	.ipsEmbedded_headerArea a,
+	blockquote.ipsQuote div.ipsQuote_citation a {
+		color: #bfbfbf;
+	}
+
+/* Main boxes */
+.ipsCode,
+blockquote.ipsQuote,
+html[dir="rtl"] blockquote.ipsQuote,
+iframe[data-embedContent],
+.ipsStyle_spoilerFancy{
+	background: rgba(255,255,255,0.06);
+	border-color: rgba(255,255,255,0.09);
+}
+
+.ipsCode { border: 1px solid rgba(255,255,255,0.09) !important; }
+blockquote.ipsQuote { color: #afafaf; }
+
+	/* Child quotes */
+	blockquote.ipsQuote blockquote.ipsQuote{ background: rgba(255,255,255,0.04); }
+
+
+
+/* Spoilers */
+.ipsStyle_spoiler,
+.ipsStyle_spoilerFancy_inner{
+	background: {theme="area_background_light"} !important;
+	color: #fff !important;
+}
+	.ipsStyle_spoilerFancy_text{
+		color: #fff;
+	}
+
+.ipsApp .ipsStyle_spoilerFancy_text .ipsButton_verySmall{ background: rgba(255,255,255,0.07); }
+
+
+
+/* Like buttons */
+.ipsLike_contents{
+	background: rgba(255,255,255,0.06);
+	border-radius: 3px;
+}
+
+/* Like button */
+	.ipsButton_like.ipsButton_alternate{
+		background: rgba(255,255,255,0.1);
+	}
+	.ipsButton_like.ipsButton_alternate .fa{
+		color: #ff8787;
+	}
+
+/* Unlike button */
+	.ipsLikeRep .ipsButton_veryLight{
+		background: {theme="area_background_light"};
+	}
+	.ipsButton_like.ipsButton_veryLight .fa{
+		background: rgba(0,0,0,0.07);
+	}
+
+.ipsLikeRep .ipsButton{ border: 1px solid rgba(255,255,255,0.1); }
+
+.ipsButton_like .fa{ background: rgba(0,0,0,0.2); border-radius: 3px 0px 0px 3px; }
+html[dir="rtl"] .ipsButton_like .fa{ border-radius: 0px 3px 3px 0px; }
+
+
+/* .ipsReputation_count, a.ipsReputation_count { color: #fff; } */
+.ipsReputation_count.ipsType_neutral, a.ipsReputation_count.ipsType_neutral { color: #777; }
+
+
+
+
+
+/* ============== */
+/*     EDITOR     */
+/* ============== */
+
+/* Bar background */
+.cke .cke_top{
+	background: {theme="area_background"};
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+
+
+
+/* ========================= */
+/*     BACKGROUND PICKER     */
+/* ========================= */
+
+{{if theme.ipsf_backgroundType == 'ipsfocus_backgroundPicker'}}
+
+#ipsf_picker{
+	padding-top: 15px;
+}
+
+	#ipsf_picker span{
+		color: #fff;
+		text-shadow: rgba(0,0,0,0.3) 0px 1px 3px;
+		box-shadow: inset rgba(255,255,255,0.2) 0px 0px 0px 1px;
+		border-radius: 3px;
+	}
+	
+	#ipsf_picker span:hover{
+		box-shadow: inset rgba(255,255,255,0.1) 0px 0px 0px 90px, inset rgba(255,255,255,0.2) 0px 0px 0px 1px;
+	}
+
+body.ipsfocus_bg1 #gradientOverlay{
+	{{if theme.ifBg1_image}}background-image: url({theme="ifBg1_image"});
+	background-repeat: {theme="ifBg1_repeat"};
+	background-size: {theme="ifBg1_size"};
+	background-position: {theme="ifBg1_position"};{{endif}}
+}
+
+body.ipsfocus_bg2 #gradientOverlay{
+	{{if theme.ifBg2_image}}background-image: url({theme="ifBg2_image"});
+	background-repeat: {theme="ifBg2_repeat"};
+	background-size: {theme="ifBg2_size"};
+	background-position: {theme="ifBg2_position"};{{endif}}
+}
+
+body.ipsfocus_bg3 #gradientOverlay{
+	{{if theme.ifBg3_image}}background-image: url({theme="ifBg3_image"});
+	background-repeat: {theme="ifBg3_repeat"};
+	background-size: {theme="ifBg3_size"};
+	background-position: {theme="ifBg3_position"};{{endif}}
+}
+
+body.ipsfocus_bg4 #gradientOverlay{
+	{{if theme.ifBg4_image}}background-image: url({theme="ifBg4_image"});
+	background-repeat: {theme="ifBg4_repeat"};
+	background-size: {theme="ifBg4_size"};
+	background-position: {theme="ifBg4_position"};{{endif}}
+}
+
+body.ipsfocus_bg5 #gradientOverlay{
+	{{if theme.ifBg5_image}}background-image: url({theme="ifBg5_image"});
+	background-repeat: {theme="ifBg5_repeat"};
+	background-size: {theme="ifBg5_size"};
+	background-position: {theme="ifBg5_position"};{{endif}}
+}
+
+body.ipsfocus_bg6 #gradientOverlay{
+	{{if theme.ifBg4_image}}background-image: url({theme="ifBg6_image"});
+	background-repeat: {theme="ifBg6_repeat"};
+	background-size: {theme="ifBg6_size"};
+	background-position: {theme="ifBg6_position"};{{endif}}
+}
+
+	{{if (!theme.ipsf_pickerMobile) }}
+	/* Configure the backgrounds for mobiles and tablets */
+	@media screen and (max-width:979px){
+		
+		body.ipsfocus_bg1 #gradientOverlay,
+		body.ipsfocus_bg2 #gradientOverlay,
+		body.ipsfocus_bg3 #gradientOverlay,
+		body.ipsfocus_bg4 #gradientOverlay,
+		body.ipsfocus_bg5 #gradientOverlay,
+		body.ipsfocus_bg6 #gradientOverlay{
+			background-image: none;
+		}
+		
+	}
+	{{endif}}
+
+{{endif}}
+
+
+
+
+/* =================== */
+/*     MEGA FOOTER     */
+/* =================== */
+
+{{if theme.ipsf_megaFooter}}
+
+.ipsfocus_megaFooter{
+	background: {theme="area_background_reset"};
+	border-top: 1px solid {theme="ipsf_borderColor"};
+	padding: 25px;
+}
+
+{{endif}}
+
+
+
+
+/* ============= */
+/*     OTHER     */
+/* ============= */
+
+.ipsApp .ipsButton{ text-shadow: none; }
+
+/* Text buttons need a background to make them easy to read */
+.ipsToolList .ipsButton_link{
+	background: rgba(0,0,0,0.25) !important;
+  	color: #fff;
+}
+
+/* Guest message */
+.ipsfocus_guestAlert{
+	background: rgba(10,10,10,0.8);
+	border: 1px solid rgba(0,0,0,0.7);
+	border-radius: 3px;
+	box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+
+.ipsfocus_guestAlert .ipsfocus_guestHeader{ background: rgba(0,0,0,0.3); }
+.ipsfocus_guestAlert .ipsfocus_guestButtons{ background: rgba(255,255,255,0.1); }
+
+
+
+
+.ipsfocus.com{}

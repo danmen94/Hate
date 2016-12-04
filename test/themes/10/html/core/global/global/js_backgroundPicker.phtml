@@ -1,0 +1,30 @@
+<ips:template parameters="" />
+{{if theme.pickerGroups === "" OR member.inGroup( explode(',', theme.pickerGroups) ) }}
+
+    $(".ipsfocus_toggleBgPicker").click(function( event ) {
+        event.preventDefault();
+        $("#ipsf_pickerWrap").slideToggle();
+    });
+
+    $("#ipsf_picker span").click(function(){
+        var backgroundClass = $(this).attr("data-backgroundClass");
+        $("body").removeClass("ipsfocus_bg1 ipsfocus_bg2 ipsfocus_bg3 ipsfocus_bg4 ipsfocus_bg5 ipsfocus_bg6").addClass(backgroundClass);
+
+        ips.utils.cookie.set( '{theme="ifBg_cookiePrefix"}_ifbg_class', '' + backgroundClass + '', true );
+
+    });
+
+    var backgroundCookie = ips.utils.cookie.get( '{theme="ifBg_cookiePrefix"}_ifbg_class' );
+
+    if ( ( backgroundCookie != null ))	{
+        $("body").addClass('' + backgroundCookie + '');
+    }
+    else{
+        $("body").addClass('ipsfocus_bg{theme="ipsf_pickerDefault"}');
+    }
+
+{{else}}
+
+        $("body").addClass('ipsfocus_bg{theme="ipsf_pickerDefault"}');
+
+{{endif}}

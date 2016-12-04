@@ -1,0 +1,8 @@
+<ips:template parameters="$payout" />
+{{$recipient = $payout->recipient();}}
+<div class="ipsType_center ipsType_large">
+	{$recipient['active_account']['bank_name']}
+	<br>
+	XXXX{$recipient['active_account']['last4']}
+</div>
+<br>

@@ -1,0 +1,37 @@
+<ips:template parameters="" />
+{{if !$preview and \IPS\Member::loggedIn()->canAccessModule( \IPS\Application\Module::get( 'core', 'search' ) ) AND !in_array('ipsLayout_minimal', \IPS\Output::i()->bodyClasses )}}
+	<div id='searchWrap'>
+		<div id='elSearch' data-controller='core.front.core.quickSearch' itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" data-default="{expression="\IPS\Output::i()->defaultSearchOption[0]"}">
+			<form accept-charset='utf-8' action='{url="app=core&module=search&controller=search" seoTemplate="search"}' method='{{if settings.use_friendly_urls and settings.htaccess_mod_rewrite}}get{{else}}post{{endif}}'>
+				<meta itemprop="target" content="{url="app=core&module=search&controller=search&q=" seoTemplate="search"}{q}">
+				<input type="hidden" name="type" value="{expression="\IPS\Output::i()->defaultSearchOption[0]"}" data-role="searchFilter">
+				<a href='#' id='elSearchFilter' data-ipsMenu data-ipsMenu-selectable='radio' data-ipsMenu-appendTo='#elSearch' class="ipsHide">
+					<span data-role='searchingIn'>
+						{expression="\IPS\Member::loggedIn()->language()->addToStack( \IPS\Output::i()->defaultSearchOption[1] )"}
+					</span>
+					<i class='fa fa-caret-down'></i>
+				</a>
+				<ul id='elSearchFilter_menu' class='ipsMenu ipsMenu_selectable ipsMenu_narrow ipsHide'>
+					<li class='ipsMenu_item {{if output.defaultSearchOption[0] == 'all'}}ipsMenu_itemChecked{{endif}}' data-ipsMenuValue='all'>
+						<a href='{url="app=core&module=search&controller=search" csrf="1"}' title='{lang="search_everything"}'>{lang="search_everything"}</a>
+					</li>
+					<li class='ipsMenu_sep'><hr></li>
+					{{if count( output.contextualSearchOptions )}}
+						{{foreach output.contextualSearchOptions as $name => $data}}
+							<li class='ipsMenu_item' data-ipsMenuValue='{expression="json_encode( $data )"}' data-options='{expression="json_encode( $data )"}'>
+								<a href='#'>{$name}</a>
+							</li>
+						{{endforeach}}
+						<li class='ipsMenu_sep'><hr></li>
+					{{endif}}
+					<li data-role='globalSearchMenuOptions'></li>
+					<li class='ipsMenu_item ipsMenu_itemNonSelect'>
+						<a href='{url="app=core&module=search&controller=search" seoTemplate="search"}' accesskey='4'><i class='fa fa-cog'></i> {lang="advanced_search"}</a>
+					</li>
+				</ul>
+				<input type='search' id='elSearchField' placeholder='{lang="search_placeholder"}' name='q' itemprop="query-input">
+				<button type='submit'><i class='fa fa-search'></i></button>
+			</form>
+		</div>
+	</div>
+{{endif}}

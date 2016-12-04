@@ -1,0 +1,33 @@
+<ips:template parameters=" " />
+	<nav class='navAlign ipsClearfix' id='elSearchNavContainer' data-controller='core.front.core.navBar'>
+		<ul id='ipsLayout_mainNav'>
+			{{if !in_array('ipsLayout_minimal', \IPS\Output::i()->bodyClasses )}}
+					{{$extensions = ( \IPS\Member::loggedIn()->language()->isrtl ) ? array_reverse( \IPS\Application::allExtensions( 'core', 'FrontNavigation' ) ) : \IPS\Application::allExtensions( 'core', 'FrontNavigation' );}}
+					{{foreach $extensions as $id => $nav}}
+					{{if $nav->canView()}}
+						{{$tabId = uniqid();}}
+						<li data-role='navItem'>
+							<a id="elNavigation_app_{expression="strtok( $id, '_')"}_{$tabId}" href='{$nav->link()}' class='elNavigation_app_{$id}{{if $nav->active()}} ipsNavActive{{endif}}' {{if $children = $nav->children()}}data-ipsMenu data-ipsMenu-activeClass='ipsNavActive_menu'{{endif}}>
+								{$nav->title()}
+								{{if $children}}
+									&nbsp;<i class='fa fa-caret-down'></i>
+								{{endif}}
+							</a>
+							{{if $children}}
+								<ul id="elNavigation_app_{expression="strtok( $id, '_')"}_{$tabId}_menu" class="ipsMenu ipsMenu_auto ipsHide">
+									{template="navBarChildren" app="core" group="global" params="$children"}
+								</ul>
+							{{endif}}
+						</li>
+					{{endif}}
+				{{endforeach}}
+			{{endif}}
+			<li class='ipsHide' id='elNavigationMore' data-role='navMore'>
+				<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore' id='elNavigationMore_dropdown'>{lang="more"} <i class='fa fa-caret-down'></i></a>
+				<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_dropdown_menu'></ul>
+			</li>
+			{{if member.group['g_view_board']}}
+				<li class='ipsHide cCommunityHome'><a href='{setting="base_url"}' title='{lang="go_community_home"}'>{lang="community_home"}</a></li>
+			{{endif}}
+		</ul>
+	</nav>

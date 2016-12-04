@@ -1,0 +1,189 @@
+#elChatTabs {
+	background: #262e33;
+}
+
+	/*#elChatTabs .ipsTabs_item {
+		font-weight: normal;
+	}*/
+
+#elChatWrapper {
+	border: 1px solid rgba(0,0,0,0.1);
+}
+
+#elChatTabsContent > .ipsTabs_panel {
+	height: 430px;
+}
+
+#elChatTabBar {
+	margin-right: 190px;
+}
+
+	#elChatTabBar > li > a:not( .ipsTabs_activeItem ) {
+		background: rgba(225,225,225,0.3);
+	}
+
+@media screen and (min-width: 767px) {
+	#elChatTabBar > li > a:not( .ipsTabs_activeItem ) {
+		color: rgba(255,255,255,0.5);
+	}
+}
+
+#elUserList {
+	max-height: 395px;
+	overflow: auto;
+}
+
+.cChatCompose {
+
+}
+
+.ipsApp .cMessageTextarea {
+	width: 100%;
+	height: 44px;
+	resize: none;
+}
+
+.cChatTab {
+	position: relative;
+	height: 430px;
+	border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.cChatCompose {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+	
+	.cChatCompose .ipsColumn_veryNarrow {
+		width: 58px;
+	}
+
+		.cChatCompose .ipsColumn_veryNarrow .ipsButton {
+			font-size: 18px;
+		}
+
+.cChatUserRow {
+	display: block;
+}
+
+	.cChatUserRow:hover, .cChatUserRow_hover {
+		background: #fafafa;
+	}
+
+.cChatUsername {
+	font-size: 14px;
+	line-height: 28px;
+}
+	
+	#elUserList .ipsUserPhoto_tiny img, 
+	#elUserList img.ipsUserPhoto_tiny,
+	#elUserList .ipsUserPhoto_tiny:after {
+		width: 28px;
+		height: 28px;
+	}
+
+.cChatUserInfo {
+	min-height: 150px;
+}
+
+#elChatTabs [data-action='toggleSound'] {
+	font-size: 15px;
+}
+
+/* Message styles */
+.cChatContainer {
+	width: 100%;
+	height: 355px;
+	overflow: auto;
+}
+
+.cChatRow {
+	font-size: 14px;
+	overflow: auto;
+	display: table-row;
+	width: 100%;
+}
+
+.cChatRow .cChatRow_user,
+.cChatRow .cChatRow_content,
+.cChatRow .cChatRow_date {
+	display: table-cell;
+	padding: 10px;
+	border-bottom: 1px solid #efefef;
+	vertical-align: top;
+}
+
+.cChatRow .cChatRow_user {
+	text-align: right;
+	color: #898989;
+	min-width: 130px;
+	max-width: 150px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.cChatRow_date {
+	padding: 0 10px;
+	font-size: 12px;
+	color: #939393;
+	min-width: 75px; /* Wide enough for AM/PM */
+	width: 75px;
+}
+/*.cChatRow.cChatRow_date {
+	font-size: 12px;
+	font-weight: bold;
+	color: #222;
+}
+
+	.cChatRow.cChatRow_date .cChatRow_user,
+	.cChatRow.cChatRow_date .cChatRow_content {
+		padding: 5px 10px 0;
+		border-bottom: 0px;
+	}*/
+
+.cChatRow.cChatRow_notice {
+	color: #939393;
+}
+
+.cChatRow.cChatRow_me {
+	color: #898989;
+}
+
+.cChatRow .cChatRow_content {
+	width: 100%;
+}
+
+.cChatRow_system {
+	background: #f9e4e1;
+}
+
+.cChatRow_own {
+	background: #e1eaf5;
+}
+
+	.cChatRow_own .cChatRow_user,
+	.cChatRow_own .cChatRow_content,
+	.cChatRow_own .cChatRow_date {
+		border-color: #cdd8e6;
+	}
+
+
+.cChatParsedImage img {
+	max-width: 100px;
+	max-height: 100px;
+}
+
+.cChatParsedImage a {
+	display: inline-block;
+}
+
+	.cChatParsedImage a:last-child {
+		vertical-align: top;
+	}
+
+.cChatParsedImage .ipsButton {
+	line-height: 14px;
+	padding: 0 5px;
+}

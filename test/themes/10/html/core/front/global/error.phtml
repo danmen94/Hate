@@ -1,0 +1,35 @@
+<ips:template parameters="$title, $message, $code, $backtrace" />
+<div class='ipsBox ipsPad_bottom'>
+<section id='elError' class='ipsType_center ipsPad_bottom'>
+	<div class='ipsPad'>
+		<i class='fa fa-exclamation-circle ipsType_huge'></i>
+		<p class='ipsType_reset ipsType_light ipsType_large'>
+			{lang="something_went_wrong"}
+		</p>
+		<div id='elErrorMessage' class='ipsPos_center'>
+			{$message|raw}
+		</div>
+		<p class='ipsType_light ipsType_reset ipsType_normal'>
+			{lang="error_page_code"} <strong>{$code}</strong>
+		</p>
+	</div>
+	
+	{{if \IPS\Member::loggedIn()->canAccessModule( \IPS\Application\Module::get( 'core', 'contact' ) ) and !( \IPS\Dispatcher::i()->application->directory == 'core' and \IPS\Dispatcher::i()->module and \IPS\Dispatcher::i()->module->key == 'contact' )}}
+		<p class='ipsType_light ipsType_large'>
+			<a href='{url="app=core&module=contact&controller=contact" seoTemplate="contact"}' title='{lang="contact_admin"}'>
+				{lang="contact_admin"}
+			</a>
+		</p>
+	{{endif}}
+	{{if !member.member_id}}
+		<br>
+		<a href='{url="app=core&module=system&controller=login" seoTemplate="login"}' class='ipsButton ipsButton_normal ipsButton_medium' title='{lang="sign_in"}'>
+			{lang="sign_in"}
+		</a>
+	{{endif}}
+</section>
+{{if $backtrace}}
+	<br><hr class='ipsHr'><br>
+	<pre>{$backtrace}</pre>
+{{endif}}
+</div>

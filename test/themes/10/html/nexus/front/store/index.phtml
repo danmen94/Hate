@@ -1,0 +1,73 @@
+<ips:template parameters="$credits, $newProducts, $popularProducts" />
+{template="pageHeader" group="global" app="core" params="\IPS\Member::loggedIn()->language()->get('store')"}
+
+{{if $credits->amount > 0}}
+	<div class='ipsMessage ipsMessage_general'>
+		{lang="store_credit_message" sprintf="$credits"}
+	</div>
+{{endif}}
+
+{{if count( \IPS\nexus\Package\Group::roots() )}}
+<section>
+	<ul class='ipsGrid ipsGrid_collapsePhone ipsBox ipsPad' data-ipsGrid data-ipsGrid-minItemSize='200' data-ipsGrid-maxItemSize='350' data-ipsGrid-equalHeights='row'>
+		{{foreach \IPS\nexus\Package\Group::roots() as $group}}
+			<li class='ipsGrid_span4 cNexusCategoryBlock'>
+				<a href='{$group->url()}' data-grid-ratio='40' {{if $group->image}}style="background-image: url( '{expression="str_replace( array( '(', ')' ), array( '\(', '\)' ), $group->image )"}' );"{{endif}}>
+					<h2 class='ipsType_sectionHead ipsTruncate ipsTruncate_line'>{$group->_title}</h2>
+				</a>
+			</li>
+		{{endforeach}}
+	</ul>
+</section>
+{{endif}}
+
+{{if (count( \IPS\nexus\Package\Item::featured() )) OR (count( $newProducts )) OR (count( $popularProducts )) }}
+
+
+{{if count( \IPS\nexus\Package\Item::featured() )}}	
+	<div class='ipsSpacer_top'>{theme="ipsfocus_b1"}<h2 class='ipsType_sectionTitle'>{lang="featured_products"}</h2>{theme="ipsfocus_b2"}
+	<div class='ipsCarousel ipsClearfix' data-ipsCarousel data-ipsCarousel-showDots>
+		<ul class='cNexusCarousel cNexusCategory_grid ipsClearfix' data-role="carouselItems">
+			{{foreach \IPS\nexus\Package\Item::featured() as $package}}
+				{template="packageBlock" group="store" params="$package, TRUE, TRUE"}
+			{{endforeach}}
+		</ul>
+		<span class='ipsCarousel_shadow ipsCarousel_shadowLeft'></span>
+		<span class='ipsCarousel_shadow ipsCarousel_shadowRight'></span>
+		<a href='#' class='ipsCarousel_nav ipsHide' data-action='prev'><i class='fa fa-chevron-left'></i></a>
+		<a href='#' class='ipsCarousel_nav ipsHide' data-action='next'><i class='fa fa-chevron-right'></i></a>
+      </div>{theme="ipsfocus_b3"}</div>
+{{endif}}
+	
+	{{if count( $newProducts )}}
+		<div class='ipsSpacer_top'>{theme="ipsfocus_b1"}<h2 class='ipsType_sectionTitle'>{lang="new_products"}</h2>{theme="ipsfocus_b2"}
+		<div class='ipsCarousel ipsClearfix' data-ipsCarousel data-ipsCarousel-showDots>
+			<ul class='cNexusCarousel cNexusCategory_grid ipsClearfix' data-role="carouselItems">
+				{{foreach $newProducts as $package}}
+					{template="packageBlock" group="store" params="$package, TRUE, TRUE"}
+				{{endforeach}}
+			</ul>
+			<span class='ipsCarousel_shadow ipsCarousel_shadowLeft'></span>
+			<span class='ipsCarousel_shadow ipsCarousel_shadowRight'></span>
+			<a href='#' class='ipsCarousel_nav ipsHide' data-action='prev'><i class='fa fa-chevron-left'></i></a>
+			<a href='#' class='ipsCarousel_nav ipsHide' data-action='next'><i class='fa fa-chevron-right'></i></a>
+          </div>{theme="ipsfocus_b3"}</div>
+	{{endif}}
+
+	{{if count( $popularProducts )}}
+		<div class='ipsSpacer_top'>{theme="ipsfocus_b1"}<h2 class='ipsType_sectionTitle'>{lang="popular_products"}</h2>{theme="ipsfocus_b2"}
+		<div class='ipsCarousel ipsClearfix' data-ipsCarousel data-ipsCarousel-showDots>
+			<ul class='cNexusCarousel cNexusCategory_grid ipsClearfix' data-role="carouselItems">
+				{{foreach $popularProducts as $package}}
+					{template="packageBlock" group="store" params="$package, TRUE, TRUE"}
+				{{endforeach}}
+			</ul>
+			<span class='ipsCarousel_shadow ipsCarousel_shadowLeft'></span>
+			<span class='ipsCarousel_shadow ipsCarousel_shadowRight'></span>
+			<a href='#' class='ipsCarousel_nav ipsHide' data-action='prev'><i class='fa fa-chevron-left'></i></a>
+			<a href='#' class='ipsCarousel_nav ipsHide' data-action='next'><i class='fa fa-chevron-right'></i></a>
+          </div>{theme="ipsfocus_b3"}</div>
+	{{endif}}
+
+
+{{endif}}
