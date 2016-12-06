@@ -1,0 +1,13 @@
+{
+  "1": {
+    "method": "addColumn",
+    "params": [
+      "core_members",
+      {
+        "name": "award_member_show",
+        "type": "TEXT",
+        "comment": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "1": {
+        "method": "changeColumn",
+        "params": [
+            "awards_awards",
+            "award_self",
+            {
+                "name": "award_self",
+                "type": "INT",
+                "length": 1,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "1",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    }
+}

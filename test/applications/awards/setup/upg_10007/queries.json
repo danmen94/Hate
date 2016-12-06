@@ -1,0 +1,56 @@
+{
+    "1": {
+        "method": "addColumn",
+        "params": [
+            "awards_awards",
+            {
+                "name": "award_old_cat",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "2": {
+        "method": "addColumn",
+        "params": [
+            "awards_awards",
+            {
+                "name": "award_parent",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "3": {
+        "method": "dropColumn",
+        "params": [
+            "awards_awards",
+            "award_parent"
+        ]
+    },
+    "4": {
+        "method": "dropColumn",
+        "params": [
+            "awards_awards",
+            "award_old_cat"
+        ]
+    }
+}

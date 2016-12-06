@@ -1,0 +1,41 @@
+{
+  "1": {
+    "method": "addColumn",
+    "params": [
+      "core_members",
+      {
+        "name": "award_sort",
+        "type": "VARCHAR",
+        "length": 20,
+        "null": false,
+        "default": "date",
+        "comment": ""
+      }
+    ]
+  },
+  "2": {
+    "method": "addColumn",
+    "params": [
+      "core_members",
+      {
+        "name": "award_order",
+        "type": "VARCHAR",
+        "length": 20,
+        "null": false,
+        "default": "DESC",
+        "comment": ""
+      }
+    ]
+  },
+  "3": {
+    "method": "addColumn",
+    "params": [
+      "core_members",
+      {
+        "name": "award_member_show",
+        "type": "TEXT",
+        "comment": ""
+      }
+    ]
+  }
+}

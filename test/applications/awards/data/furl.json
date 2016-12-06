@@ -1,0 +1,34 @@
+{
+  "topLevel": "awards",
+  "pages": {
+    "awards": {
+      "friendly": "",
+      "real": "app=awards&module=awards&controller=index"
+    },
+    "awards_cat": {
+      "friendly": "category/{#id}-{?}",
+      "real": "app=awards&module=awards&controller=awards",
+      "verify": "\\IPS\\awards\\Cats"
+    },
+    "view_awards": {
+      "friendly": "awards/{#id}-{?}",
+      "real": "app=awards&module=awards&controller=awards",
+      "verify": "\\IPS\\awards\\Cats"
+    },
+    "settings_awards": {
+      "friendly": "settings/awards",
+      "real": "app=core&module=system&controller=settings&area=awards"
+    },
+    "profile_awards": {
+      "friendly": "profile/{#id}-{?}",
+      "real": "app=core&module=members&controller=profile&do=awards",
+      "seoTitles": [
+        {
+          "class": "\\IPS\\Member",
+          "queryParam": "id",
+          "property": "members_seo_name"
+        }
+      ]
+    }
+  }
+}

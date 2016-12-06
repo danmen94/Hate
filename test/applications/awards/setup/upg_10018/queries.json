@@ -1,0 +1,62 @@
+[
+  {
+    "method": "addColumn",
+    "params": [
+      "awards_cats",
+      {
+        "name": "cat_name_seo",
+        "type": "VARCHAR",
+        "length": 255,
+        "decimals": null,
+        "values": null,
+        "allow_null": true,
+        "default": null,
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  {
+    "method": "addColumn",
+    "params": [
+      "awards_cats",
+      {
+        "name": "cat_icon",
+        "type": "VARCHAR",
+        "length": 255,
+        "decimals": null,
+        "values": null,
+        "allow_null": true,
+        "default": null,
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  {
+    "method": "addColumn",
+    "params": [
+      "awards_cats",
+      {
+        "name": "cat_desc",
+        "type": "TEXT",
+        "length": null,
+        "decimals": null,
+        "values": null,
+        "allow_null": true,
+        "default": null,
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  }
+]

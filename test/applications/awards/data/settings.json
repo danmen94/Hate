@@ -1,0 +1,142 @@
+[
+    {
+        "key": "award_settings_awardhover_size",
+        "default": "64x64"
+    },
+    {
+        "key": "award_settings_bot",
+        "default": ""
+    },
+    {
+        "key": "award_settings_enable",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_front_size",
+        "default": "64x64"
+    },
+    {
+        "key": "award_settings_hover_alignment",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_hover_cat",
+        "default": ""
+    },
+    {
+        "key": "award_settings_hover_cat_show_show",
+        "default": "all"
+    },
+    {
+        "key": "award_settings_hover_display",
+        "default": "awards"
+    },
+    {
+        "key": "award_settings_hover_enable",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_hover_size",
+        "default": "20x20"
+    },
+    {
+        "key": "award_settings_hover_style",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_hover_title",
+        "default": "Awards"
+    },
+    {
+        "key": "award_settings_hover_total",
+        "default": "8"
+    },
+    {
+        "key": "award_settings_manage",
+        "default": ""
+    },
+    {
+        "key": "award_settings_pane_alignment",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_pane_cat",
+        "default": ""
+    },
+    {
+        "key": "award_settings_pane_cat_show_show",
+        "default": "all"
+    },
+    {
+        "key": "award_settings_pane_display",
+        "default": "awards"
+    },
+    {
+        "key": "award_settings_pane_enable",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_pane_size",
+        "default": "23x23"
+    },
+    {
+        "key": "award_settings_pane_style",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_pane_title",
+        "default": "Awards"
+    },
+    {
+        "key": "award_settings_pane_total",
+        "default": "16"
+    },
+    {
+        "key": "award_settings_posts_alignment",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_posts_cat",
+        "default": ""
+    },
+    {
+        "key": "award_settings_posts_cat_show_show",
+        "default": "all"
+    },
+    {
+        "key": "award_settings_posts_display",
+        "default": "awards"
+    },
+    {
+        "key": "award_settings_posts_enable",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_posts_size",
+        "default": "28x28"
+    },
+    {
+        "key": "award_settings_posts_style",
+        "default": "0"
+    },
+    {
+        "key": "award_settings_posts_title",
+        "default": "Awards"
+    },
+    {
+        "key": "award_settings_posts_total",
+        "default": "16"
+    },
+    {
+        "key": "award_settings_profile_size",
+        "default": "52x52"
+    },
+    {
+        "key": "award_settings_view",
+        "default": ""
+    },
+    {
+        "key": "cat_settings_front_size",
+        "default": "40x40"
+    }
+]

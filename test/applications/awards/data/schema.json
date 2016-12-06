@@ -1,0 +1,962 @@
+{
+    "awards_cats": {
+        "name": "awards_cats",
+        "columns": {
+            "cat_id": {
+                "name": "cat_id",
+                "type": "BIGINT",
+                "length": 20,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": null,
+                "comment": "ID Number",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": true,
+                "binary": false
+            },
+            "cat_title": {
+                "name": "cat_title",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "cat_position": {
+                "name": "cat_position",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "cat_parent": {
+                "name": "cat_parent",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": "0",
+                "comment": "",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "cat_enabled": {
+                "name": "cat_enabled",
+                "type": "INT",
+                "length": 1,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": "1",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "cat_name_seo": {
+                "name": "cat_name_seo",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "cat_icon": {
+                "name": "cat_icon",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "cat_desc": {
+                "name": "cat_desc",
+                "type": "TEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "cat_url": {
+                "name": "cat_url",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        },
+        "indexes": {
+            "PRIMARY": {
+                "type": "primary",
+                "name": "PRIMARY",
+                "columns": [
+                    "cat_id"
+                ],
+                "length": [
+                    null
+                ]
+            }
+        }
+    },
+    "awards_awards": {
+        "name": "awards_awards",
+        "columns": {
+            "award_id": {
+                "allow_null": false,
+                "auto_increment": true,
+                "binary": false,
+                "comment": "ID Number",
+                "decimals": null,
+                "default": null,
+                "length": 20,
+                "name": "award_id",
+                "type": "BIGINT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "award_title": {
+                "name": "award_title",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_enabled": {
+                "allow_null": false,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": "1",
+                "length": 1,
+                "name": "award_enabled",
+                "type": "INT",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_cat_id": {
+                "name": "award_cat_id",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_position": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": "0",
+                "length": 10,
+                "name": "award_position",
+                "type": "INT",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_options": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": "manual",
+                "length": 50,
+                "name": "award_options",
+                "type": "VARCHAR",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_icon": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 255,
+                "name": "award_icon",
+                "type": "VARCHAR",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_show": {
+                "name": "award_show",
+                "type": "VARCHAR",
+                "length": 20,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": "awards",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_when": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": "0",
+                "length": 10,
+                "name": "award_when",
+                "type": "INT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "award_notification": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": "0",
+                "length": 1,
+                "name": "award_notification",
+                "type": "INT",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_desc": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 0,
+                "name": "award_desc",
+                "type": "TEXT",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_count": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": "0",
+                "length": 10,
+                "name": "award_count",
+                "type": "INT",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_reason": {
+                "name": "award_reason",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_restrictions": {
+                "name": "award_restrictions",
+                "type": "INT",
+                "length": 1,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "0",
+                "comment": "",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_self": {
+                "name": "award_self",
+                "type": "INT",
+                "length": 1,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "1",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_obtainable": {
+                "name": "award_obtainable",
+                "type": "INT",
+                "length": 1,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_obtainable_yes_message": {
+                "name": "award_obtainable_yes_message",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "Award still available.",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_obtainable_no_message": {
+                "name": "award_obtainable_no_message",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "Award no longer available.",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_obtainable_enabled": {
+                "name": "award_obtainable_enabled",
+                "type": "INT",
+                "length": 1,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        },
+        "indexes": {
+            "PRIMARY": {
+                "type": "primary",
+                "name": "PRIMARY",
+                "length": [
+                    null
+                ],
+                "columns": [
+                    "award_id"
+                ]
+            }
+        },
+        "collation": "utf8mb4_unicode_ci",
+        "engine": "InnoDB"
+    },
+    "awards_awarded": {
+        "name": "awards_awarded",
+        "columns": {
+            "awarded_id": {
+                "allow_null": false,
+                "auto_increment": true,
+                "binary": false,
+                "comment": "ID Number",
+                "decimals": null,
+                "default": null,
+                "length": 20,
+                "name": "awarded_id",
+                "type": "BIGINT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "awarded_member": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 10,
+                "name": "awarded_member",
+                "type": "INT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "awarded_award": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 10,
+                "name": "awarded_award",
+                "type": "INT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "awarded_date": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 20,
+                "name": "awarded_date",
+                "type": "VARCHAR",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "awarded_options": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 50,
+                "name": "awarded_options",
+                "type": "VARCHAR",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "awarded_show": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 20,
+                "name": "awarded_show",
+                "type": "VARCHAR",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "awarded_giver": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 10,
+                "name": "awarded_giver",
+                "type": "INT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "awarded_reason": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 0,
+                "name": "awarded_reason",
+                "type": "TEXT",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "awarded_cat": {
+                "allow_null": false,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": "0",
+                "length": 10,
+                "name": "awarded_cat",
+                "type": "INT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "awarded_title": {
+                "name": "awarded_title",
+                "type": "VARCHAR",
+                "length": 50,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        },
+        "indexes": {
+            "PRIMARY": {
+                "type": "primary",
+                "name": "PRIMARY",
+                "length": [
+                    null
+                ],
+                "columns": [
+                    "awarded_id"
+                ]
+            }
+        },
+        "collation": "utf8mb4_unicode_ci",
+        "engine": "InnoDB"
+    },
+    "awards_removed": {
+        "name": "awards_removed",
+        "columns": {
+            "award_removed_id": {
+                "name": "award_removed_id",
+                "type": "BIGINT",
+                "length": 20,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": null,
+                "comment": "ID Number",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": true,
+                "binary": false
+            },
+            "award_removed_reason": {
+                "name": "award_removed_reason",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_removed_date": {
+                "name": "award_removed_date",
+                "type": "VARCHAR",
+                "length": 20,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_removed_member": {
+                "name": "award_removed_member",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_removed_by": {
+                "name": "award_removed_by",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_removed_giver": {
+                "name": "award_removed_giver",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_removed_award": {
+                "name": "award_removed_award",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_removed_title": {
+                "name": "award_removed_title",
+                "type": "VARCHAR",
+                "length": 50,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_removed_awarded_date": {
+                "name": "award_removed_awarded_date",
+                "type": "VARCHAR",
+                "length": 20,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "award_removed_awarded_reason": {
+                "name": "award_removed_awarded_reason",
+                "type": "TEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        },
+        "indexes": {
+            "PRIMARY": {
+                "type": "primary",
+                "name": "PRIMARY",
+                "columns": [
+                    "award_removed_id"
+                ],
+                "length": [
+                    null
+                ]
+            }
+        }
+    },
+    "awards_restored": {
+        "name": "awards_restored",
+        "columns": {
+            "award_restored_reason": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 0,
+                "name": "award_restored_reason",
+                "type": "TEXT",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_restored_award": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 10,
+                "name": "award_restored_award",
+                "type": "INT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "award_restored_member": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 10,
+                "name": "award_restored_member",
+                "type": "INT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "award_restored_date": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 20,
+                "name": "award_restored_date",
+                "type": "VARCHAR",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_restored_by": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 10,
+                "name": "award_restored_by",
+                "type": "INT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "award_restored_title": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 50,
+                "name": "award_restored_title",
+                "type": "VARCHAR",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_restored_giver": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 10,
+                "name": "award_restored_giver",
+                "type": "INT",
+                "unsigned": true,
+                "values": [],
+                "zerofill": false
+            },
+            "award_restored_awarded_date": {
+                "allow_null": true,
+                "auto_increment": false,
+                "binary": false,
+                "comment": "",
+                "decimals": null,
+                "default": null,
+                "length": 20,
+                "name": "award_restored_awarded_date",
+                "type": "VARCHAR",
+                "unsigned": false,
+                "values": [],
+                "zerofill": false
+            },
+            "award_restored_id": {
+                "name": "award_restored_id",
+                "type": "BIGINT",
+                "length": 20,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": null,
+                "comment": "ID Number",
+                "unsigned": true,
+                "zerofill": false,
+                "auto_increment": true,
+                "binary": false
+            },
+            "award_restored_awarded_reason": {
+                "name": "award_restored_awarded_reason",
+                "type": "TEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        },
+        "indexes": {
+            "PRIMARY": {
+                "type": "primary",
+                "name": "PRIMARY",
+                "length": [
+                    null
+                ],
+                "columns": [
+                    "award_restored_id"
+                ]
+            }
+        },
+        "collation": "utf8mb4_unicode_ci",
+        "engine": "InnoDB"
+    },
+    "awards_upgrade": {
+        "name": "awards_upgrade",
+        "columns": {
+            "data": {
+                "name": "data",
+                "type": "VARCHAR",
+                "length": 2,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": "",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            },
+            "upgraded": {
+                "name": "upgraded",
+                "type": "INT",
+                "length": 1,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        },
+        "indexes": {
+            "PRIMARY": {
+                "type": "primary",
+                "name": "PRIMARY",
+                "length": [
+                    null
+                ],
+                "columns": [
+                    "data"
+                ]
+            }
+        },
+        "collation": "utf8mb4_unicode_ci",
+        "engine": "InnoDB",
+        "inserts": [
+            {
+                "data": "as",
+                "upgraded": "0"
+            },
+            {
+                "data": "hq",
+                "upgraded": "0"
+            }
+        ]
+    }
+}

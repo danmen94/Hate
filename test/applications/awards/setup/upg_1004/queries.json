@@ -1,0 +1,64 @@
+{
+  "1": {
+    "method": "changeColumn",
+    "params": [
+      "awards_awards",
+      "award_cat_id",
+      {
+        "name": "award_cat_id",
+        "type": "INT",
+        "length": 10,
+        "decimals": null,
+        "values": [],
+        "allow_null": false,
+        "default": "0",
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  "2": {
+    "method": "changeColumn",
+    "params": [
+      "awards_upgrade",
+      "data",
+      {
+        "name": "data",
+        "type": "VARCHAR",
+        "length": 2,
+        "decimals": null,
+        "values": [],
+        "allow_null": false,
+        "default": "",
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  "3": {
+    "method": "addColumn",
+    "params": [
+      "awards_awards",
+      {
+        "name": "award_restrictions",
+        "type": "INT",
+        "length": 1,
+        "decimals": null,
+        "values": null,
+        "allow_null": false,
+        "default": "0",
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  }
+}

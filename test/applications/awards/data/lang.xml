@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+ <app key="awards" version="10020">
+  <word key="__app_awards" js="0">Награды</word>
+  <word key="__child_awards" js="0">Награды</word>
+  <word key="menutab__awards" js="0">Награды</word>
+  <word key="menu__awards_awards" js="0">Награды</word>
+  <word key="menu__awards_awards_settings" js="0">Настройки</word>
+  <word key="menu__awards_awards_manage" js="0">Управление</word>
+  <word key="menutab__awards_icon" js="0">награда</word>
+  <word key="menu__awards_awards_logs" js="0">Журнал</word>
+  <word key="menu__awards_awards_tools" js="0">Инструменты</word>
+  <word key="module__awards_awards" js="0">Награды</word>
+  <word key="profile_awards_Awards" js="0">Награды</word>
+  <word key="menu__awards_upgrade" js="0">Обновить</word>
+  <word key="menu__awards_upgrade_awardsSystem" js="0">Система наград</word>
+  <word key="menu__awards_upgrade_hqAwards" js="0">Модуль награды</word>
+  <word key="cat_enabled" js="0">Включить?</word>
+  <word key="cat_title" js="0">Заголовок</word>
+  <word key="cat_header_main" js="0">Настройки категорий</word>
+  <word key="cat_tab_main" js="0">категория</word>
+  <word key="cat_icon" js="0">Иконка</word>
+  <word key="cat_desc" js="0">Описание</word>
+  <word key="cat_perm_perm__label" js="0">Разрешение категорий</word>
+  <word key="cat_perm_perm__view" js="0">Посмотреть</word>
+  <word key="cat_perm_perm__add" js="0">Добавить награды</word>
+  <word key="award_title" js="0">Заголовок</word>
+  <word key="award_desc" js="0">Description</word>
+  <word key="award_icon" js="0">Иконка</word>
+  <word key="award_enabled" js="0">Включить?</word>
+  <word key="award_show" js="0">Где отобразить?</word>
+  <word key="award_options" js="0">Опции</word>
+  <word key="award_notification" js="0">Отправить уведомление</word>
+  <word key="award_manual" js="0">Руководство</word>
+  <word key="award_amount" js="0">Количество наград</word>
+  <word key="award_cat_id" js="0">Категория</word>
+  <word key="award_id" js="0">Награды</word>
+  <word key="award_when" js="0">Когда?</word>
+  <word key="award_reason" js="0">Причина</word>
+  <word key="award_tab_main" js="0">Основная</word>
+  <word key="award_tab_options" js="0">Опции</word>
+  <word key="award_tab_notification" js="0">Уведомления</word>
+  <word key="award_restrictions" js="0">Несколько наград</word>
+  <word key="award_restrictions_desc" js="0">Ограничить пользователей получать эту награду более одного раза?</word>
+  <word key="award_perm_perm__label" js="0">Разрешения</word>
+  <word key="award_perm_perm__view" js="0">Посмотреть</word>
+  <word key="award_perm_perm__add" js="0">Награда</word>
+  <word key="award_perm_perm__receive" js="0">Получить</word>
+  <word key="award_perm_perm__self" js="0">Себе</word>
+  <word key="award_perm_perm__restrict" js="0">Ограничить множественно!!!</word>
+  <word key="award_perm_perm__manage" js="0">Изменить/Удалить</word>
+  <word key="award_self" js="0">Себе награду</word>
+  <word key="award_self_desc" js="0">Ограничить пользователям выдавать награду самому себе</word>
+  <word key="award_tab_reason" js="0">Причина</word>
+  <word key="award_replace" js="0">Заменить награду?</word>
+  <word key="award_award_with" js="0">Награда</word>
+  <word key="award_award_with_desc" js="0">Выберите награду для замены</word>
+  <word key="award_obtainable_enabled" js="0">Включить ограничение на выдачу?</word>
+  <word key="award_obtainable" js="0">Доступен?</word>
+  <word key="award_obtainable_yes_message" js="0">Доступные сообщения</word>
+  <word key="award_obtainable_no_message" js="0">Не доступно сообщений</word>
+  <word key="award_perm_perm__awarded" js="0">Управление награждением</word>
+  <word key="awarded_member" js="0">Пользователь</word>
+  <word key="awarded_photo" js="0"><![CDATA[&nbsp;]]></word>
+  <word key="awarded_name" js="0">Пользователь</word>
+  <word key="awarded_date" js="0">Дата</word>
+  <word key="awarded_manage_members" js="0">Управление награждением</word>
+  <word key="awarded_removed" js="0">Награды удалены.</word>
+  <word key="awarded_added" js="0">Награды добавлены.</word>
+  <word key="awarded_reason" js="0">Причина</word>
+  <word key="awarded_updated" js="0">Пользователь успешно обновлен.</word>
+  <word key="award_title_reason_awarded" js="0">Причина награждения</word>
+  <word key="award_removed_reason" js="0">Причина</word>
+  <word key="award_removed_photo" js="0"><![CDATA[&nbsp;]]></word>
+  <word key="award_removed_name" js="0">Пользователь</word>
+  <word key="award_removed_title" js="0">Награда</word>
+  <word key="award_removed_awarded_date" js="0">Дата награждения</word>
+  <word key="award_removed_date" js="0">Дата удаления</word>
+  <word key="award_removed_by" js="0">Удалена </word>
+  <word key="award_member_restore" js="0">Восстановить</word>
+  <word key="award_restored_photo" js="0"><![CDATA[&nbsp;]]></word>
+  <word key="award_restored_name" js="0">Пользователь</word>
+  <word key="award_restored_title" js="0">Награда</word>
+  <word key="award_restored_awarded_date" js="0">Дата награждения</word>
+  <word key="award_restored_by" js="0">Восстановлена</word>
+  <word key="award_restored_date" js="0">Дата восстановления</word>
+  <word key="awarded_restored" js="0">Награда успешно восстановлена.</word>
+  <word key="award_restored_reason" js="0">Причина</word>
+  <word key="award_title_add_award" js="0">Добавить награду</word>
+  <word key="award_title_manage" js="0">Управление награждениями - %s</word>
+  <word key="award_title_settings" js="0">Настройки</word>
+  <word key="award_title_remove" js="0">Удалить награду</word>
+  <word key="award_title_logs" js="0">Журналы</word>
+  <word key="award_title_restore" js="0">Восстановить</word>
+  <word key="award_title_tools" js="0">Инструменты</word>
+  <word key="award_title_edit_awarded" js="0">Изменить</word>
+  <word key="award_settings_header_main" js="0">Основные настройки</word>
+  <word key="award_settings_header_options" js="0">Опции</word>
+  <word key="award_settings_all_user_groups" js="0">Все группы</word>
+  <word key="award_settings_enable" js="0">Включить приложение?</word>
+  <word key="award_settings_view" js="0">Просмотр разрешений</word>
+  <word key="award_settings_manage" js="0">Управление разрешениями в создании меню</word>
+  <word key="award_settings_show" js="0">Где показать?</word>
+  <word key="award_settings_total" js="0">Всего наград для отображения</word>
+  <word key="award_settings_bot" js="0">Уведомление бот аккаунтом</word>
+  <word key="award_settings_hovercard" js="0">Визитка</word>
+  <word key="award_settings_tooltips" js="0">Подсказка</word>
+  <word key="award_settings_style" js="0">Стиль</word>
+  <word key="award_settings_pane" js="0">Награды</word>
+  <word key="award_settings_inside_posts" js="0">Достижения</word>
+  <word key="awards_settings_show_awards" js="0">Награды</word>
+  <word key="awards_settings_show_achievements" js="0">Достижения</word>
+  <word key="award_settings_tab_main" js="0">Основные</word>
+  <word key="award_settings_header_display_profile" js="0">Настройки отображения профиля</word>
+  <word key="award_settings_tab_display" js="0">Отображение</word>
+  <word key="award_settings_header_permissions" js="0">Настройки разрешений</word>
+  <word key="award_settings_tab_permissions" js="0">Разрешения</word>
+  <word key="award_settings_profile_size" js="0">Размер иконки</word>
+  <word key="award_settings_header_display_pane" js="0">Настройки отображения в панели</word>
+  <word key="award_settings_pane_size" js="0">Размер иконки</word>
+  <word key="award_settings_pane_display" js="0">Что отображать?</word>
+  <word key="award_settings_pane_total" js="0">Всего наград для отображения</word>
+  <word key="award_settings_pane_style" js="0">Стиль</word>
+  <word key="award_settings_header_display_posts" js="0">Настройки отображения под сообщением</word>
+  <word key="award_settings_posts_display" js="0">Что отображать?</word>
+  <word key="award_settings_posts_total" js="0">Всего наград для отображения</word>
+  <word key="award_settings_posts_style" js="0">Стиль</word>
+  <word key="award_settings_posts_size" js="0">Размер иконки</word>
+  <word key="award_settings_header_display_hover" js="0">Настройки отображения в визитке пользователя</word>
+  <word key="award_settings_hover_display" js="0">Что отображать?</word>
+  <word key="award_settings_hover_total" js="0">Всего наград для отображения</word>
+  <word key="award_settings_hover_style" js="0">Стиль</word>
+  <word key="award_settings_hover_size" js="0">Размер иконки</word>
+  <word key="award_settings_header_display_front" js="0">Настройки отображения наград во внешней интерфейсе</word>
+  <word key="award_settings_front_size" js="0">Размер иконки</word>
+  <word key="award_settings_header_display_awardhover" js="0">Настройки отображения наград в визитке пользователя</word>
+  <word key="award_settings_awardhover_size" js="0">Размер иконки</word>
+  <word key="award_settings_pane_enable" js="0">Включить?</word>
+  <word key="award_settings_posts_enable" js="0">Включить?</word>
+  <word key="award_settings_hover_enable" js="0">Включить?</word>
+  <word key="award_settings_pane_cat_show_show" js="0">Что отображать?</word>
+  <word key="award_settings_cat_show_all" js="0">Все награды</word>
+  <word key="award_settings_cat_show_cat" js="0">Из категории</word>
+  <word key="award_settings_pane_cat" js="0">Категории</word>
+  <word key="award_settings_pane_title" js="0">Заголовок</word>
+  <word key="award_settings_posts_cat_show_show" js="0">Что отображать?</word>
+  <word key="award_settings_posts_title" js="0">Заголовок</word>
+  <word key="award_settings_posts_cat" js="0">Категории</word>
+  <word key="award_settings_hover_cat_show_show" js="0">Что отображать?</word>
+  <word key="award_settings_hover_title" js="0">Заголовок</word>
+  <word key="award_settings_hover_cat" js="0">Категории</word>
+  <word key="award_settings_pane_alignment" js="0">Выравнивание</word>
+  <word key="awards_alignment_center" js="0">По центру</word>
+  <word key="awards_alignment_left" js="0">Слева</word>
+  <word key="awards_alignment_right" js="0">Справа</word>
+  <word key="award_settings_posts_alignment" js="0">Выравнивание</word>
+  <word key="award_settings_hover_alignment" js="0">Выравнивание</word>
+  <word key="cat_settings_front_size" js="0">Размер иконки</word>
+  <word key="award_settings_header_display_cats" js="0">Настройки отображения наград во внешнем интерфейсе категорий</word>
+  <word key="award_member" js="0">Награда пользователя</word>
+  <word key="award_member_delete" js="0">Удалить</word>
+  <word key="award_member_edit" js="0">Изменить</word>
+  <word key="award_add" js="0">Награда</word>
+  <word key="award_view_reason" js="0">Причина</word>
+  <word key="award_no_rows_in_table" js="0">Нет выданных наград.</word>
+  <word key="award_awarded" js="0">Награжден</word>
+  <word key="award_my_awards" js="0">Награды %s</word>
+  <word key="award_awarded_awarded" js="0">Пользователь награжден - %s</word>
+  <word key="award_awards" js="0">Награды</word>
+  <word key="award_as_not_installed" js="0">Система наград не установлена.</word>
+  <word key="award_as_upgraded" js="0">Система наград обновлена.</word>
+  <word key="award_title_default" js="0">Вы были награждены %s: %s</word>
+  <word key="mailsub__awards_notification_award_member" js="0">Вы получили новую награду.</word>
+  <word key="award_reason_default" js="0"><![CDATA[Вы заслужили новую награду <a href='%s'>%s</a><p>Причина: %s</p><p>Выполучили новую награду от IpsZona.ru </p><p>С Уважением, </p><p>%s Администрация форума</p>]]></word>
+  <word key="notifications__awards_Awards" js="0">Награды</word>
+  <word key="notifications__award_member" js="0">Когда я получаю новую награду.</word>
+  <word key="iAwards_add_child" js="0">Добавить награду</word>
+  <word key="award_mass_donated" js="0">Массовое награждение успешно закончено.</word>
+  <word key="award_groups" js="0">Группа</word>
+  <word key="award_massDonate" js="0">Массовое награждение</word>
+  <word key="award_massRemove" js="0">Массовое удаление</word>
+  <word key="award_complete_massRemove" js="0">Моссовое удаление</word>
+  <word key="award_awarding_members" js="0">Награждение пользователей</word>
+  <word key="award_err_group_perm" js="0">Увас нет разрешений для доступа к Наградам.</word>
+  <word key="award_add_err_group_perm" js="0">У вас нет разрешения на доступ к этой области.</word>
+  <word key="award_err_offline" js="0">Система выключена.</word>
+  <word key="award_achievements" js="0">Достижения</word>
+  <word key="awards_member_date" js="0">Дата</word>
+  <word key="awards_member_cat" js="0">Категория</word>
+  <word key="awards_member_title" js="0">Заголовок</word>
+  <word key="award_sort" js="0">Сортировать по</word>
+  <word key="award_order" js="0">Порядок сортировки</word>
+  <word key="awards_member_desc" js="0">По убыванию (сначала новые)</word>
+  <word key="awards_member_asc" js="0">По возрастанию (сначала старые)</word>
+  <word key="as" js="0">Система наград</word>
+  <word key="awards_as_upgraded" js="0">Система наград уже обновлена.</word>
+  <word key="awards_as_not_installed" js="0">Система наград не установлена.</word>
+  <word key="awards_as_upgraded_msg" js="0">Система наград успешно обновлена.</word>
+  <word key="awards_as_upgrade" js="0">Обновить Награды</word>
+  <word key="awards_as_upgrade_desc" js="0"><![CDATA[<span style='color: red;'>Многочисленные строки, могут вызвать броблемы с ресурсами вашего хостинга.</span>]]></word>
+  <word key="awards_hq_upgrade" js="0">Обновить Награды</word>
+  <word key="awards_hq_upgrade_desc" js="0"><![CDATA[<span style='color: red;'>Многочисленные строки, могут вызвать броблемы с ресурсами вашего хостинга.</span>]]></word>
+  <word key="hq" js="0">HQ Награды</word>
+  <word key="awards_hq_upgraded" js="0">HQ Награды уже обновлен.</word>
+  <word key="awards_hq_not_installed" js="0">HQ Награды не установлен.</word>
+  <word key="awards_hq_upgraded_msg" js="0">HQ Награды успешно обновлен.</word>
+  <word key="awards_no_cats" js="0">Нечего импортировать.</word>
+  <word key="top_awarded_empty__week" js="0">Нет выданных наград на этой неделе.</word>
+  <word key="top_awarded_empty__month" js="0">Нет выданных наград в этом месяце.</word>
+  <word key="top_awarded_empty__year" js="0">Нет выданных наград за год.</word>
+  <word key="top_awarded_empty__all" js="0">Нет выданных наград за все время.</word>
+  <word key="block_topAwarded" js="0">Топ награжденных</word>
+  <word key="block_topAwarded_desc" js="0">Список топ награжденных.</word>
+  <word key="block_latestAwarded" js="0">Последние награжденные</word>
+  <word key="block_latestAwarded_desc" js="0">Список последних награжденных пользователей.</word>
+  <word key="latest_awarded_to_show" js="0">Показать всего?</word>
+  <word key="awarded_number_to_show" js="0">Показать всего?</word>
+  <word key="no_latest_awarded" js="0">Нет награжденных пользователей.</word>
+  <word key="awards_jawards" js="0">Папка с изображениями</word>
+  <word key="awards_jawards_desc" js="0">Выберите, где находится папка с изображениями наград.</word>
+  <word key="awards_awards_system" js="0">Папка с изображениями</word>
+  <word key="awards_awards_system_desc" js="0">Выберите, где находится папка с изображениями системы наград.</word>
+  <word key="award_already_awarded" js="0">Пользователь уже награжден.</word>
+  <word key="award_member_show" js="0">Исключить награды</word>
+  <word key="awards_member_award" js="0">Награда</word>
+  <word key="removed_deleted" js="0">Журнал успешно удален.</word>
+  <word key="award_member_delete_log" js="0">Удалить журнал</word>
+  <word key="awards_obtainable_err" js="0">К сожалению, чтобы иметь возможность наградить, необходимо отключить ограничения в настройках.</word>
+  <word key="awards_self_err" js="0">Вы не можете наградить себя.</word>
+  <word key="awards_others_err" js="0">Вы не можете наградить других</word>
+  <word key="awards" js="0">Награды</word>
+  <word key="filestorage__awards_Awards" js="0">Иконки наград</word>
+  <word key="awards_add_child" js="0">Добавить награду</word>
+  <word key="awards_total" js="0">Награды</word>
+  <word key="awards_Awards_conditions_has_award" js="0">Проверить пользователя имеет ли он определенную награду</word>
+  <word key="awards_Awards_conditions_has_award_member" js="0">Пользователь для проверки</word>
+  <word key="awards_Awards_conditions_has_award_award" js="0">Награда была проверена</word>
+  <word key="awards_Awards_actions_give_award" js="0">Выдать награду пользователю</word>
+  <word key="awards_Awards_actions_give_award_member" js="0">Выдать награду пользователю</word>
+  <word key="awards_Awards_actions_give_award_award" js="0">Награда выдана</word>
+  <word key="awards_Awards_actions_give_award_giver" js="0">Пользователь выдал награду</word>
+  <word key="awards_choose_award" js="0">Выберите награду</word>
+  <word key="awards_respect_permissions" js="0">Уважение выдать награду</word>
+  <word key="awards_respect_permissions_desc" js="0">Выдать награду пользователю, если у него есть разрешение на получение.</word>
+  <word key="awards_Awards_actions_remove_award" js="0">Удалить награду пользователя</word>
+  <word key="awards_Awards_actions_remove_award_member" js="0">Удалить награду пользователя</word>
+  <word key="awards_Awards_actions_remove_award_award" js="0">Удалить награду</word>
+  <word key="awards_Awards_actions_remove_award_remover" js="0">Награда удалена</word>
+  <word key="awards_Awards_actions_remove_award_reason" js="0">Удаление причин</word>
+  <word key="iawards_rules_remove_message" js="0">Сообщение</word>
+  <word key="r__manage" js="0">Категории</word>
+  <word key="r__cats_manage" js="0">Может просматривать категории?</word>
+  <word key="r__cats_add" js="0">Может добавлять категории?</word>
+  <word key="r__cats_edit" js="0">Может редактировать категории?</word>
+  <word key="r__cats_delete" js="0">Может удалять категории?</word>
+  <word key="r__cats_permissions" js="0">Может управлять разрешениями?</word>
+  <word key="r__awards" js="0">Награды</word>
+  <word key="r__awards_add" js="0">Может добавить награды?</word>
+  <word key="r__awards_edit" js="0">Может редактировать награды?</word>
+  <word key="r__awards_delete" js="0">Может удалить награды?</word>
+  <word key="r__awards_permissions" js="0">Может управлять разрешениями?</word>
+  <word key="r__awards_awarded" js="0">Может управлять награжденными?</word>
+  <word key="r__logs" js="0">Журналы</word>
+  <word key="r__logs_manage" js="0">Может получить доступ к журналам?</word>
+  <word key="r__settings" js="0">Настройки</word>
+  <word key="r__settings_manage" js="0">Может получить доступ к настройкам?</word>
+  <word key="r__upgrade" js="0">Обновление</word>
+  <word key="r__upgrade_as_manage" js="0">Может обновить систему наград?</word>
+  <word key="r__upgrade_hq_manage" js="0">Может получить доступ к системе наград?</word>
+ </app>
+</language>

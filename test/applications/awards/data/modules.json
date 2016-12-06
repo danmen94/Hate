@@ -1,0 +1,18 @@
+{
+    "admin": {
+        "awards": {
+            "default_controller": "manage",
+            "protected": 0
+        },
+        "upgrade": {
+            "default_controller": "awardsSystem",
+            "protected": 0
+        }
+    },
+    "front": {
+        "awards": {
+            "default_controller": "index",
+            "protected": 0
+        }
+    }
+}

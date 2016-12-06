@@ -112,6 +112,11 @@ return array (
       'file' => 'applications/cms/hooks/Output.php',
       'class' => 'cms_hook_Output',
     ),
+    52 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsOutput.php',
+      'class' => 'rules_hook_ipsOutput',
+    ),
   ),
   '\\IPS\\forums\\Forum' => 
   array (
@@ -132,6 +137,181 @@ return array (
     array (
       'file' => 'applications/nexus/hooks/register.php',
       'class' => 'nexus_hook_register',
+    ),
+  ),
+  '\\IPS\\Theme\\class_core_global_global' => 
+  array (
+    26 => 
+    array (
+      'file' => 'applications/awards/hooks/awardsCSS.php',
+      'class' => 'awards_hook_awardsCSS',
+    ),
+  ),
+  '\\IPS\\Theme\\class_forums_front_topics' => 
+  array (
+    27 => 
+    array (
+      'file' => 'applications/awards/hooks/awardsPosts.php',
+      'class' => 'awards_hook_awardsPosts',
+    ),
+    63 => 
+    array (
+      'file' => 'applications/rules/hooks/themeForumsFrontTopics.php',
+      'class' => 'rules_hook_themeForumsFrontTopics',
+    ),
+  ),
+  '\\IPS\\Member' => 
+  array (
+    28 => 
+    array (
+      'file' => 'applications/awards/hooks/awardsGet.php',
+      'class' => 'awards_hook_awardsGet',
+    ),
+    50 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsMember.php',
+      'class' => 'rules_hook_ipsMember',
+    ),
+  ),
+  '\\IPS\\Theme\\class_core_front_profile' => 
+  array (
+    29 => 
+    array (
+      'file' => 'applications/awards/hooks/awardsProfile.php',
+      'class' => 'awards_hook_awardsProfile',
+    ),
+    62 => 
+    array (
+      'file' => 'applications/rules/hooks/themCoreFrontProfile.php',
+      'class' => 'rules_hook_themCoreFrontProfile',
+    ),
+  ),
+  '\\IPS\\Theme\\class_core_front_system' => 
+  array (
+    30 => 
+    array (
+      'file' => 'applications/awards/hooks/awardsSettings.php',
+      'class' => 'awards_hook_awardsSettings',
+    ),
+  ),
+  '\\IPS\\core\\modules\\front\\system\\settings' => 
+  array (
+    31 => 
+    array (
+      'file' => 'applications/awards/hooks/awardsSettingsForm.php',
+      'class' => 'awards_hook_awardsSettingsForm',
+    ),
+  ),
+  '\\IPS\\Patterns\\ActiveRecord' => 
+  array (
+    51 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsPatternsActiveRecord.php',
+      'class' => 'rules_hook_ipsPatternsActiveRecord',
+    ),
+  ),
+  '\\IPS\\Content' => 
+  array (
+    53 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsContent.php',
+      'class' => 'rules_hook_ipsContent',
+    ),
+  ),
+  '\\IPS\\Content\\Item' => 
+  array (
+    54 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsContentItem.php',
+      'class' => 'rules_hook_ipsContentItem',
+    ),
+  ),
+  '\\IPS\\core\\Warnings\\Warning' => 
+  array (
+    55 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsCoreWarningsWarning.php',
+      'class' => 'rules_hook_ipsCoreWarningsWarning',
+    ),
+  ),
+  '\\IPS\\Content\\Controller' => 
+  array (
+    56 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsContentController.php',
+      'class' => 'rules_hook_ipsContentController',
+    ),
+  ),
+  '\\IPS\\Node\\Model' => 
+  array (
+    57 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsNodeModel.php',
+      'class' => 'rules_hook_ipsNodeModel',
+    ),
+  ),
+  '\\IPS\\Node\\Controller' => 
+  array (
+    58 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsNodeController.php',
+      'class' => 'rules_hook_ipsNodeController',
+    ),
+  ),
+  '\\IPS\\core\\modules\\front\\members\\profile' => 
+  array (
+    59 => 
+    array (
+      'file' => 'applications/rules/hooks/modCoreMembersProfile.php',
+      'class' => 'rules_hook_modCoreMembersProfile',
+    ),
+  ),
+  '\\IPS\\cms\\Records' => 
+  array (
+    60 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsCmsRecords.php',
+      'class' => 'rules_hook_ipsCmsRecords',
+    ),
+  ),
+  '\\IPS\\Helpers\\Form\\FormAbstract' => 
+  array (
+    61 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsHelpersFormAbstract.php',
+      'class' => 'rules_hook_ipsHelpersFormAbstract',
+    ),
+  ),
+  '\\IPS\\downloads\\File' => 
+  array (
+    64 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsDownloadsFile.php',
+      'class' => 'rules_hook_ipsDownloadsFile',
+    ),
+  ),
+  '\\IPS\\Theme\\class_calendar_front_view' => 
+  array (
+    65 => 
+    array (
+      'file' => 'applications/rules/hooks/themeCalendarFrontView.php',
+      'class' => 'rules_hook_themeCalendarFrontView',
+    ),
+  ),
+  '\\IPS\\gallery\\Image' => 
+  array (
+    66 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsGalleryImage.php',
+      'class' => 'rules_hook_ipsGalleryImage',
+    ),
+  ),
+  '\\IPS\\core\\tasks\\updatecheck' => 
+  array (
+    67 => 
+    array (
+      'file' => 'applications/rules/hooks/ipsApp.php',
+      'class' => 'rules_hook_ipsApp',
     ),
   ),
 );

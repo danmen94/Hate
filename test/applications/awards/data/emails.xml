@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emails><template><template_app>awards</template_app><template_name>notification_award_member</template_name><template_content_html><![CDATA[<div style="background: #f9f9f9; padding: 10px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;">
+    <br>
+    {$email->language->addToStack("award_reason_default", FALSE, array( 'sprintf' => array( $member->url()->setQueryString( 'tab', 'node_awards_Awards' ), $data->title, $email->buildPlaintextBody( $data->reason|raw ), $data->board ) ) )}
+</div>]]></template_content_html><template_data>$data, $member,  $email</template_data><template_content_plaintext><![CDATA[<br>
+{$email->language->addToStack("award_reason_default", FALSE, array( 'sprintf' => array( $member->url()->setQueryString( 'tab', 'node_awards_Awards' ), $data->title, $email->buildPlaintextBody( $data->reason|raw ), $data->board ) ) )}]]></template_content_plaintext></template></emails>

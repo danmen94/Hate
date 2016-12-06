@@ -1,0 +1,218 @@
+{
+  "1": {
+    "method": "addColumn",
+    "params": [
+      "awards_awards",
+      {
+        "name": "award_reason",
+        "type": "TEXT",
+        "length": null,
+        "decimals": null,
+        "values": null,
+        "allow_null": true,
+        "default": null,
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  "2": {
+    "method": "changeColumn",
+    "params": [
+      "awards_awarded",
+      "awarded_notes",
+      {
+        "name": "awarded_reason",
+        "type": "TEXT",
+        "length": null,
+        "decimals": null,
+        "values": null,
+        "allow_null": true,
+        "default": null,
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  "3": {
+    "method": "changeColumn",
+    "params": [
+      "awards_awards",
+      "award_show",
+      {
+        "name": "award_show",
+        "type": "varchar",
+        "length": 20,
+        "unsigned": false,
+        "allow_null": false,
+        "default": "awards"
+      }
+    ]
+  },
+  "4": {
+    "method": "changeColumn",
+    "params": [
+      "awards_awarded",
+      "awarded_award_show",
+      {
+        "name": "awarded_show",
+        "type": "VARCHAR",
+        "length": 20,
+        "decimals": null,
+        "values": [],
+        "allow_null": true,
+        "default": null,
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  "5": {
+    "method": "changeColumn",
+    "params": [
+      "awards_awarded",
+      "awarded_award_options",
+      {
+        "name": "awarded_options",
+        "type": "VARCHAR",
+        "length": 50,
+        "decimals": null,
+        "values": [],
+        "allow_null": true,
+        "default": null,
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  "6": {
+    "method": "addColumn",
+    "params": [
+      "awards_awarded",
+      {
+        "name": "awarded_cat",
+        "type": "INT",
+        "length": 10,
+        "decimals": null,
+        "values": null,
+        "allow_null": false,
+        "default": "",
+        "comment": "",
+        "unsigned": true,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  "7": {
+    "method": "addColumn",
+    "params": [
+      "awards_awarded",
+      {
+        "name": "awarded_title",
+        "type": "VARCHAR",
+        "length": 50,
+        "decimals": null,
+        "values": null,
+        "allow_null": true,
+        "default": null,
+        "comment": "",
+        "unsigned": false,
+        "zerofill": false,
+        "auto_increment": false,
+        "binary": false
+      }
+    ]
+  },
+  "8": {
+    "method": "addColumn",
+    "params": [
+      "core_members",
+      {
+        "name": "award_sort",
+        "type": "VARCHAR",
+        "length": 20,
+        "null": false,
+        "default": "date",
+        "comment": ""
+      }
+    ]
+  },
+  "9": {
+    "method": "addColumn",
+    "params": [
+      "core_members",
+      {
+        "name": "award_order",
+        "type": "VARCHAR",
+        "length": 20,
+        "null": false,
+        "default": "desc",
+        "comment": ""
+      }
+    ]
+  },
+  "10": {
+    "method": "createTable",
+    "params": [
+      {
+        "name": "awards_upgrade",
+        "columns": {
+          "data": {
+            "name": "data",
+            "type": "VARCHAR",
+            "length": 2,
+            "decimals": null,
+            "values": null,
+            "allow_null": false,
+            "default": null,
+            "comment": "",
+            "unsigned": true,
+            "zerofill": false,
+            "auto_increment": false,
+            "binary": false
+          },
+          "upgraded": {
+            "name": "upgraded",
+            "type": "INT",
+            "length": 1,
+            "decimals": null,
+            "values": [],
+            "allow_null": false,
+            "default": "0",
+            "comment": "",
+            "unsigned": false,
+            "zerofill": false,
+            "auto_increment": false,
+            "binary": false
+          }
+        },
+        "indexes": {
+          "PRIMARY": {
+            "type": "primary",
+            "name": "PRIMARY",
+            "columns": [
+              "id"
+            ],
+            "length": [
+              null
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

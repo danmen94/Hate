@@ -1,0 +1,30 @@
+{
+    "awards": {
+        "manage": {
+            "cats_manage": "cats_manage",
+            "cats_add": "cats_add",
+            "cats_edit": "cats_edit",
+            "cats_delete": "cats_delete",
+            "cats_permissions": "cats_permissions"
+        },
+        "awards": {
+            "awards_add": "awards_add",
+            "awards_edit": "awards_edit",
+            "awards_delete": "awards_delete",
+            "awards_permissions": "awards_permissions",
+            "awards_awarded": "awards_awarded"
+        },
+        "logs": {
+            "logs_manage": "logs_manage"
+        },
+        "settings": {
+            "settings_manage": "settings_manage"
+        }
+    },
+    "upgrade": {
+        "upgrade": {
+            "upgrade_as_manage": "upgrade_as_manage",
+            "upgrade_hq_manage": "upgrade_hq_manage"
+        }
+    }
+}

@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="Default" author_name="Invision Power Services, Inc" author_url="http://www.invisionpower.com">
+ <template template_group="awarded" template_name="awarded" template_data="$table" template_location="front" template_app="awards">{$table|raw}</template>
+ <template template_group="awarded" template_name="reason" template_data="$form" template_location="front" template_app="awards"><![CDATA[<div class="ipsPad">
+    {$form|raw}
+</div>]]></template>
+ <template template_group="awarded" template_name="rows" template_data="$table, $headers, $rows" template_location="front" template_app="awards"><![CDATA[
+{{foreach $rows as $row}}
+<li class='ipsGrid_span4 ipsPhotoPanel ipsPhotoPanel_mini ipsClearfix ipsPad_half'>
+    {template="userPhoto" app="core" group="global" params="\IPS\Member::load( $row['member_id'] ), 'mini'"}
+    <div>
+        <h3 class='ipsType_normal ipsType_reset ipsTruncate ipsTruncate_line' style="cursor:default;">
+            {member="name" id="$row['member_id']"}
+            <span class="ipsPos_right">
+                <a href='#' data-ipsDialog data-ipsDialog-size="wide" data-ipsDialog-title="{lang="award_title_reason_awarded"}" data-ipsDialog-url="{url="app=awards&module=awards&controller=awards&do=reason&id={$row['awarded_id']}"}" class=""><i class="fa fa-search"></i></a>
+            </span>
+        </h3>
+        <span class='ipsType_light' style="cursor:default;" title="{datetime="$row['awarded_date']" norelative="true"}">{datetime="$row['awarded_date']"}</span>
+
+    </div>
+</li>
+{{endforeach}}]]></template>
+ <template template_group="awarded" template_name="table" template_data="$table, $headers, $rows, $quickSearch" template_location="front" template_app="awards"><![CDATA[<div data-baseurl='{$table->baseUrl}' data-resort='{$table->resortKey}' data-controller='core.global.core.table' {{if $table->getPaginationKey() != 'page'}}data-pageParam='{$table->getPaginationKey()}'{{endif}}>
+
+    {{if $table->pages > 1}}
+    <div class="ipsButtonBar ipsPad_half ipsClearfix ipsClear">
+        <div data-role="tablePagination">
+            {template="pagination" group="global" app="core" location="global" params="$table->baseUrl, $table->pages, $table->page, $table->limit, TRUE, $table->getPaginationKey()"}
+        </div>
+    </div>
+    {{endif}}
+
+
+    {{if count( $rows )}}
+    <ol class='ipsGrid ipsGrid_collapsePhone ipsPad ipsClear {{foreach $table->classes as $class}}{$class} {{endforeach}}' id='elTable_{$table->uniqueId}' data-role="tableRows" itemscope itemtype="http://schema.org/ItemList">
+        {template="$table->rowsTemplate[1]" params="$table, $headers, $rows" object="$table->rowsTemplate[0]"}
+    </ol>
+    {{else}}
+    <div class='ipsType_center ipsPad'>
+        <p class='ipsType_large ipsType_light'>{lang="no_rows_in_table"}</p>
+        {{if method_exists( $table, 'container' ) AND $table->container() !== NULL}}
+        {{if $table->container()->can('add')}} <a href='{$table->container()->url()->setQueryString( ' do', 'add' )}' class='ipsButton ipsButton_primary ipsButton_medium'> {lang="submit_first_row"} </a> {{endif}}
+        {{endif}}
+    </div>
+    {{endif}}
+
+    {{if $table->pages > 1}}
+    <div class="ipsButtonBar ipsPad_half ipsClearfix ipsClear">
+        <div data-role="tablePagination">
+            {template="pagination" group="global" app="core" location="global" params="$table->baseUrl, $table->pages, $table->page, $table->limit, TRUE, $table->getPaginationKey()"}
+        </div>
+    </div>
+    {{endif}}
+</div>]]></template>
+ <template template_group="awards" template_name="award" template_data="$award" template_location="front" template_app="awards"><![CDATA[{{$size = explode( 'x', settings.award_settings_awardhover_size );}}
+<table class='ipsTable ipsTable_responsive ipsTable_zebra ipsClear' data-role="table" data-ipsKeyNav data-ipsKeyNav-observe='e d return'>
+    <tbody data-role="tableRows">
+    <tr class='ipsClearfix'>
+        <td class="ipsType_center awards_awardRow" style="vertical-align: top;">
+            <img src="{file="$award->container()->icon" extension="awards_Awards"}" class="awards_award_img" style="width: {$size[0]}px; height: {$size[1]}px;">
+        </td>
+        <td>
+            <h2 class="ipsType_sectionHead ipsCursor_default">{$award->title}</h2>
+            {{if $award->container()->can( 'manage' )}}
+            <span class="ipsPos_right">
+                <a href='#' data-ipsDialog data-ipsDialog-size="wide" data-ipsDialog-title="{lang="award_title_edit_awarded"}" data-ipsDialog-url="{url="app=awards&module=awards&controller=awards&do=edit&id={$award->id}"}" class=""><i class="fa fa-pencil"></i></a>&nbsp;
+                <a href="#" data-ipsDialog data-ipsDialog-size="wide" data-ipsDialog-title="{lang="award_title_remove"}" data-ipsDialog-url="{url="app=awards&module=awards&controller=awards&do=remove&id={$award->id}"}" class=""><i class="fa fa-times-circle"></i></a>
+            </span>
+            {{endif}}
+            <br>
+            <span class="ipsType_light ipsType_noBreak" style="cursor:default;">{lang="award_awarded"} {datetime="$award->date"}</span>
+            <hr class="awardsHr">
+            {$award->reason|raw}
+        </td>
+    </tr>
+    </tbody>
+</table>
+]]></template>
+ <template template_group="awards" template_name="awards" template_data="$table, $cat" template_location="front" template_app="awards"><![CDATA[<header class="ipsSpacer_bottom">
+    <h1 class="ipsType_pageTitle">{$cat->title|raw}</h1>
+</header>
+<h2 class='ipsType_sectionTitle ipsType_reset ipsType_blendLinks cAwardTitle'>{$cat->title|raw}</h2>
+<div class='ipsBox'>
+    {$table|raw}
+</div>]]></template>
+ <template template_group="awards" template_name="rows" template_data="$table, $headers, $awards" template_location="front" template_app="awards"><![CDATA[{{$size = explode( 'x', settings.award_settings_front_size );}}
+
+{{foreach $awards as $award}}
+{{if $award['award_enabled'] }}
+<li class="ipsDataItem ">
+    <div class="ipsResponsive_showPhone ipsResponsive_block">
+        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+            <div class='ipsColumn ipsColumn_fluid ipsType_center'>
+                <img src="{file="$award['award_icon']" extension="awards_Awards"}" style="width:{$size[0]}px; height: {$size[1]}px;">
+                <br>
+                <a href="{url="app=awards&module=awards&controller=awards&do=awarded&id={$award['award_id']}"}" data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-modal='true' data-ipsDialog-title='{lang="award_awarded_awarded" sprintf="$award['award_title']"}'>
+                <h2 class="ipsType_sectionHead ipsCursor_pointer">{$award['award_title']|raw}</h2>
+                </a>
+            </div>
+        </div>
+        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+            <div class='ipsColumn ipsColumn_fluid ipsType_left'>
+                <hr class="awardsHr">
+                {$award['award_desc']|raw}
+            </div>
+        </div>
+    </div>
+
+    <div class="ipsResponsive_showTablet ipsResponsive_block">
+        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+            <div class='ipsColumn {{if $size[0] > 40}}ipsColumn_narrow{{else}}ipsColumn_narrow{{endif}} ipsType_center'>
+                <img src="{file="$award['award_icon']" extension="awards_Awards"}" style="width:{$size[0]}px; height: {$size[1]}px;">
+            </div>
+            <div class='ipsColumn ipsColumn_fluid ipsType_left' style="width: 80%;">
+                <h2 class="ipsType_sectionHead ipsCursor_pointer" style="cursor: default;">{$award['award_title']|raw}</h2>
+                <hr class="awardsHr">
+                {$award['award_desc']|raw}
+            </div>
+            <div class='ipsColumn ipsColumn_veryNarrow ipsDataItem_stats ipsDataItem_statsLarge ipsType_center' style="text-align: center;">
+                <dl>
+                    <dt class="ipsDataItem_stats_number"><a href="{url="app=awards&module=awards&controller=awards&do=awarded&id={$award['award_id']}"}" data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-modal='true' data-ipsDialog-title='{lang="award_awarded_awarded" sprintf="$award['award_title']"}'>{number="$award['award_count']"}</a></dt>
+                    <dd class="ipsDataItem_stats_type ipsType_light"><br>{lang="award_awarded"}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="ipsResponsive_showDesktop ipsResponsive_block ipsPad_half">
+        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+            <div class='ipsColumn {{if $size[0] > 40}}ipsColumn_narrow{{else}}ipsColumn_narrow{{endif}} ipsType_center'>
+                <img src="{file="$award['award_icon']" extension="awards_Awards"}" style="width:{$size[0]}px; height: {$size[1]}px;">
+            </div>
+            <div class='ipsColumn ipsColumn_fluid ipsType_left'>
+                <h2 class="ipsType_sectionHead ipsCursor_pointer">{$award['award_title']|raw}</h2>
+                <hr class="awardsHr">
+                {$award['award_desc']|raw}
+                {{if $award['award_obtainable_enabled']}}
+                {{if $award['award_obtainable']}}
+                <strong class='ipsOnlineStatus ipsOnlineStatus_online'><i class='fa fa-circle'></i> {$award['award_obtainable_yes_message']|raw}</strong>
+                {{else}}
+                <strong class='ipsOnlineStatus ipsOnlineStatus_offline'><i class='fa fa-circle'></i> {$award['award_obtainable_no_message']|raw}</strong>
+                {{endif}}
+                {{endif}}
+            </div>
+            <div class='ipsColumn ipsColumn_narrow ipsDataItem_stats ipsDataItem_statsLarge ipsType_center'>
+                <dt class="ipsDataItem_stats_number"><a href="{url="app=awards&module=awards&controller=awards&do=awarded&id={$award['award_id']}"}" data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-modal='true' data-ipsDialog-title='{lang="award_awarded_awarded" sprintf="$award['award_title']"}'>{number="$award['award_count']"}</a></dt>
+                <dd class="ipsDataItem_stats_type ipsType_light">{lang="award_awarded"}</dd>
+            </div>
+        </div>
+    </div>
+</li>
+{{endif}}
+{{endforeach}}
+
+]]></template>
+ <template template_group="awards" template_name="table" template_data="$table, $headers, $rows, $quickSearch, $advancedSearch" template_location="front" template_app="awards"><![CDATA[{{if $table->pages > 1}}
+<div class="ipsButtonBar ipsPad_half ipsClearfix ipsClear" data-role="tablePagination">
+    {template="pagination" group="global" app="core" location="global" params="$table->baseUrl, $table->pages, $table->page, $table->limit"}
+</div>
+{{endif}}
+{{if count( $rows )}}
+    <table class='ipsTable ipsTable_responsive ipsTable_zebra ipsClear {{foreach $table->classes as $class}}{$class} {{endforeach}}' data-role="table" data-ipsKeyNav data-ipsKeyNav-observe='e d return'>
+        <tbody data-role="tableRows">
+            <ol class="ipsDataList ipsDataList_large ipsDataList_zebra ipsAreaBackground_reset" data-role="awards">
+                {template="$table->rowsTemplate[1]" params="$table, $headers, $rows" object="$table->rowsTemplate[0]"}
+            </ol>
+        </tbody>
+    </table>
+{{else}}
+    <div class='ipsPad ipsType_center ipsType_large ipsType_light'>
+        <p class='ipsType_large'>{lang="award_no_rows_in_table"}</p>
+    </div>
+{{endif}}
+{{if $table->pages > 1}}
+    <div class="ipsButtonBar ipsPad_half ipsClearfix ipsClear" data-role="tablePagination" style="margin: 10px;">
+        {template="pagination" group="global" app="core" location="global" params="$table->baseUrl, $table->pages, $table->page, $table->limit"}
+    </div>
+{{endif}}]]></template>
+ <template template_group="forms" template_name="addAward" template_data="$form" template_location="front" template_app="awards"><![CDATA[<div class="ipsPad">
+    {$form|raw}
+</div>]]></template>
+ <template template_group="forms" template_name="edit" template_data="$form" template_location="front" template_app="awards"><![CDATA[<div class="ipsPad">
+    {$form|raw}
+</div>
+]]></template>
+ <template template_group="global" template_name="block" template_data="$title, $content, $margins=TRUE, $class='', $id=NULL, $showTitle=FALSE" template_location="admin" template_app="awards"><![CDATA[<div class='acpBlock {$class}' {{if $id !== NULL}}id="{$id}" {{endif}}>
+    {$content|raw}
+</div>]]></template>
+ <template template_group="global" template_name="hover" template_data="$author" template_location="front" template_app="awards"><![CDATA[{{if settings.award_settings_hover_enable}}
+{{$data = $author->awardsHover();}}
+{$data|raw}
+{{endif}}
+]]></template>
+ <template template_group="global" template_name="hover_rows" template_data="$rows" template_location="front" template_app="awards"><![CDATA[{{$size = explode( 'x', settings.award_settings_hover_size );}}
+{{if count( $rows )}}
+<li class="ipsDataItem">
+    <span class="ipsDataItem_generic ipsDataItem_size3"><strong> {setting="award_settings_hover_title"} </strong></span>
+        <span class="ipsDataItem_main">
+            <div class="{{if settings.award_settings_hover_alignment == 0}}ipsType_center{{endif}}{{if settings.award_settings_hover_alignment == 1}}ipsType_left{{endif}}{{if settings.award_settings_hover_alignment == 2}}ipsType_right{{endif}}">
+            {{foreach $rows as $awarded}}
+                {{$member = \IPS\Member::load( $awarded->member );}}
+                <div class="awards_dataHover">
+                    <a href='{$member->url()->setQueryString( ' tab', 'node_awards_Awards' )}' {{if settings.award_settings_hover_style == 1}}title='{$awarded->title|raw}' data-ipsTooltip{{else}}data-ipsHover data-ipsHover-target='{url="app=awards&module=awards&controller=awards&do=award&id={$awarded->id}"}' data-ipsHover-onClick="false"{{endif}}><img src="{file=" $awarded->container()->icon" extension="awards_Awards"}" class="awards_award_img" style="width: {$size[0]}px; height: {$size[1]}px;"></a>
+                </div>
+
+            {{endforeach}}
+                </div>
+        </span>
+</li>
+{{endif}}]]></template>
+ <template template_group="global" template_name="pane" template_data="$author" template_location="front" template_app="awards"><![CDATA[{{if settings.award_settings_pane_enable}}
+{{$data = $author->awardsPane();}}
+{$data|raw}
+{{endif}}]]></template>
+ <template template_group="global" template_name="pane_rows" template_data="$rows" template_location="front" template_app="awards"><![CDATA[{{$size = explode( 'x', settings.award_settings_pane_size );}}
+{{if count( $rows )}}
+<li class='ipsType_break'>
+    <div class="ipsResponsive_showPhone ipsResponsive_block">
+        <fieldset class="awards_fieldset">
+            <legend class="awards_legend"> {setting="award_settings_pane_title"}</legend>
+            <ul class="ipsList_inline ipsList_csv ipsList_noSpacing">
+
+            {{foreach $rows as $awarded}}
+            {{$member = \IPS\Member::load( $awarded->member );}}
+            <div class="awards_data">
+                <a href='{$member->url()->setQueryString( ' tab', 'node_awards_Awards' )}' {{if settings.award_settings_pane_style == 1}}title='{$awarded->title|raw}' data-ipsTooltip{{else}}data-ipsHover data-ipsHover-target='{url="app=awards&module=awards&controller=awards&do=award&id={$awarded->id}"}' data-ipsHover-onClick="false"{{endif}}><img src="{file=" $awarded->container()->icon" extension="awards_Awards"}" class="awards_award_img" style="width: {$size[0]}px; height: {$size[1]}px;"></a>
+            </div>
+
+            {{endforeach}}
+                </ul>
+        </fieldset>
+    </div>
+    <div class="ipsResponsive_showTablet ipsResponsive_block">
+        <fieldset class="awards_fieldset">
+            <legend class="awards_legend {{if settings.award_settings_pane_alignment == 0}}ipsType_center{{endif}}{{if settings.award_settings_pane_alignment == 1}}ipsType_left{{endif}}{{if settings.award_settings_pane_alignment == 2}}ipsType_right{{endif}}"> {setting="award_settings_pane_title"}</legend>
+            <div class="{{if settings.award_settings_pane_alignment == 0}}ipsType_center{{endif}}{{if settings.award_settings_pane_alignment == 1}}ipsType_left{{endif}}{{if settings.award_settings_pane_alignment == 2}}ipsType_right{{endif}}">
+                <ul class="ipsList_inline ipsList_csv ipsList_noSpacing">
+
+                {{foreach $rows as $awarded}}
+                {{$member = \IPS\Member::load( $awarded->member );}}
+
+            <div class="awards_data">
+                <a href='{$member->url()->setQueryString( ' tab', 'node_awards_Awards' )}' {{if settings.award_settings_pane_style == 1}}title='{$awarded->title|raw}' data-ipsTooltip{{else}}data-ipsHover data-ipsHover-target='{url="app=awards&module=awards&controller=awards&do=award&id={$awarded->id}"}' data-ipsHover-onClick="false"{{endif}}><img src="{file=" $awarded->container()->icon" extension="awards_Awards"}" class="awards_award_img" style="width: {$size[0]}px; height: {$size[1]}px;"></a>
+            </div>
+
+            {{endforeach}}
+                    </ul>
+                </div>
+        </fieldset>
+    </div>
+
+    <div class="ipsResponsive_showDesktop ipsResponsive_block">
+        <fieldset class="awards_fieldset">
+            <legend class="awards_legend {{if settings.award_settings_pane_alignment == 0}}ipsType_center{{endif}}{{if settings.award_settings_pane_alignment == 1}}ipsType_left{{endif}}{{if settings.award_settings_pane_alignment == 2}}ipsType_right{{endif}}"> {setting="award_settings_pane_title"}</legend>
+            <div class="{{if settings.award_settings_pane_alignment == 0}}ipsType_center{{endif}}{{if settings.award_settings_pane_alignment == 1}}ipsType_left{{endif}}{{if settings.award_settings_pane_alignment == 2}}ipsType_right{{endif}}">
+                <ul class="ipsList_inline ipsList_csv ipsList_noSpacing">
+
+                {{foreach $rows as $awarded}}
+                {{$member = \IPS\Member::load( $awarded->member );}}
+
+        <div class="awards_data">
+            <a href='{$member->url()->setQueryString( ' tab', 'node_awards_Awards' )}' {{if settings.award_settings_pane_style == 1}}title='{$awarded->title|raw}' data-ipsTooltip{{else}}data-ipsHover data-ipsHover-target='{url="app=awards&module=awards&controller=awards&do=award&id={$awarded->id}"}' data-ipsHover-onClick="false"{{endif}}><img src="{file=" $awarded->container()->icon" extension="awards_Awards"}" class="awards_award_img" style="width: {$size[0]}px; height: {$size[1]}px;"></a>
+        </div>
+
+            {{endforeach}}
+                    </ul>
+                </div>
+        </fieldset>
+    </div>
+
+</li>
+{{endif}}]]></template>
+ <template template_group="global" template_name="posts" template_data="$author" template_location="front" template_app="awards"><![CDATA[{{if settings.award_settings_posts_enable}}
+{{$data = $author->awardsPosts();}}
+{$data|raw}
+{{endif}}]]></template>
+ <template template_group="global" template_name="posts_rows" template_data="$rows" template_location="front" template_app="awards"><![CDATA[{{$size = explode( 'x', settings.award_settings_posts_size );}}
+{{if count( $rows )}}
+<div class="cPost_contentWrap ipsPad">
+<fieldset class="awards_fieldset">
+    <legend class="awards_legend {{if settings.award_settings_posts_alignment == 0}}ipsType_center{{endif}}{{if settings.award_settings_posts_alignment == 1}}ipsType_left{{endif}}{{if settings.award_settings_posts_alignment == 2}}ipsType_right{{endif}}"> {setting="award_settings_posts_title"} </legend>
+    <div class="{{if settings.award_settings_posts_alignment == 0}}ipsType_center{{endif}}{{if settings.award_settings_posts_alignment == 1}}ipsType_left{{endif}}{{if settings.award_settings_posts_alignment == 2}}ipsType_right{{endif}}">
+    {{foreach $rows as $awarded}}
+        {{$member = \IPS\Member::load( $awarded->member );}}
+
+    <div class="awards_data">
+        <a href='{$member->url()->setQueryString( ' tab', 'node_awards_Awards' )}' {{if settings.award_settings_posts_style == 1}}title='{$awarded->title|raw}' data-ipsTooltip{{else}}data-ipsHover data-ipsHover-target='{url="app=awards&module=awards&controller=awards&do=award&id={$awarded->id}"}' data-ipsHover-onClick="false"{{endif}}>
+            <img src="{file="$awarded->container()->icon" extension="awards_Awards"}" class="awards_award_img" style="width: {$size[0]}px; height: {$size[1]}px;">
+        </a>
+    </div>
+
+    {{endforeach}}
+        </div>
+</fieldset>
+    </div>
+{{endif}}
+<br>]]></template>
+ <template template_group="global" template_name="reason" template_data="$data" template_location="admin" template_app="awards"><![CDATA[<div class="ipsPad">
+    {$data|raw}
+</div>
+]]></template>
+ <template template_group="global" template_name="rowPhoto" template_data="$member" template_location="admin" template_app="awards"><![CDATA[<a href="{url=" app=nexus&module=customers&controller=view&id={$member->member_id}"}" class="ipsUserPhoto ipsUserPhoto_mini"><img src='{$member->photo}'></a>]]></template>
+ <template template_group="index" template_name="index" template_data="" template_location="front" template_app="awards"><![CDATA[{{$size = explode( 'x', settings.cat_settings_front_size );}}
+<header class="ipsSpacer_bottom">
+    <h1 class="ipsType_pageTitle">{lang="__app_awards"}</h1>
+</header>
+<section>
+    <h2 class="ipsType_sectionTitle ipsType_reset ipsType_blendLinks">
+        {lang="__app_awards"}
+    </h2>
+    <ol class="ipsDataList ipsDataList_large ipsDataList_zebra ipsAreaBackground_reset" data-role="awards">
+        {{foreach \IPS\awards\Cats::roots() as $category}}
+            {{if $category->enabled}}
+                <li class="ipsDataItem ipsDataItem_responsivePhoto">
+                    <div class="ipsResponsive_showPhone ipsResponsive_block">
+                        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+                            <div class='ipsColumn ipsColumn_fluid ipsType_center'>
+                                <img src="{file="$category->icon" extension="awards_Cats"}" style="width:{$size[0]}px; height: {$size[1]}px;">
+                                <br>
+                                <h2 class="ipsType_sectionHead ipsCursor_pointer"><a href="{$category->url()}">{$category->_title}</a></h2>
+                            </div>
+                        </div>
+                        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+                            <div class='ipsColumn ipsColumn_fluid ipsType_left'>
+                                <hr class="awardsHr">
+                                {$category->desc|raw}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ipsResponsive_showTablet ipsResponsive_block">
+                        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+                            <div class='ipsColumn {{if $size[0] > 40}}ipsColumn_narrow{{else}}ipsColumn_narrow{{endif}} ipsType_center'>
+                                <img src="{file="$category->icon" extension="awards_Cats"}" style="width:{$size[0]}px; height: {$size[1]}px;">
+                            </div>
+                            <div class='ipsColumn ipsColumn_fluid ipsType_left' style="width: 80%;">
+                                <h2 class="ipsType_sectionHead ipsCursor_pointer"><a href='{$category->url()}'>{$category->_title}</a></h2>
+                                <hr class="awardsHr">
+                                {$category->desc|raw}
+                            </div>
+                            <div class='ipsColumn ipsColumn_veryNarrow ipsDataItem_stats ipsDataItem_statsLarge ipsType_center' style="text-align: center;">
+                                <dl>
+                                    <dt class="ipsDataItem_stats_number">{number="$category->childrenCount()"}</dt>
+                                    <dd class="ipsDataItem_stats_type ipsType_light"><br>{lang="awards_total"}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ipsResponsive_showDesktop ipsResponsive_block ipsPad_half">
+                        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+                            <div class='ipsColumn {{if $size[0] > 40}}ipsColumn_narrow{{else}}ipsColumn_narrow{{endif}} ipsType_center'>
+                                <img src="{file="$category->icon" extension="awards_Cats"}" style="width:{$size[0]}px; height: {$size[1]}px;">
+                            </div>
+                            <div class='ipsColumn ipsColumn_fluid ipsType_left'>
+                                <h2 class="ipsType_sectionHead ipsCursor_pointer"><a href='{$category->url()}'>{$category->_title}</a></h2>
+                                <hr class="awardsHr">
+                                {$category->desc|raw}
+                            </div>
+                            <div class='ipsColumn ipsColumn_narrow ipsDataItem_stats ipsDataItem_statsLarge ipsType_center'>
+                                <dt class="ipsDataItem_stats_number">{number="$category->childrenCount()"}</dt>
+                                <dd class="ipsDataItem_stats_type ipsType_light">{lang="awards_total"}</dd>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {{endif}}
+        {{endforeach}}
+    </ol>
+</section>]]></template>
+ <template template_group="index" template_name="noData" template_data="" template_location="front" template_app="awards"><![CDATA[<div class='ipsType_center ipsPad'>
+    <p class='ipsType_large'>{lang="award_no_rows_in_table"}</p>
+</div>]]></template>
+ <template template_group="index" template_name="rows" template_data="$award, $isSubAward=FALSE, $table=NULL" template_location="front" template_app="awards"><![CDATA[{{$size = explode( 'x', settings.award_settings_front_size );}}
+{{if $award->enabled }}
+<li class="ipsDataItem">
+    <div class="ipsResponsive_showPhone ipsResponsive_block">
+        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+            <div class='ipsColumn ipsColumn_fluid ipsType_center'>
+                <img src="{file="$award->icon" extension="awards_Awards"}" class="ia_award_img" style="width:
+                {$size[0]}px; height: {$size[1]}px;">
+                <br>
+                <a href="{url=" app=awards&module=awards&controller=awards&do=awarded&id={$award->id}"}" data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-modal='true' data-ipsDialog-title='{lang="award_awarded_awarded" sprintf="$award->title"}'>
+                    <h2 class="ipsType_sectionHead ipsCursor_pointer">{$award->title|raw}</h2>
+                </a>
+            </div>
+        </div>
+        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+            <div class='ipsColumn ipsColumn_fluid ipsType_left'>
+                <hr class="awardsHr">
+                {$award->desc|raw}
+            </div>
+        </div>
+    </div>
+    <div class="ipsResponsive_showTablet ipsResponsive_block">
+        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+            <div class='ipsColumn ipsColumn_narrow ipsType_center'>
+                <img src="{file="$award->icon" extension="awards_Awards"}" class="ia_award_img" style="width:{$size[0]}px; height: {$size[1]}px;">
+            </div>
+            <div class='ipsColumn ipsColumn_fluid ipsType_left' style="width: 75%;">
+                <h2 class="ipsType_sectionHead ipsCursor_pointer" style="cursor: default;">{$award->title|raw}</i></h2>
+                <hr class="awardsHr">
+                {$award->desc|raw}
+            </div>
+            <div class='ipsColumn ipsColumn_narrow ipsDataItem_stats ipsDataItem_statsLarge ipsType_center' style="text-align: center;">
+                <dl>
+                    <dt class="ipsDataItem_stats_number"><a href="{url="app=awards&module=awards&controller=awards&do=awarded&id={$award->id}"}" data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-modal='true' data-ipsDialog-title='{lang="award_awarded_awarded" sprintf="$award->title"}'>{number="$award->count"}</a></dt>
+                    <dd class="ipsDataItem_stats_type ipsType_light">{lang="award_awarded"}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="ipsResponsive_showDesktop ipsResponsive_block">
+        <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+            <div class='ipsColumn {{if $size[0] > 40}}ipsColumn_narrow{{else}}ipsColumn_narrow{{endif}} ipsType_center'>
+                <img src="{file="$award->icon" extension="awards_Awards"}" class="ia_award_img" style="width:{$size[0]}px; height: {$size[1]}px;">
+            </div>
+            <div class='ipsColumn ipsColumn_fluid ipsType_left'>
+                <h2 class="ipsType_sectionHead ipsCursor_pointer" style="cursor: default;">{$award->title|raw}</i></h2>
+                <hr class="awardsHr">
+                {$award->desc|raw}
+                {{if $award->obtainable_enabled}}
+                    {{if $award->obtainable}}
+                        <strong class='ipsOnlineStatus ipsOnlineStatus_online'><i class='fa fa-circle'></i> {$award->obtainable_yes_message|raw}</strong>
+                    {{else}}
+                        <strong class='ipsOnlineStatus ipsOnlineStatus_offline'><i class='fa fa-circle'></i> {$award->obtainable_no_message|raw}</strong>
+                    {{endif}}
+                {{endif}}
+            </div>
+            <div class='ipsColumn ipsColumn_narrow ipsDataItem_stats ipsDataItem_statsLarge ipsType_center'>
+                <dt class="ipsDataItem_stats_number"><a href="{url="app=awards&module=awards&controller=awards&do=awarded&id={$award->id}"}" data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-modal='true' data-ipsDialog-title='{lang="award_awarded_awarded" sprintf="$award->title"}'>{number="$award->count"}</a></dt>
+                <dd class="ipsDataItem_stats_type ipsType_light">{lang="award_awarded"}</dd>
+            </div>
+        </div>
+    </div>
+</li>
+{{endif}}]]></template>
+ <template template_group="profile" template_name="awards" template_data="$table, $member" template_location="front" template_app="awards"><![CDATA[<header class="ipsSpacer_bottom">
+    <h2 class='ipsType_pageTitle'>{lang="award_my_awards" sprintf="$member->name"}</h2>
+</header>
+<div class=''>
+    {$table|raw}
+</div>]]></template>
+ <template template_group="profile" template_name="awardsSettings" template_data="$form" template_location="front" template_app="awards">{$form|raw}</template>
+ <template template_group="profile" template_name="rows" template_data="$table, $headers, $rows" template_location="front" template_app="awards"><![CDATA[{{$size = explode( 'x', settings.award_settings_profile_size );}}
+{{if count( $rows )}}
+    {{foreach $rows as $award}}
+        <div class="ipsResponsive_showPhone ipsResponsive_block">
+            <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+                <div class='ipsColumn ipsColumn_fluid ipsType_center'>
+                    <img src="{file=" $award->container()->icon" extension="awards_Awards"}" class="ia_award_img" style="width:{$size[0]}px; height: {$size[1]}px;">
+                    <br>
+                    <h2 class="ipsType_sectionHead ipsCursor_pointer" style="cursor: default;">{$award->container()->title|raw}</i></h2>
+                    {{if $award->container()->can( 'manage' )}}
+                        <span class="ipsPos_right">
+                            <a href='#' data-ipsDialog data-ipsDialog-size="wide" data-ipsDialog-title="{lang="award_title_edit_awarded"}" data-ipsDialog-url="{url="app=awards&module=awards&controller=awards&do=edit&id={$award->id}"}" class=""><i class="fa fa-pencil"></i></a>&nbsp;
+                            <a href="#" data-ipsDialog data-ipsDialog-size="wide" data-ipsDialog-title="{lang="award_title_remove"}" data-ipsDialog-url="{url="app=awards&module=awards&controller=awards&do=remove&id={$award->id}"}" class=""><i class="fa fa-times-circle"></i></a>
+                        </span>
+                    {{endif}}
+                    <br>
+                    <span class="ipsType_light ipsType_noBreak" style="cursor:default;" title="{datetime="$award->date" norelative="true"}">{lang="award_awarded"} {datetime="$award->date"}</span>
+                </div>
+            </div>
+            <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+                <div class='ipsColumn ipsColumn_fluid ipsType_left'>
+                    <hr class="awardsHr">
+                    {$award->reason|raw}
+                </div>
+            </div>
+        </div>
+
+        <div class="ipsResponsive_showTablet ipsResponsive_block">
+            <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+                <div class='ipsColumn {{if $size[0] > 40}}ipsColumn_narrow{{else}}ipsColumn_narrow{{endif}} ipsType_center'>
+                    <img src="{file="$award->container()->icon" extension="awards_Awards"}" style="width:{$size[0]}px; height: {$size[1]}px;">
+                </div>
+                <div class='ipsColumn ipsColumn_fluid ipsType_left'>
+                    <h2 class="ipsType_sectionHead ipsCursor_pointer" style="cursor: default;">{$award->container()->title|raw}</i></h2>
+                    {{if $award->container()->can( 'manage' )}}
+                        <span class="ipsPos_right">
+                            <a href='#' data-ipsDialog data-ipsDialog-size="wide" data-ipsDialog-title="{lang="award_title_edit_awarded"}" data-ipsDialog-url="{url="app=awards&module=awards&controller=awards&do=edit&id={$award->id}"}" class=""><i class="fa fa-pencil"></i></a>&nbsp;
+                            <a href="#" data-ipsDialog data-ipsDialog-size="wide" data-ipsDialog-title="{lang="award_title_remove"}" data-ipsDialog-url="{url="app=awards&module=awards&controller=awards&do=remove&id={$award->id}"}" class=""><i class="fa fa-times-circle"></i></a>
+                        </span>
+                    {{endif}}
+                    <br>
+                    <span class="ipsType_light ipsType_noBreak" style="cursor:default;" title="{datetime="$award->date" norelative="true"}">{lang="award_awarded"} {datetime="$award->date"}</span>
+                    <hr class="awardsHr">
+                    {$award->reason|raw}
+                </div>
+            </div>
+        </div>
+
+        <div class="ipsResponsive_showDesktop ipsResponsive_block">
+            <div class='ipsColumns ipsColumns_bothSpacing ipsColumns_halfSpacing'>
+                <div class='ipsColumn {{if $size[0] > 40}}ipsColumn_narrow{{else}}ipsColumn_narrow{{endif}} ipsType_center'>
+                    <img src="{file="$award->container()->icon" extension="awards_Awards"}" style="width:{$size[0]}px; height: {$size[1]}px;">
+                </div>
+                <div class='ipsColumn ipsColumn_fluid ipsType_left'>
+                    <h2 class="ipsType_sectionHead ipsCursor_pointer" style="cursor: default;">{$award->container()->title|raw}</i></h2>
+                    {{if $award->container()->can( 'manage' )}}
+                        <span class="ipsPos_right">
+                            <a href='#' data-ipsDialog data-ipsDialog-size="wide" data-ipsDialog-title="{lang="award_title_edit_awarded"}" data-ipsDialog-url="{url="app=awards&module=awards&controller=awards&do=edit&id={$award->id}"}" class=""><i class="fa fa-pencil"></i></a>&nbsp;
+                            <a href="#" data-ipsDialog data-ipsDialog-size="wide" data-ipsDialog-title="{lang="award_title_remove"}" data-ipsDialog-url="{url="app=awards&module=awards&controller=awards&do=remove&id={$award->id}"}" class=""><i class="fa fa-times-circle"></i></a>
+                        </span>
+                    {{endif}}
+                    <br>
+                    <span class="ipsType_light ipsType_noBreak" style="cursor:default;" title="{datetime="$award->date" norelative="true"}">{lang="award_awarded"} {datetime="$award->date"}</span>
+                    <hr class="awardsHr">
+                    {$award->reason|raw}
+                </div>
+            </div>
+        </div>
+    {{endforeach}}
+    {{else}}
+        <div class='ipsPad ipsType_center ipsType_large ipsType_light'>
+            <p class='ipsType_large'>{lang="award_no_rows_in_table"}</p>
+    </div>
+{{endif}}]]></template>
+ <template template_group="profile" template_name="settings" template_data="$tab" template_location="front" template_app="awards"><![CDATA[<li>
+    <a href='{url="app=core&module=system&controller=settings&area=awards" seoTemplate="settings_awards"}' id='setting_awards' class='ipsType_normal ipsSideMenu_item {{if $tab === "awards"}}ipsSideMenu_itemActive{{endif}}'title="{lang="awards"}" role="tab" aria-selected="true">
+        <i class='fa fa-trophy'></i> {lang="awards"}
+    </a>
+</li>
+
+]]></template>
+ <template template_group="profile" template_name="table" template_data="$table, $headers, $rows, $quickSearch, $advancedSearch" template_location="front" template_app="awards"><![CDATA[{{if count( $rows )}}
+<table class='ipsTable ipsTable_responsive ipsTable_zebra ipsClear {{foreach $table->classes as $class}}{$class} {{endforeach}}' data-role="table" data-ipsKeyNav data-ipsKeyNav-observe='e d return'>
+    <tbody data-role="tableRows">
+    {template="$table->rowsTemplate[1]" params="$table, $headers, $rows" object="$table->rowsTemplate[0]"}
+    </tbody>
+</table>
+{{else}}
+<div class='ipsPad ipsType_center ipsType_large ipsType_light'>
+    <p class='ipsType_large'>{lang="award_no_rows_in_table"}</p>
+</div>
+{{endif}}
+{{if $table->pages > 1}}
+<div data-role="tablePagination" style="margin: 10px;">
+    {template="pagination" group="global" app="core" location="global" params="$table->baseUrl, $table->pages, $table->page, $table->limit"}
+</div>
+{{endif}}]]></template>
+ <template template_group="widgets" template_name="latestAwarded" template_data="$rows, $orientation='vertical'" template_location="front" template_app="awards"><![CDATA[<h3 class='ipsType_reset ipsWidget_title'>{lang="block_latestAwarded"}</h3>
+<div class='ipsWidget_inner'>
+    {{if $orientation == 'vertical'}}
+    <div class='ipsPad_half'>
+        {{if count( $rows )}}
+        <ul class='ipsDataList ipsDataList_reducedSpacing'>
+            {{foreach $rows as $row}}
+            {template="latestAwardedRows" group="widgets" app="awards" params="$row, $orientation"}
+            {{endforeach}}
+        </ul>
+        {{else}}
+        <p class='ipsType_reset'>{lang="no_latest_awarded"}</p>
+        {{endif}}
+    </div>
+    {{else}}
+    {{if count( $rows )}}
+    <ul class='ipsList_reset'>
+        {{foreach $rows as $idx => $row}}
+        {template="latestAwardedRows" group="widgets" app="awards" params="$row, $orientation"}
+        {{endforeach}}
+    </ul>
+    {{else}}
+    <p class='ipsType_reset'>{lang="no_latest_awarded"}</p>
+    {{endif}}
+    {{endif}}
+</div>]]></template>
+ <template template_group="widgets" template_name="latestAwardedRows" template_data="$awarded, $orientation='vertical'" template_location="front" template_app="awards"><![CDATA[{{if $orientation == 'vertical'}}
+{{$member = \IPS\Member::load( $awarded->member );}}
+<li class='ipsDataItem '>
+    <div class='ipsDataItem_icon ipsPos_top'>
+        {template="userPhoto" group="global" app="core" params="$member, 'tiny'"}
+    </div>
+    <div class='ipsDataItem_main ipsType_medium ipsType_break'>
+        <p class='ipsType_medium ipsType_reset'>
+            {$member->link()|raw}:
+            <a href='{$member->url()->setQueryString( ' tab', 'node_awards_Awards' )}' title='{$awarded->title|raw}' data-ipsHover data-ipsHover-target='{url="app=awards&module=awards&controller=awards&do=award&id={$awarded->id}"}' data-ipsHover-onClick="false">{$awarded->container()->title|raw}</a>
+        </p>
+        <span class="ipsType_light ipsType_medium ipsType_blendLinks">{datetime="$awarded->date"}</span>
+    </div>
+</li>
+{{else}}
+{{$member = \IPS\Member::load( $awarded->member );}}
+<li class='ipsDataItem {{if $orientation == ' horizontal'}}ipsGrid_span3{{endif}}'>
+<div class="ipsGrid ipsGrid_collapsePhone">
+    <div class='ipsPad_half ipsPhotoPanel ipsPhotoPanel_tiny'>
+        {template="userPhoto" group="global" app="core" params="$member, 'tiny'"}
+        <div>
+            <p class='ipsType_medium ipsType_reset'>
+                {$member->link()|raw}:
+                <a href='{$member->url()->setQueryString( ' tab', 'node_awards_Awards' )}' title='{$awarded->title|raw}' data-ipsHover data-ipsHover-target='{url="app=awards&module=awards&controller=awards&do=award&id={$awarded->id}"}' data-ipsHover-onClick="false">{$awarded->container()->title|raw}</a>
+            </p>
+            <span class="ipsType_light ipsType_medium ipsType_blendLinks">{datetime="$awarded->date"}</span>
+        </div>
+    </div>
+</div>
+</li>
+{{endif}}
+
+]]></template>
+ <template template_group="widgets" template_name="topAwarded" template_data="$topAwardedThisWeek, $limit, $orientation='vertical'" template_location="front" template_app="awards"><![CDATA[<h3 class='ipsType_reset ipsWidget_title'>{lang="block_topAwarded"}</h3>
+<div class='ipsTabs ipsTabs_small ipsTabs_stretch ipsClearfix' id='elTopAwarded' data-ipsTabBar data-ipsTabBar-updateURL='false' data-ipsTabBar-contentArea='#elTopAwarded_content'>
+    <a href='#elTopAwarded' data-action='expandTabs'><i class='fa fa-caret-down'></i></a>
+    <ul role="tablist" class='ipsList_reset'>
+        <li>
+            <a href='#ipsTabs_elTopAwarded_el_topAwardedWeek_panel' id='el_topAwardedWeek'
+               class='ipsTabs_item ipsTabs_activeItem' role="tab" aria-selected='true'>{lang="week"}</a>
+        </li>
+        <li>
+            <a href='{url="app=awards&module=awards&controller=ajax&do=topAwarded&time=month&limit={$limit}&orientation={$orientation}"}'
+               id='el_topAwardedMonth' class='ipsTabs_item' role="tab" aria-selected='false'>{lang="month"}</a>
+        </li>
+        <li>
+            <a href='{url="app=awards&module=awards&controller=ajax&do=topAwarded&time=year&limit={$limit}&orientation={$orientation}"}'
+               id='el_topAwardedYear' class='ipsTabs_item' role="tab" aria-selected='false'>{lang="year"}</a>
+        </li>
+        <li>
+            <a href='{url="app=awards&module=awards&controller=ajax&do=topAwarded&time=all&limit={$limit}&orientation={$orientation}"}'
+               id='el_topAwardedAll' class='ipsTabs_item' role="tab" aria-selected='false'>{lang="alltime"}</a>
+        </li>
+    </ul>
+</div>
+
+<section id='elTopAwarded_content' class='ipsWidget_inner'>
+    <div id="ipsTabs_elTopAwarded_el_topAwardedWeek_panel" class='ipsTabs_panel'>
+        {template="topAwardedRows" group="widgets" app="awards" params="$topAwardedThisWeek, 'week', $orientation"}
+    </div>
+</section>]]></template>
+ <template template_group="widgets" template_name="topAwardedRows" template_data="$results, $timeframe, $orientation='vertical'" template_location="front" template_app="awards"><![CDATA[{{if count( $results )}}
+{{if $orientation == 'vertical'}}
+<ol class='ipsDataList ipsDataList_reducedSpacing'>
+    {{$idx = 1;}}
+    {{foreach $results as $memberId => $award}}
+    {{if $award > 0 }}
+    {{$member = \IPS\Member::load( $memberId );}}
+    <li class='ipsDataItem'>
+        <div class='ipsDataItem_icon ipsPos_middle ipsType_center ipsType_large ipsType_light'><strong>{expression="$idx++"}</strong>
+        </div>
+        <div class='ipsDataItem_main ipsPhotoPanel ipsPhotoPanel_tiny'>
+            {template="userPhoto" app="core" group="global" params="$member, 'tiny'"}
+            <div>
+                {$member->link()|raw}
+                <br>
+                <i class='fa fa-trophy'></i> <a href='{$member->url()->setQueryString( ' tab', 'node_awards_Awards' )|raw}'>{expression="\IPS\Member::loggedIn()->language()->formatNumber( $award )"}</a>
+            </div>
+        </div>
+    </li>
+    {{endif}}
+    {{endforeach}}
+</ol>
+{{else}}
+<div class="ipsGrid ipsGrid_collapsePhone">
+    {{$count = 0;}}
+    {{foreach $results as $memberId => $award}}
+
+    {{$count++;}}
+
+    {{$member = \IPS\Member::load( $memberId );}}
+    <div class='ipsGrid_span3'>
+        <div class='ipsPad_half ipsPhotoPanel ipsPhotoPanel_tiny'>
+            {template="userPhoto" app="core" group="global" params="$member, 'tiny'"}
+            <div>
+                <p class='ipsType_reset ipsTruncate ipsTruncate_line'>
+                    {$member->link()|raw}
+                </p>
+                <i class='fa fa-trophy'></i> <a href='{$member->url()->setQueryString( ' tab', 'node_awards_Awards')|raw}'>{expression="\IPS\Member::loggedIn()->language()->formatNumber( $award )"}</a>
+            </div>
+        </div>
+    </div>
+    {{endforeach}}
+</div>
+{{endif}}
+{{else}}
+<div class='ipsPad'>
+    <p class='ipsType_reset'>{lang="top_awarded_empty__{$timeframe}"}</p>
+</div>
+{{endif}}]]></template>
+ <css css_location="front" css_app="awards" css_attributes="" css_path="." css_name="awards.css"><![CDATA[/**
+ * @package      iAwards
+ * @author       <a href='http://www.invisionizer.com'>Invisionizer</a>
+ * @copyright    (c) 2016 Invisionizer
+ */
+
+fieldset.awards_fieldset {
+    border: 1px solid #f0f0f0;
+}
+
+legend.awards_legend {
+    padding: 0 0.5em;
+}
+
+.awards_dataOuter {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.awards_data {
+    display: inline-block;
+    padding: 5px 6px;
+}
+
+.awards_dataHover {
+    display: inline-block;
+    padding: 5px 6px;
+}
+
+.awards_dataHover:first-child {
+    padding: 5px 0;
+    margin-left: -5px;
+}
+
+.awards_award_img {
+    margin-top: 0px;
+}
+
+.awards_awardRow {
+    width: 10%;
+}
+
+.awards_reasonRow {
+    width: 90%;
+}
+
+.awards_awardsRow {
+    width: 10%;
+}
+
+.awards_reasonsRow {
+    width: 80%;
+}
+
+.awards_statsRow {
+    width: 15%;
+}
+
+hr.awardsHr {
+    margin: 5px 0 10px 0;
+    height: 0;
+    padding: 0;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: #f0f0f0;
+}
+]]></css>
+</theme>
